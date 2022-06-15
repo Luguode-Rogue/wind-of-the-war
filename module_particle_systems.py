@@ -3429,12 +3429,12 @@ particle_systems = [
     ),  
 
     ("fat_arrow", psf_always_emit|psf_billboard_2d|psf_global_emit_dir, "arrow_up_rot",
-     100, 0.1, 0.0, 0.0, 100.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
-     (0.0, 0.7), (1.0, 0.7),          #alpha keys
+     10, 0.1, 0.0, 0.0, 100.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.0, 0.6), (1.0, 0.7),          #alpha keys
      (0.0, 0.0), (1.0, 0.0),      #red keys
      (0.0, 1.0), (1.0, 1.0),       #green keys
      (0.0, 0.0), (1.0, 0.0),      #blue keys
-     (0, 30),    (1.0, 30.0),        #scale keys
+     (0, 10),    (1.0, 10.0),        #scale keys
      (0.0, 0.0, 0.0),           #emit box size
      (0.0, 0.0, 0.0),                 #emit velocity
      0.0,                       #emit dir randomness
@@ -3443,12 +3443,12 @@ particle_systems = [
     ),
     
     ("fat_arrow_red", psf_always_emit|psf_billboard_2d|psf_global_emit_dir, "arrow_up_rot",
-     50, 0.1, 0.0, 0.0, 100.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     10, 0.1, 0.0, 0.0, 100.0, 0.0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
      (0.0, 1.0), (1.0, 0.3),          #alpha keys
      (0.0, 1.0), (1.0, 1.0),      #red keys
      (0.0, 0.0), (1.0, 0.0),       #green keys
      (0.0, 0.0), (1.0, 0.0),      #blue keys
-     (0, 30),    (1.0, 30.0),        #scale keys
+     (0, 10),    (1.0, 10),        #scale keys
      (0.0, 0.0, 0.0),           #emit box size
      (0.0, 0.0, 0.0),                 #emit velocity
      0.0,                       #emit dir randomness
@@ -3462,7 +3462,7 @@ particle_systems = [
      (0.0, 0.0), (1.0, 0.0),      #red keys
      (0.0, 0.0), (1.0, 0.0),       #green keys
      (0.0, 1.0), (1.0, 1.0),      #blue keys
-     (0, 30),    (1.0, 30.0),        #scale keys
+     (0, 10),    (1.0, 10.0),        #scale keys
      (0.0, 0.0, 0.0),           #emit box size
      (0.0, 0.0, 0.0),                 #emit velocity
      0.0,                       #emit dir randomness

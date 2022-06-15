@@ -2350,8 +2350,8 @@ slot_item_is_magic_spell               = 75
 slot_item_magic_cost                   = 66
 slot_item_magic_type                   = 68
 slot_item_magic_cooldown               = 70
-slot_item_magic_difficulty             = 73
-slot_item_magic_cast_time              = 74
+slot_item_magic_difficulty             = slot_item_intelligence_requirement
+slot_item_magic_cast_time              = 73
 
 voice    =  1
 spell    =  2
@@ -2382,7 +2382,19 @@ slot_item_skill_need_proficiency_id = 85
 slot_item_skill_need_attribute_value = 86 
 slot_item_skill_need_skill_value = 87 
 slot_item_skill_need_proficiency_value = 88
+slot_item_skill_need_join_guild = 89
 #======special item end====== 
+join_mine_guild  =  1
+join_mage_guild =  2
+join_orc_guild =  3
+join_hunt_guild =  4
+join_necro_guild =  5
+join_demon_guild =  6
+join_thief_guild =  7
+join_order_guild =  8
+join_elf_guild =  9
+
+
 
 #slot_item_unique                    = 89
 #slot_item_needs_two_hands	       = 90

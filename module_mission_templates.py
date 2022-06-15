@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-  
 from header_common import *
 from header_operations import *
 from header_mission_templates import *
@@ -63,7 +62,7 @@ automatic_fire_test_2 = (
       #(get_player_agent_no, ":attacker_agent"), 
    ],
    [
-      #(get_player_agent_no, ":attacker_agent"), 
+    (get_player_agent_no, ":player_agent"), 
     (set_fixed_point_multiplier, 1),
     (try_for_agents,":attacker_agent"),
       (agent_is_human,":attacker_agent"),
@@ -90,8 +89,20 @@ automatic_fire_test_2 = (
       
       
       (agent_get_attack_action, ":attack_action", ":attacker_agent"),
+      
+      
+      
       (try_begin),
-        (eq, ":attack_action", 1),
+        (assign,":fire",0),
+        (try_begin),
+          (eq, ":attacker_agent", ":player_agent"),
+          (is_between, ":attack_action", 2, 4),
+          (assign,":fire",1),
+        (else_try),
+          (eq, ":attack_action", 1),
+          (assign,":fire",1),
+        (try_end),
+        (eq, ":fire", 1),
         #ticker trigger
         (agent_get_slot,":ticker_time",":attacker_agent",slot_agent_shoot_time_ticker),
         (try_begin),
@@ -238,7 +249,7 @@ magic_trigger_1  =(
     1, 0, 0, [], 
     [
   (get_player_agent_no,":player"),
-  (eq,1,0),
+
   (assign, ":skill_rate", 25),
 
   (try_begin),
@@ -278,10 +289,6 @@ magic_trigger_1  =(
         (gt, ":skill_rate", ":r"),
         (assign, ":choose_magic",-1),
         
-        
-        
-        (try_begin),
-          (troop_is_hero, ":troop_no"),
           (try_for_range, ":slot_spell", slot_troop_spell_1, slot_troop_spell_end),
             (eq, ":choose_magic", -1),
             (store_sub, ":offset", ":slot_spell", slot_troop_spell_1),
@@ -298,32 +305,7 @@ magic_trigger_1  =(
             (assign, ":choose_magic",":magic_id"),
             #(agent_set_slot, ":agent_no", ":slot_spell_cd", ":min_cd"),
           (try_end),
-        (else_try),  
-          (neg|troop_is_hero, ":troop_no"),
-          (assign, ":count_spell", 0),
-          (troop_get_inventory_capacity, ":inv_cap", ":troop_no"),
-          (try_for_range, ":i_slot", 0, ":inv_cap"),
-            (troop_get_inventory_slot, ":item", ":troop_no", ":i_slot"),
-            (gt, ":item", -1),
-            (item_get_slot, ":magic_type", ":item", slot_item_magic_type),
-            (this_or_next|eq, ":magic_type", spell), 
-            (eq, ":magic_type", voice), 
-            (val_add, ":count_spell", 1),
-          (try_end),
-          (store_random_in_range, ":random_spell", 0, ":count_spell"),
-          (assign, ":count_spell", 0),
-          (try_for_range, ":i_slot", 0, ":inv_cap"),
-            (eq, ":choose_magic", -1),
-            (troop_get_inventory_slot, ":item", ":troop_no", ":i_slot"),
-            (gt, ":item", -1),
-            (item_get_slot, ":magic_type", ":item", slot_item_magic_type),
-            (this_or_next|eq, ":magic_type", spell), 
-            (eq, ":magic_type", voice), 
-            (val_add, ":count_spell", 1),
-            (lt, ":random_spell", ":count_spell"),
-            (assign, ":choose_magic", ":item"),
-          (try_end),
-        (try_end),
+          
         (try_begin),
           (eq,":choose_magic",-1),
           (troop_get_slot, ":bash_id", ":troop_no", slot_troop_has_bash),
@@ -344,7 +326,6 @@ magic_trigger_1  =(
 
           (assign, ":slot_spell_cd",slot_agent_spell_1_cooldown),
           (try_begin),
-            (troop_is_hero, ":troop_no"),
             (assign, ":cur_magic_slot",-1),
             (try_for_range, ":slot_spell", slot_troop_spell_1, slot_troop_spell_end),
               (eq, ":cur_magic_slot", -1),
@@ -359,6 +340,20 @@ magic_trigger_1  =(
           
           
           (try_begin),
+            (eq,":magic_type",quick_spell),
+            (eq,":cooldown_2",0),
+            
+            (agent_get_wielded_item, ":weapon", ":agent_no", 0),
+            (gt,":weapon",0),
+            (item_has_property, ":weapon", itp_is_magic_staff),
+            (agent_get_attack_action, ":action", ":agent_no"),
+            (this_or_next|eq, ":action", 2), #readying_attack.
+            (eq, ":action", 1), #readying_attack.
+            (call_script, "script_cf_magic_cast_trigger", ":agent_no", ":choose_magic"),
+            (play_sound,"snd_spell_cast"),
+            (val_add, ":extra_cooldown", 3),
+            (agent_set_slot, ":agent_no", slot_agent_shield_bash_timer, ":extra_cooldown"),
+          (else_try),
             (eq,":magic_type",spell),
             (eq,":cooldown_2",0),
             
@@ -666,7 +661,21 @@ magic_trigger_player  =(
 
         (gt, ":slot_spell_cd", 0),
         (agent_set_slot, ":player", ":slot_spell_cd", ":magic_cooldown"),
-        (agent_set_slot, ":player", slot_agent_shield_bash_timer, 5),
+        (agent_set_slot, ":player", slot_agent_shield_bash_timer, 10),
+      (else_try),
+        (key_clicked, "$key_special_6"),
+        (eq,":magic_type",quick_spell),
+        (eq,":cooldown_2",0),
+        (agent_get_wielded_item, ":weapon", ":player", 0),
+        (gt,":weapon",0),
+        (try_begin),
+          (neg|item_has_property, ":weapon", itp_is_magic_staff),
+          (display_message, "@cast magic need magic_staff"),
+        (try_end),
+        (item_has_property, ":weapon", itp_is_magic_staff),
+        (call_script, "script_cf_magic_cast_trigger", ":player", ":choose_magic"),
+        (play_sound,"snd_spell_cast"),
+        (agent_set_slot, ":player", slot_agent_shield_bash_timer, 1),
       (else_try),
         (key_clicked, "$key_special_6"),
         (eq,":magic_type",spell),
@@ -674,6 +683,10 @@ magic_trigger_player  =(
           
         (agent_get_wielded_item, ":weapon", ":player", 0),
         (gt,":weapon",0),
+        (try_begin),
+          (neg|item_has_property, ":weapon", itp_is_magic_staff),
+          (display_message, "@cast magic need magic_staff"),
+        (try_end),
         (item_has_property, ":weapon", itp_is_magic_staff),
         #(store_skill_level, ":power", skl_magic_power, ":player_no"),
         #(val_mul,":magic_cost",":power"),
@@ -681,15 +694,13 @@ magic_trigger_player  =(
         (agent_get_slot, ":stamina", ":player", slot_agent_mana),
         (ge, ":stamina", ":magic_cost"),
 
-        
-        
         (call_script, "script_cf_magic_cast_trigger_2", ":player", ":choose_magic", -1),
         (val_sub, ":stamina", ":magic_cost"),
         (agent_set_slot, ":player", slot_agent_mana, ":stamina"),
         (play_sound,"snd_spell_cast"),
         (gt, ":slot_spell_cd", 0),
         (agent_set_slot, ":player", ":slot_spell_cd", ":magic_cooldown"),
-        (agent_set_slot, ":player", slot_agent_shield_bash_timer, 5),
+        (agent_set_slot, ":player", slot_agent_shield_bash_timer, 10),
       (else_try),
         (key_clicked, "$key_special_6"),
         (eq,":magic_type",bash),
@@ -1593,6 +1604,7 @@ custom_commander_fill_agent_empty_wpn_slot =(
       
       (store_random_in_range, ":rand", 1, 11),
       (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, ":rand"),
+      #(agent_set_slot, ":agent_no", slot_agent_cur_magic, slot_troop_spell_1),
       
       #(get_player_agent_no, ":player_agent"),
       
@@ -4192,8 +4204,11 @@ delay_action_trigger = (0, 0.5, 0, [], [
          # (agent_set_slot, ":killer_agent_no", slot_agent_stamina, ":stamina"),
        #(try_end),
 
-       
        (try_begin),
+         (agent_slot_eq, ":killer_agent_no", slot_agent_special_ability_affect_type, "itm_voice_storm_call"), 
+         (agent_slot_ge, ":killer_agent_no", slot_agent_spell_cast_time, 1),
+         (call_script, "script_cf_agent_voice_storm_call", ":killer_agent_no"),
+       (else_try),  
          (troop_slot_eq, ":agent_troop", slot_troop_special_ability, omnislash), 
          (agent_slot_ge, ":killer_agent_no", slot_agent_special_ability_counter, 1),
          (call_script,"script_cf_agent_shadow_blade",":killer_agent_no"),
@@ -5195,7 +5210,7 @@ init_troop_extra_power = (
 
         (else_try),
           (eq,":special", sinper_shot),
-          (val_add, ":ranged_damage_factor", 200), 
+          (val_add, ":damage_factor", 200), 
           (val_add, ":speed_factor", -50),
           (val_add, ":accuracy_factor", 200), 
           #(eq, "$g_weapon_fire_particle", 0),
@@ -5460,7 +5475,7 @@ init_troop_extra_power = (
 
         (else_try),
           (troop_slot_eq, ":troop_no", slot_troop_special_ability_extra, sinper_shot), 
-          (val_add, ":ranged_damage_factor", 200), 
+          (val_add, ":damage_factor", 200), 
           (val_add, ":speed_factor", -50),
           (val_add, ":accuracy_factor", 200), 
           #(eq, "$g_weapon_fire_particle", 0),
@@ -6226,13 +6241,13 @@ special_ability_trigger_player  =(
         (agent_set_slot, ":player", slot_agent_stamina, ":stamina"),
       (else_try),
         (eq,":special",shadowking),
-          (assign, ":cost_stamina", 20),
+          (assign, ":cost_stamina", 0),
         (ge, ":stamina", ":cost_stamina"),
         #(agent_get_horse, ":horse_agent", ":player"),
         #(lt, ":horse_agent", 0),
         (call_script, "script_cf_agent_shadowking", ":player"),
         (agent_set_slot, ":player", slot_agent_special_ability_counter, 5),
-        (agent_set_slot, ":player", slot_agent_special_ability_cooldown, 15),
+        (agent_set_slot, ":player", slot_agent_special_ability_cooldown, 1),
         (call_script, "script_get_special_ability_text_to_s2", ":special", 0),
         (display_message, "@you special_ability {s2} is on"),    
         (val_sub, ":stamina", ":cost_stamina"),
@@ -6449,10 +6464,10 @@ special_ability_trigger_player  =(
         (display_message, "@you special_ability {s2} is on"),    
       (else_try),
         (eq,":special", ground_stomp),
-          (assign, ":cost_stamina", 15),
+          (assign, ":cost_stamina", 1),
         (ge, ":stamina", ":cost_stamina"),
         (agent_set_slot, ":player", slot_agent_special_ability_counter, 5),
-        (agent_set_slot, ":player", slot_agent_special_ability_cooldown, 20),
+        (agent_set_slot, ":player", slot_agent_special_ability_cooldown, 1),
         (val_sub, ":stamina", ":cost_stamina"),
         (agent_set_slot, ":player", slot_agent_stamina, ":stamina"),
         (call_script, "script_cf_agent_ground_stomp", ":player"),
@@ -7001,7 +7016,7 @@ special_ability_trigger_1  =(
           
         (else_try),
           (eq,":special",shadowking),
-          (assign, ":cost_stamina", 25),
+          (assign, ":cost_stamina", 0),
           
           (agent_get_team, ":agent_team", ":agent_no"),
           (agent_get_division, ":agent_division", ":agent_no"),
@@ -7028,7 +7043,7 @@ special_ability_trigger_1  =(
             (neg|troop_is_hero, ":troop_no"),
             (val_mul,":ran",":extra_cooldown"),
           (try_end),
-          (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, ":ran"),
+          (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, 1),
         (else_try),
           (eq,":special",dive),
           (assign, ":cost_stamina", 30),
@@ -7516,7 +7531,6 @@ special_ability_trigger_1  =(
             (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, 30),
           (try_end),
           (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, 30),
-          
         (else_try),
           (eq,":special", avatar),
           (assign, ":cost_stamina", 50),
@@ -7535,7 +7549,7 @@ special_ability_trigger_1  =(
           
 
         (else_try),
-          (eq,":special", shadow_blade),
+          (eq,":special", omnislash),
           
           (agent_get_team, ":agent_team", ":agent_no"),
           (agent_get_division, ":agent_division", ":agent_no"),
@@ -7564,6 +7578,7 @@ special_ability_trigger_1  =(
           (try_begin),
             (eq, ":troop_no", "trp_grey_knight_terminator"),
             (assign, ":cost_stamina", 0),
+            (assign, ":r", 20),
           (try_end),
           (try_begin),
             (ge, ":stamina", ":cost_stamina"),
@@ -7687,7 +7702,7 @@ special_ability_trigger_1  =(
             (neg|troop_is_hero, ":troop_no"),
             (val_mul,":ran",":extra_cooldown"),
           (try_end),
-          (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, ":ran"),
+          (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, 1),
           (try_begin),
             (ge, ":stamina", ":cost_stamina"),
             (gt, ":num_enemies", 1),
@@ -8060,7 +8075,7 @@ special_ability_trigger_1  =(
           
           
         (else_try),
-          (eq,":special",Khorne_blessing),
+          (eq,":special",mana_burn),
           (assign, ":cost_stamina", 50),
           (try_begin),
             (eq, ":troop_no", "trp_witch_hunter"),
@@ -10950,7 +10965,7 @@ custom_commander_special_strike =(
             (call_script, "script_cf_agent_shadowking", ":inflicted_agent"),
             #(call_script, "script_cf_agent_shadow_escape_king", ":inflicted_agent", ":dealer_agent"),
             (agent_set_slot, ":inflicted_agent", slot_agent_special_ability_counter, 5),
-            (agent_set_slot, ":inflicted_agent", slot_agent_special_ability_cooldown, 30),
+            (agent_set_slot, ":inflicted_agent", slot_agent_special_ability_cooldown, 1),
           (else_try),
             (troop_slot_eq, ":inflicted_troop", slot_troop_special_ability, flamestrike), 
             (agent_slot_eq,":inflicted_agent",slot_agent_special_ability_cooldown,0),
@@ -11411,6 +11426,7 @@ custom_commander_special_strike =(
             (this_or_next|eq,":inflicted_troop", "trp_death"),
             (eq,":agent_gender", tf_beastman),
 
+            #(troop_slot_eq, ":inflicted_troop", slot_troop_special_ability_passive, block),
             (agent_get_wielded_item, ":shield", ":inflicted_agent", 1),
             (this_or_next|gt,":shield",1),
             (agent_slot_eq, ":inflicted_agent", slot_agent_special_ability_passiv_cooldown, 0),
@@ -11482,7 +11498,7 @@ custom_commander_special_strike =(
             (this_or_next|agent_has_item_equipped,":inflicted_agent","itm_shadow_robes"),
             (this_or_next|agent_has_item_equipped,":inflicted_agent","itm_molag_bal_boots"),
             (this_or_next|agent_has_item_equipped,":inflicted_agent","itm_guard_kneecops"),
-
+            
             (item_get_type, ":item_type", ":dealer_item_id"),
             (this_or_next|eq, ":item_type", itp_type_bow),
             (this_or_next|eq, ":item_type", itp_type_crossbow),
@@ -11556,7 +11572,7 @@ custom_commander_special_strike =(
           (this_or_next|eq,":dealer_item_id","itm_serpent_dagger"),
           (this_or_next|eq,":dealer_item_id","itm_undead_scythe"),
           (this_or_next|eq,":dealer_item_id","itm_rhongomiant"),
-          (this_or_next|eq,":dealer_item_id","itm_dragon_bone_bow"),
+          (eq,":dealer_item_id","itm_dragon_bone_bow"),
           #(eq,":block_attack",0),
           (assign, ":dest_damage", 0),
           (try_begin),

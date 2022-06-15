@@ -197,56 +197,56 @@ magic_type = [
   ("itm_magic_spark", 10, quick_spell, 0, 0, 1, 0),
   
   
-  ("itm_magic_summon_neutral_near_ememy", 33, spell, 0, 0, 1, 2),
-  ("itm_magic_summon_demon", 50, spell, 0, 0, 1, 3),
-  ("itm_magic_summon_demon_near_ememy", 50, spell, 0, 0, 1, 3),
-  ("itm_magic_summon_undead", 33, spell, 0, 0, 1, 2),
-  ("itm_magic_summon_undead_near_ememy", 33, spell, 0, 0, 1, 2),
+  ("itm_magic_summon_neutral_near_ememy", 33, spell, 16, 0, 1, 2),
+  ("itm_magic_summon_demon", 50, spell, 25, 0, 1, 3),
+  ("itm_magic_summon_demon_near_ememy", 50, spell, 25, 0, 1, 3),
+  ("itm_magic_summon_undead", 33, spell, 16, 0, 1, 2),
+  ("itm_magic_summon_undead_near_ememy", 33, spell, 16, 0, 1, 2),
   ("itm_magic_soulhunter", 0, spell, 0, 0, 1, 3),
   ("itm_magic_zombie_lord", 0, spell, 0, 0, 1, 3),
   
-  ("itm_magic_death_cloud_dummy", 15, spell, 0, 0, 1, 0),
-  ("itm_magic_death_cloud", 0, spell, 0, 0, 1, 2),
+  ("itm_magic_death_cloud_dummy", 15, spell, 7, 0, 1, 0),
+  ("itm_magic_death_cloud", 0, spell, 5, 0, 1, 2),
   
-  ("itm_magic_deep_freeze", 30, spell, 0, 0, 1, 2),
-  ("itm_magic_arcane_orb", 40, spell, 0, 0, 1, 2),
-  ("itm_magic_fireball", 25, spell, 0, 0, 1, 1),
+  ("itm_magic_deep_freeze", 30, spell, 15, 0, 1, 2),
+  ("itm_magic_arcane_orb", 40, spell, 20, 0, 1, 2),
+  ("itm_magic_fireball", 25, spell, 12, 0, 1, 1),
 
 
 
-  ("itm_magic_soul_leech", 25, spell, 0, 0, 1, 2),
-  ("itm_magic_frost_cloud", 0, spell, 0, 0, 1, 2),
+  ("itm_magic_soul_leech", 25, spell, 12, 0, 1, 2),
+  ("itm_magic_frost_cloud", 0, spell, 10, 0, 1, 2),
   ("itm_magic_frost_cloud_dummy", 15, spell, 0, 0, 1, 0),
-  ("itm_magic_deadly_cold", 40, spell, 0, 0, 1, 1),
-  ("itm_magic_frozen_orb", 25, spell, 0, 0, 1, 2),
-  ("itm_magic_blizzard", 0, spell, 0, 0, 1, 4),
-  ("itm_magic_paralysis_cloud", 30, spell, 0, 0, 1, 1),
+  ("itm_magic_deadly_cold", 40, spell, 20, 0, 1, 1),
+  ("itm_magic_frozen_orb", 25, spell, 12, 0, 1, 2),
+  ("itm_magic_blizzard", 0, spell, 10, 0, 1, 4),
+  ("itm_magic_paralysis_cloud", 30, spell, 15, 0, 1, 1),
   
   ("itm_magic_entangling", 25, spell, 0, 0, 1, 0),
   ("itm_magic_web", 25, spell, 0, 0, 1, 0),
   ("itm_magic_dispel_magic", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_lightning", 10, spell, 0, 0, 1, 0),
-  ("itm_magic_black_hold", 25, spell, 0, 0, 1, 2),
-  ("itm_magic_black_hold_2", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_lightning_burst", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_lightningball", 25, spell, 0, 0, 1, 1),
+  ("itm_magic_lightning", 10, spell, 5, 0, 1, 0),
+  ("itm_magic_black_hold", 25, spell, 13, 0, 1, 2),
+  ("itm_magic_black_hold_2", 25, spell, 10, 0, 1, 0),
+  ("itm_magic_lightning_burst", 25, spell, 10, 0, 1, 0),
+  ("itm_magic_lightningball", 25, spell, 10, 0, 1, 1),
   
-  ("itm_magic_lightningball", 0, spell, 0, 0, 1, 0),
-  ("itm_magic_summon_blade", 0, spell, 0, 0, 1, 0),
-  ("itm_magic_fireball_2", 30, spell, 0, 0, 1, 1),
-  ("itm_magic_pyroblast", 33, spell, 0, 0, 1, 2),
+  ("itm_magic_lightningball", 0, spell, 10, 0, 1, 0),
+  ("itm_magic_summon_blade", 0, spell, 20, 0, 1, 0),
+  ("itm_magic_fireball_2", 30, spell, 15, 0, 1, 1),
+  ("itm_magic_pyroblast", 33, spell, 15, 0, 1, 2),
   ("itm_magic_dragon_breath", 0, spell, 0, 0, 1, 0),
   
-  ("itm_magic_meteor_shower", 0, spell, 0, 0, 1, 3),
+  ("itm_magic_meteor_shower", 0, spell, 30, 0, 1, 3),
   ("itm_magic_meteor_shower_dummy", 0, spell, 0, 0, 1, 0),
   
-  ("itm_magic_incediary_cloud", 0, spell, 0, 0, 1, 2),
+  ("itm_magic_incediary_cloud", 0, spell, 20, 0, 1, 2),
   ("itm_magic_incediary_cloud_dummy", 20, spell, 0, 0, 1, 0),
   
-  ("itm_magic_heaven_fist", 0, spell, 0, 0, 1, 1),
+  ("itm_magic_heaven_fist", 0, spell, 10, 0, 1, 1),
   ("itm_magic_column_of_fire", 0, spell, 0, 0, 1, 1),
   
-  ("itm_magic_armageddon", 0, spell, 0, 0, 1, 4),
+  ("itm_magic_armageddon", 0, spell, 60, 0, 1, 4),
   ("itm_magic_armageddon_dummy", 0, spell, 0, 0, 1, 0),
 
   ("itm_magic_teleport", 15, spell, 0, 0, 1, 1),
@@ -337,7 +337,7 @@ magic_type = [
   ("itm_skill_roll", 0, special_ability_extra, 0, 0, 1, 0),
   ("itm_skill_block", 0, special_ability_passive, 0, 0, 1, 0),
   
-  ("itm_skill_flamestrike", 0, special_ability, 0, 0, 1, 0),
+  ("itm_skill_flamestrike", 0, special_ability_extra, 0, 0, 1, 0),
   ("itm_skill_flameswave", 0, special_ability_passive, 0, 0, 1, 0),
   
   ("itm_skill_call_lightning", 0, special_ability_extra, 0, 0, 1, 0),
@@ -462,6 +462,7 @@ def set_magic_need():
     result_list.append((item_set_slot, magic_need[row_no][0], slot_item_skill_need_skill_value,   magic_need[row_no][4]))
     result_list.append((item_set_slot, magic_need[row_no][0], slot_item_skill_need_proficiency_id,   magic_need[row_no][5]))
     result_list.append((item_set_slot, magic_need[row_no][0], slot_item_skill_need_proficiency_value,   magic_need[row_no][6]))
+    result_list.append((item_set_slot, magic_need[row_no][0], slot_item_skill_need_join_guild,   magic_need[row_no][7]))
   return result_list[:]
 
 
@@ -469,228 +470,244 @@ def set_magic_need():
 magic_need = [
   
 
-  ("itm_skill_berserk", ca_strength, 10, 0, 0, 0, 0),
-  ("itm_bash_power_strike", ca_strength, 10, 0, 0, 0, 0),
+  ("itm_skill_berserk", ca_strength, 10, 0, 0, 0, 0, 0),
 
-  ("itm_skill_frenzy", ca_strength, 15, 0, 0, 0, 0),
+  ("itm_skill_frenzy", ca_strength, 15, 0, 0, 0, 0, 0),
   
-  ("itm_skill_wrath", ca_strength, 20, 0, 0, 0, 0),
-  ("itm_bash_earth_shock", ca_strength, 20, 0, 0, 0, 0),
-  ("itm_skill_earth_shock", ca_strength, 20, 0, 0, 0, 0),
+  ("itm_skill_wrath", ca_strength, 20, 0, 0, 0, 0, 0),
   
-  ("itm_skill_power_blade", ca_strength, 30, 0, 0, 0, 0),
-  ("itm_skill_mark_of_khorne", ca_strength, 40, 0, 0, 0, 0),
+  ("itm_skill_earth_shock", ca_strength, 20, 0, 0, 0, 0, 0),
+  
+  ("itm_skill_power_blade", ca_strength, 30, 0, 0, 0, 0, 0),
+  ("itm_skill_mark_of_khorne", ca_strength, 40, 0, 0, 0, 0, 0),
 
   
-  ("itm_skill_rage_strike", ca_agility, 10, 0, 0, 0, 0),
-  ("itm_skill_charge", ca_agility, 10, 0, 0, 0, 0),
-  ("itm_skill_roll", ca_agility, 15, 0, 0, 0, 0),
-  ("itm_bash_roll", ca_agility, 15, 0, 0, 0, 0),
-  
-  ("itm_skill_awaken", ca_agility, 25, 0, 0, 0, 0),
-  ("itm_bash_rush", ca_agility, 20, 0, 0, 0, 0),
-  ("itm_skill_master_archer", ca_agility, 30, 0, 0, 0, 0),
-  ("itm_bash_swift_strike", ca_agility, 40, 0, 0, 0, 0),
+  ("itm_skill_rage_strike", ca_agility, 10, 0, 0, 0, 0, 0),
+  ("itm_skill_charge", ca_agility, 10, 0, 0, 0, 0, 0),
+  ("itm_skill_roll", ca_agility, 15, 0, 0, 0, 0, 0),
+  ("itm_bash_roll", ca_agility, 15, 0, 0, 0, 0, 0),
+  ("itm_skill_awaken", ca_agility, 25, 0, 0, 0, 0, 0),
+  ("itm_skill_master_archer", ca_agility, 30, 0, 0, 0, 0, 0),
 
 
   
   
   
-  ("itm_skill_focus", ca_intelligence, 10, 0, 0, 0, 0),
-  ("itm_skill_ambush", ca_intelligence, 15, 0, 0, 0, 0),
-  ("itm_skill_insight", ca_intelligence, 20, 0, 0, 0, 0),
-  ("itm_skill_mana_burst", ca_intelligence, 20, 0, 0, 0, 0),
-  ("itm_skill_tzeentch_arcane", ca_intelligence, 30, 0, 0, 0, 0),
-  ("itm_skill_call_storm", ca_intelligence, 40, 0, 0, 0, 0),
-  ("itm_skill_diffusal_blade", ca_intelligence, 30, 0, 0, 0, 0),
+  ("itm_skill_focus", ca_intelligence, 10, 0, 0, 0, 0, 0),
+  ("itm_skill_ambush", ca_intelligence, 15, 0, 0, 0, 0, 0),
+  ("itm_skill_insight", ca_intelligence, 20, 0, 0, 0, 0, 0),
+  ("itm_skill_mana_burst", ca_intelligence, 20, 0, 0, 0, 0, 0),
+  ("itm_skill_tzeentch_arcane", ca_intelligence, 30, 0, 0, 0, 0, 0),
+  ("itm_skill_call_storm", ca_intelligence, 40, 0, 0, 0, 0, 0),
+  ("itm_skill_diffusal_blade", ca_intelligence, 30, 0, 0, 0, 0, 0),
 
-  ("itm_skill_summon_neutral", ca_charisma, 10, 0, 0, 0, 0),
-  ("itm_bash_summon_undead", ca_charisma, 15, 0, 0, 0, 0),
-  ("itm_skill_charm", ca_charisma, 20, 0, 0, 0, 0),
-  ("itm_bash_flame_burst", ca_charisma, 20, 0, 0, 0, 0),
-  ("itm_bash_forst_ring", ca_charisma, 25, 0, 0, 0, 0),
-  ("itm_skill_bubble_dreams", ca_charisma, 25, 0, 0, 0, 0),
-  ("itm_skill_hero_dreams", ca_charisma, 40, 0, 0, 0, 0),
+  ("itm_skill_summon_neutral", ca_charisma, 10, 0, 0, 0, 0, 0),
+  ("itm_skill_charm", ca_charisma, 20, 0, 0, 0, 0, 0),
+  ("itm_skill_bubble_dreams", ca_charisma, 25, 0, 0, 0, 0, 0),
+  ("itm_skill_hero_dreams", ca_charisma, 40, 0, 0, 0, 0, 0),
 
+  ("itm_skill_taunt", 0, 0, 0, 0, wpt_one_handed_weapon, 200, 0),
+  ("itm_skill_smite_orc", 0, 0, 0, 0, wpt_one_handed_weapon, 300, 0),
+  ("itm_skill_omnislash", 0, 0, 0, 0, wpt_one_handed_weapon, 500, 0),
 
-
-  ("itm_skill_taunt", 0, 0, 0, 0, wpt_one_handed_weapon, 200),
-  ("itm_skill_smite_orc", 0, 0, 0, 0, wpt_one_handed_weapon, 300),
-  ("itm_bash_shadow_blade", 0, 0, 0, 0, wpt_one_handed_weapon, 400),
-  ("itm_skill_omnislash", 0, 0, 0, 0, wpt_one_handed_weapon, 500),
-
-  ("itm_skill_wound_strike", 0, 0, 0, 0, wpt_one_handed_weapon, 100),
-  ("itm_skill_battlerage", 0, 0, 0, 0, wpt_one_handed_weapon, 200),
-  ("itm_skill_bane_orc", 0, 0, 0, 0, wpt_one_handed_weapon, 300),
-  ("itm_skill_shadow_blade", 0, 0, 0, 0, wpt_one_handed_weapon, 400),
+  ("itm_skill_battlerage", 0, 0, 0, 0, wpt_one_handed_weapon, 200, 0),
+  ("itm_skill_bane_orc", 0, 0, 0, 0, wpt_one_handed_weapon, 300, 0),
+  ("itm_skill_shadow_blade", 0, 0, 0, 0, wpt_one_handed_weapon, 400, 0),
 
 
-  ("itm_skill_power_strike", 0, 0, 0, 0, wpt_two_handed_weapon, 200),
-  ("itm_skill_rend", 0, 0, 0, 0, wpt_two_handed_weapon, 300),
-  ("itm_skill_dragon_blade_slash", 0, 0, 0, 0, wpt_two_handed_weapon, 400),
-  ("itm_bash_seismic_slam", 0, 0, 0, 0, wpt_two_handed_weapon, 500),
+  ("itm_skill_power_strike", 0, 0, 0, 0, wpt_two_handed_weapon, 200, 0),
+  ("itm_skill_rend", 0, 0, 0, 0, wpt_two_handed_weapon, 300, 0),
+  ("itm_skill_dragon_blade_slash", 0, 0, 0, 0, wpt_two_handed_weapon, 400, 0),
 
-  ("itm_skill_fear_attack", 0, 0, 0, 0, wpt_two_handed_weapon, 100),
-  ("itm_skill_cull_the_weak", 0, 0, 0, 0, wpt_two_handed_weapon, 200),
-  ("itm_skill_skeletal", 0, 0, 0, 0, wpt_two_handed_weapon, 300),
-  ("itm_skill_deflect", 0, 0, 0, 0, wpt_two_handed_weapon, 400),
+  ("itm_skill_cull_the_weak", 0, 0, 0, 0, wpt_two_handed_weapon, 200, 0),
+  ("itm_skill_deflect", 0, 0, 0, 0, wpt_two_handed_weapon, 400, 0),
 
 
-  ("itm_skill_rush", 0, 0, 0, 0, wpt_polearm, 200),
-  ("itm_skill_powercharge", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_luanwu", 0, 0, 0, 0, wpt_polearm, 300),
-  ("itm_skill_wushuang", 0, 0, 0, 0, wpt_polearm, 400),
-  ("itm_skill_swift_strike", 0, 0, 0, 0, wpt_polearm, 500),
+  ("itm_skill_rush", 0, 0, 0, 0, wpt_polearm, 200, 0),
+  ("itm_skill_luanwu", 0, 0, 0, 0, wpt_polearm, 300, 0),
+  ("itm_skill_wushuang", 0, 0, 0, 0, wpt_polearm, 400, 0),
+  ("itm_skill_swift_strike", 0, 0, 0, 0, wpt_polearm, 500, 0),
 
-  ("itm_skill_block", 0, 0, 0, 0, wpt_polearm, 100),
-  ("itm_skill_deadly_strike", 0, 0, 0, 0, wpt_polearm, 200),
-  ("itm_skill_counter_strike", 0, 0, 0, 0, wpt_polearm, 300),
-  ("itm_skill_power_cleave", 0, 0, 0, 0, wpt_polearm, 400),
+  ("itm_skill_counter_strike", 0, 0, 0, 0, wpt_polearm, 300, 0),
+  ("itm_skill_power_cleave", 0, 0, 0, 0, wpt_polearm, 400, 0),
 
 
 
-  ("itm_skill_arrow_of_slaying", 0, 0, 0, 0, wpt_archery, 200),
-  ("itm_bash_oneshot", 0, 0, 0, 0, wpt_archery, 200),
-  ("itm_skill_multishot", 0, 0, 0, 0, wpt_archery, 500),
+  ("itm_skill_multishot", 0, 0, 0, 0, wpt_archery, 400, 0),
 
-  ("itm_skill_oneshot", 0, 0, 0, 0, wpt_crossbow, 200),
-  ("itm_skill_sinper_shot", 0, 0, 0, 0, wpt_crossbow, 200),
-  ("itm_skill_it_is_high_noon", 0, 0, 0, 0, wpt_crossbow, 500),
+  ("itm_skill_oneshot", 0, 0, 0, 0, wpt_crossbow, 200, 0),
+  ("itm_skill_sinper_shot", 0, 0, 0, 0, wpt_crossbow, 200, 0),
+  ("itm_skill_it_is_high_noon", 0, 0, 0, 0, wpt_crossbow, 400, 0),
 
-  ("itm_bash_sidearm_1", 0, 0, 0, 0, wpt_throwing, 200),
-  ("itm_skill_sidearm_1", 0, 0, 0, 0, wpt_throwing, 500),
-  ("itm_skill_sidearm_2", 0, 0, 0, 0, wpt_throwing, 500),
+  ("itm_skill_sidearm_1", 0, 0, 0, 0, wpt_throwing, 400, 0),
+  ("itm_skill_sidearm_2", 0, 0, 0, 0, wpt_throwing, 400, 0),
 
-  ("itm_skill_steady_aim", 0, 0, 0, 0, wpt_firearm, 200),
-  ("itm_skill_haste_reload", 0, 0, 0, 0, wpt_firearm, 200),
-  ("itm_skill_autoshot", 0, 0, 0, 0, wpt_firearm, 500),
+  ("itm_skill_haste_reload", 0, 0, 0, 0, wpt_firearm, 200, 0),
+  ("itm_skill_autoshot", 0, 0, 0, 0, wpt_firearm, 400, 0),
+
+
+
 
 
 
 
   
-  ("itm_skill_slow", 0, 0, skl_tenacity, 5, 0, 0),
-  ("itm_skill_mass_slow", 0, 0, skl_tenacity, 10, 0, 0),
-  ("itm_skill_stoneskin", 0, 0, skl_tenacity, 15, 0, 0),
+  ("itm_skill_slow", 0, 0, skl_tenacity, 5, 0, 0, 0),
+  ("itm_skill_mass_slow", 0, 0, skl_tenacity, 10, 0, 0, 0),
+  ("itm_skill_stoneskin", 0, 0, skl_tenacity, 15, 0, 0, 0),
 
-  ("itm_skill_ironshield", 0, 0, skl_ironflesh, 5, 0, 0),
-  ("itm_skill_poisoned_attacks", 0, 0, skl_ironflesh, 10, 0, 0),
-  ("itm_skill_avatar", 0, 0, skl_ironflesh, 15, 0, 0),
+  ("itm_skill_ironshield", 0, 0, skl_ironflesh, 5, 0, 0, 0),
+  ("itm_skill_poisoned_attacks", 0, 0, skl_ironflesh, 10, 0, 0, 0),
+  ("itm_skill_avatar", 0, 0, skl_ironflesh, 15, 0, 0, 0),
 
-  ("itm_bash_cleave", 0, 0, skl_power_strike, 5, 0, 0),
-  ("itm_skill_seismic_slam", 0, 0, skl_power_strike, 10, 0, 0),
-  ("itm_skill_ground_stomp", 0, 0, skl_power_strike, 15, 0, 0),
+  ("itm_skill_seismic_slam", 0, 0, skl_power_strike, 10, 0, 0, 0),
+  ("itm_skill_ground_stomp", 0, 0, skl_power_strike, 15, 0, 0, 0),
   
-  ("itm_skill_windforce", 0, 0, skl_power_draw, 10, 0, 0),
 
 
-  ("itm_skill_rage_charge", 0, 0, skl_physique, 5, 0, 0),
-  ("itm_skill_life_drain", 0, 0, skl_physique, 10, 0, 0),
-  ("itm_skill_khorne_blessing", 0, 0, skl_physique, 15, 0, 0),
+  ("itm_skill_rage_charge", 0, 0, skl_physique, 5, 0, 0, 0),
+  ("itm_skill_life_drain", 0, 0, skl_physique, 10, 0, 0, 0),
+  ("itm_skill_khorne_blessing", 0, 0, skl_physique, 15, 0, 0, 0),
   
 
 
   
   
-  ("itm_skill_haste", 0, 0, skl_offense, 3, 0, 0),
-  ("itm_skill_mass_haste", 0, 0, skl_offense, 7, 0, 0),
-  ("itm_skill_bloodlust", 0, 0, skl_offense, 10, 0, 0),
+  ("itm_skill_haste", 0, 0, skl_offense, 3, 0, 0, 0),
+  ("itm_skill_mass_haste", 0, 0, skl_offense, 7, 0, 0, 0),
+  ("itm_skill_bloodlust", 0, 0, skl_offense, 10, 0, 0, 0),
 
 
 
-  ("itm_skill_head_hunted", 0, 0, skl_stealth, 5, 0, 0),
-  ("itm_skill_shadowstep", 0, 0, skl_stealth, 9, 0, 0),
-  ("itm_skill_shadowking", 0, 0, skl_stealth, 15, 0, 0),
+  ("itm_skill_head_hunted", 0, 0, skl_stealth, 5, 0, 0, 0),
+  ("itm_skill_shadowstep", 0, 0, skl_stealth, 9, 0, 0, 0),
+  ("itm_skill_shadowking", 0, 0, skl_stealth, 15, 0, 0, 0),
 
 
-  ("itm_skill_counter", 0, 0, skl_weapon_master, 5, 0, 0),
-  ("itm_skill_retribution", 0, 0, skl_weapon_master, 7, 0, 0),
-
-  
-  ("itm_skill_fire_shield", 0, 0, skl_magic_defence, 5, 0, 0),
-  ("itm_skill_magic_mirror", 0, 0, skl_shield, 5, 0, 0),
-
-
-  ("itm_skill_grasp", 0, 0, skl_looting, 5, 0, 0),
-  ("itm_bash_grasp", 0, 0, skl_looting, 5, 0, 0),
-  ("itm_skill_summon_demon", 0, 0, skl_looting, 5, 0, 0),
-  ("itm_skill_flamestrike", 0, 0, skl_looting, 5, 0, 0),
-
-  ("itm_skill_meditation", 0, 0, skl_magic_skill, 3, 0, 0),
-  ("itm_skill_master_of_ice", 0, 0, skl_magic_skill, 7, 0, 0),
-  
-  ("itm_skill_mana_burn", 0, 0, skl_magic_skill, 1, 0, 0),
-  ("itm_skill_spell_dispel", 0, 0, skl_magic_skill, 5, 0, 0),
-
-  ("itm_skill_summon_undead", 0, 0, skl_necromancy, 1, 0, 0),
-  ("itm_skill_spirit_link", 0, 0, skl_necromancy, 7, 0, 0),
-
-  ("itm_skill_weakness", 0, 0, skl_necromancy, 3, 0, 0),
-  ("itm_skill_summon_hallow", 0, 0, skl_necromancy, 5, 0, 0),
-
-  ("itm_skill_entangle", 0, 0, skl_wound_treatment, 1, 0, 0),
-  ("itm_skill_regeneration", 0, 0, skl_wound_treatment, 5, 0, 0),
-  ("itm_skill_curse_of_the_leper", 0, 0, skl_wound_treatment, 7, 0, 0),
-  ("itm_skill_nurgle_blessing", 0, 0, skl_wound_treatment, 9, 0, 0),
-  
-  ("itm_bash_heal", 0, 0, skl_first_aid, 1, 0, 0),
-  ("itm_skill_smite_undead", 0, 0, skl_first_aid, 2, 0, 0),
-  ("itm_skill_smite_evil", 0, 0, skl_first_aid, 2, 0, 0),
-  ("itm_skill_confession", 0, 0, skl_first_aid, 5, 0, 0),
-  ("itm_skill_divine_ruling", 0, 0, skl_first_aid, 7, 0, 0),
-  ("itm_skill_revelation", 0, 0, skl_first_aid, 9, 0, 0),
-
-  ("itm_skill_warcry", 0, 0, skl_persuasion, 1, 0, 0),
-  ("itm_skill_fright_aura", 0, 0, skl_persuasion, 4, 0, 0),
-  ("itm_skill_dragons_fear", 0, 0, skl_persuasion, 7, 0, 0),
-
-  ("itm_skill_summon_undead", 0, 0, skl_undead_master, 1, 0, 0),
-  ("itm_skill_mummy_curse", 0, 0, skl_undead_master, 5, 0, 0),
-  ("itm_skill_summon_hallow", 0, 0, skl_undead_master, 7, 0, 0),
-
-  ("itm_skill_call_lightning", 0, 0, skl_magic_power, 5, 0, 0),
-  ("itm_skill_master_of_fire", 0, 0, skl_magic_power, 10, 0, 0),
-  ("itm_skill_master_of_storms", 0, 0, skl_magic_power, 15, 0, 0),
-
-  ("itm_bash_mass_heal", 0, 0, skl_leadership, 3, 0, 0),
-  ("itm_skill_battlecry", 0, 0, skl_leadership, 6, 0, 0),
-  ("itm_skill_inspire", 0, 0, skl_leadership, 8, 0, 0),
-  ("itm_skill_holy_light", 0, 0, skl_leadership, 15, 0, 0),
-
-
-
-  ("itm_skill_dive", 0, 0, 0, 0, 0, 0),
-  ("itm_skill_fly", 0, 0, 0, 0, 0, 0),
-  ("itm_skill_undead_horse", 0, 0, 0, 0, 0, 0),
-  ("itm_bash_shield_bash", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_bash_kick", 0, 0, skl_physique, 1, 0, 0),
-  
-  
-  ("itm_skill_divine_strength", 0, 0, skl_physique, 1, 0, 0),
-
-  ("itm_skill_mummy", 0, 0, skl_physique, 1, 0, 0),
-
+  ("itm_skill_counter", 0, 0, skl_weapon_master, 5, 0, 0, 0),
+  ("itm_skill_retribution", 0, 0, skl_weapon_master, 7, 0, 0, 0),
 
   
-  ("itm_skill_dragron_flame_burst", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_flame_burst", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_flameswave", 0, 0, skl_physique, 1, 0, 0),
+  ("itm_skill_fire_shield", 0, 0, skl_magic_defence, 5, 0, 0, 0),
+  ("itm_skill_magic_mirror", 0, 0, skl_shield, 5, 0, 0, 0),
 
-  ("itm_skill_lightning_attack", 0, 0, skl_physique, 1, 0, 0),
+
+
+  ("itm_skill_master_of_ice", 0, 0, skl_magic_skill, 7, 0, 0, 0),
   
-  ("itm_skill_bane_evil", 0, 0, skl_physique, 1, 0, 0),
+  ("itm_skill_mana_burn", 0, 0, skl_magic_skill, 3, 0, 0, 0),
+  ("itm_skill_spell_dispel", 0, 0, skl_magic_skill, 5, 0, 0, 0),
+
+  ("itm_skill_spirit_link", 0, 0, skl_necromancy, 7, 0, 0, 0),
+
+  ("itm_skill_weakness", 0, 0, skl_necromancy, 3, 0, 0, 0),
+  ("itm_skill_summon_hallow", 0, 0, skl_necromancy, 5, 0, 0, 0),
+
+  ("itm_skill_regeneration", 0, 0, skl_wound_treatment, 5, 0, 0, 0),
+  ("itm_skill_curse_of_the_leper", 0, 0, skl_wound_treatment, 7, 0, 0, 0),
+  ("itm_skill_nurgle_blessing", 0, 0, skl_wound_treatment, 9, 0, 0, 0),
   
-  #("itm_skill_smite_undead", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_bane_undead", 0, 0, skl_physique, 1, 0, 0),
+  
+  ("itm_skill_smite_undead", 0, 0, skl_first_aid, 2, 0, 0, 0),
+  ("itm_skill_smite_evil", 0, 0, skl_first_aid, 2, 0, 0, 0),
+  ("itm_skill_confession", 0, 0, skl_first_aid, 5, 0, 0, 0),
+  ("itm_skill_divine_ruling", 0, 0, skl_first_aid, 7, 0, 0, 0),
+  ("itm_skill_revelation", 0, 0, skl_first_aid, 9, 0, 0, 0),
+
+  ("itm_skill_warcry", 0, 0, skl_persuasion, 1, 0, 0, 0),
+  ("itm_skill_fright_aura", 0, 0, skl_persuasion, 4, 0, 0, 0),
+  ("itm_skill_dragons_fear", 0, 0, skl_persuasion, 7, 0, 0, 0),
+
+  ("itm_skill_summon_undead", 0, 0, skl_undead_master, 1, 0, 0, 0),
+  ("itm_skill_mummy_curse", 0, 0, skl_undead_master, 5, 0, 0, 0),
+  ("itm_skill_summon_hallow", 0, 0, skl_undead_master, 7, 0, 0, 0),
+
+  ("itm_skill_call_lightning", 0, 0, skl_magic_power, 5, 0, 0, 0),
+  ("itm_skill_master_of_fire", 0, 0, skl_magic_power, 10, 0, 0, 0),
+  ("itm_skill_master_of_storms", 0, 0, skl_magic_power, 15, 0, 0, 0),
+
+  ("itm_skill_battlecry", 0, 0, skl_leadership, 6, 0, 0, 0),
+  ("itm_skill_inspire", 0, 0, skl_leadership, 8, 0, 0, 0),
+  ("itm_skill_holy_light", 0, 0, skl_leadership, 15, 0, 0, 0),
+
+
+
+
+
+
+
+  ("itm_skill_dive", 0, 0, 0, 0, 0, 0, 0),
+  ("itm_skill_fly", 0, 0, 0, 0, 0, 0, 0),
+  ("itm_skill_undead_horse", 0, 0, 0, 0, 0, 0, 0),
+  
+  ("itm_bash_sidearm_1", 0, 0, 0, 0, 0, 0, join_mine_guild),
+  ("itm_skill_dragron_flame_burst", 0, 0, 0, 0, 0, 0, join_mine_guild),
+  ("itm_skill_flame_burst", 0, 0, 0, 0, 0, 0, join_mine_guild),
+  ("itm_skill_flameswave", 0, 0, 0, 0, 0, 0, join_mine_guild),
+  
+  ("itm_skill_lightning_attack", 0, 0, 0, 0, 0, 0, join_mage_guild),
+  ("itm_bash_flame_burst", 0, 0, 0, 0, 0, 0, join_mage_guild),
+  ("itm_skill_meditation", 0, 0, 0, 0, 0, 0, join_mage_guild),
+  
+  ("itm_skill_wound_strike", 0, 0, 0, 0, 0, 0, join_hunt_guild),
+  ("itm_bash_oneshot", 0, 0, 0, 0, 0, 0, join_hunt_guild),
+  ("itm_skill_arrow_of_slaying", 0, 0, 0, 0, 0, 0, join_hunt_guild),
+  ("itm_skill_powercharge", 0, 0, 0, 0, 0, 0, join_hunt_guild),
+  ("itm_skill_windforce", 0, 0, 0, 0, 0, 0, join_hunt_guild),
+  ("itm_skill_steady_aim", 0, 0, 0, 0, 0, 0, join_hunt_guild),
   
   
-  ("itm_skill_smite_human", 0, 0, skl_physique, 1, 0, 0),
+  ("itm_bash_power_strike", 0, 0, 0, 0, 0, 0, join_elf_guild),
+  ("itm_bash_forst_ring", 0, 0, 0, 0, 0, 0, join_elf_guild),
+  ("itm_skill_block", 0, 0, 0, 0, 0, 0, join_elf_guild),
+  ("itm_skill_entangle", 0, 0, 0, 0, 0, 0, join_elf_guild),
+  ("itm_skill_skeletal", 0, 0, 0, 0, 0, 0, join_elf_guild),
+
+
+  ("itm_bash_cleave", 0, 0, 0, 0, 0, 0, join_orc_guild),
+  ("itm_skill_fear_attack", 0, 0, 0, 0, 0, 0, join_orc_guild),
+  ("itm_bash_seismic_slam", 0, 0, 0, 0, 0, 0, join_orc_guild),
+  ("itm_bash_rush", 0, 0, 0, 0, 0, 0, join_orc_guild),
+  ("itm_bash_earth_shock", 0, 0, 0, 0, 0, 0, join_orc_guild),
   
-  ("itm_skill_smite_outsider", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_bane_outsider", 0, 0, skl_physique, 1, 0, 0),
   
-  ("itm_skill_reaper", 0, 0, skl_physique, 1, 0, 0),
-  ("itm_skill_smite_life", 0, 0, skl_physique, 1, 0, 0),
+  ("itm_skill_flamestrike", 0, 0, 0, 0, 0, 0, join_demon_guild),
+  ("itm_skill_grasp", 0, 0, 0, 0, 0, 0, join_demon_guild),
+  ("itm_bash_grasp", 0, 0, 0, 0, 0, 0, join_demon_guild),
+  ("itm_skill_summon_demon", 0, 0, 0, 0, 0, 0, join_demon_guild),
+  
+
+  ("itm_skill_divine_strength", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_bash_heal", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_bash_mass_heal", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_skill_bane_evil", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_skill_bane_undead", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_skill_bane_outsider", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_skill_smite_outsider", 0, 0, 0, 0, 0, 0, join_order_guild),
+  ("itm_skill_undead_horse", 0, 0, 0, 0, 0, 0, join_order_guild),
+
+
+  ("itm_bash_shadow_blade", 0, 0, 0, 0, 0, 0, join_thief_guild),
+  ("itm_bash_swift_strike", 0, 0, 0, 0, 0, 0, join_thief_guild),
+  ("itm_skill_smite_life", 0, 0, 0, 0, 0, 0, join_thief_guild),
+  ("itm_skill_deadly_strike", 0, 0, 0, 0, 0, 0, join_thief_guild),
+
+  ("itm_skill_reaper", 0, 0, 0, 0, 0, 0, join_necro_guild),
+  ("itm_bash_summon_undead", 0, 0, 0, 0, 0, 0, join_necro_guild),
+  ("itm_skill_mummy", 0, 0, 0, 0, 0, 0, join_necro_guild),
+  ("itm_skill_smite_human", 0, 0, 0, 0, 0, 0, join_necro_guild),
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  ("itm_bash_shield_bash", 0, 0, skl_shield, 1, 0, 0, 0),
+  ("itm_bash_kick", 0, 0, skl_physique, 1, 0, 0, 0),
   
 ]
 
@@ -752,7 +769,7 @@ follower_troops = [
   ("trp_adventurer_troop_9", "trp_undead_horse_3"),
   ("trp_adventurer_troop_10", "trp_grandelf_arcane_guard"),
   ("trp_adventurer_troop_11", "trp_demon_7"),
-  ("trp_adventurer_troop_12", "trp_demon_human_5_2"),
+  ("trp_adventurer_troop_12", "trp_daemon_prince_slaanesh"),
   ("trp_adventurer_troop_13", "trp_orc_big_boss"),
   ("trp_adventurer_troop_14", "trp_cyclop"),
   ("trp_adventurer_troop_15", "trp_demon_8"),
@@ -863,7 +880,7 @@ follower_troops = [
   
 
   ("trp_knight_9_4", "trp_naffatun"),
-  ("trp_knight_9_5", "trp_mummy_3"),
+  ("trp_knight_9_5", "trp_daemon_prince_slaanesh"),
   ("trp_knight_9_9", "trp_sarranid_assasin_2"),
   ("trp_knight_9_10", "trp_demon_4"),
   ("trp_knight_9_14", "trp_demon_5"),
@@ -914,7 +931,7 @@ troop_upgrade_troops = [
   ("trp_troll_3", "trp_troll_1"),
   ("trp_ogre_mega", "trp_ogre"),
   ("trp_ogre_war2", "trp_ogre_war"),
-  
+  ("trp_ogre_cannon", "trp_ogre_gunner2"),
   
   ("trp_goblin_bomber", "trp_goblin_infantry"),
   

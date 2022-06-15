@@ -1760,6 +1760,12 @@ triggers = [
                      (eq,":ran",1),
                      (troop_join,"trp_demon_6", 0),
                    (else_try),  
+                     (eq,":ran",2),
+                     (troop_join,"trp_daemon_prince_slaanesh", 0),
+                   (else_try),  
+                     (eq,":ran",3),
+                     (troop_join,"trp_daemon_prince_nurgle", 0),
+                   (else_try),  
                      (troop_join,"trp_huge_inferno", 0),
                    (try_end),  
                  (try_end),
@@ -1902,7 +1908,15 @@ triggers = [
           (ge,":local_1",30),
           (dialog_box,"@posion_water", "@Unknown spring"),
           (play_sound,"snd_quest_failed"),
-          (call_script, "script_party_wound_all_members_2", "p_main_party"),
+          
+          (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+          (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_troop_id, ":stack_troop","p_main_party",":i_stack"),
+            (troop_is_hero, ":stack_troop"),
+            (troop_set_health, ":stack_troop", 0),
+          (try_end),
+          
+          #(call_script, "script_party_wound_all_members_2", "p_main_party"),
         (try_end),
       (else_try),
         (eq, ":rand", 4),
@@ -2348,7 +2362,7 @@ triggers = [
         (this_or_next|eq, ":rand", 13),
         (eq, ":rand", 14),
         (try_begin),#gice_scroll
-
+          (eq,1,0),
           (store_skill_level,":local_2","skl_magic_power","trp_player"),
           (ge,":local_2",2),
           

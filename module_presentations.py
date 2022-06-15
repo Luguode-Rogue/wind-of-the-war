@@ -13503,6 +13503,10 @@ presentations = [
               (str_store_string, s2, "@curse"),
             (overlay_set_color, "$g_presentation_credits_obj_9", ":red_color"),
           (else_try),
+            (eq,":special", marked_for_death),
+              (str_store_string, s2, "@curse"),
+            (overlay_set_color, "$g_presentation_credits_obj_9", ":red_color"),
+          (else_try),
             (eq,":special", severe_burn),
               (str_store_string, s2, "@severe_burn"),
             (overlay_set_color, "$g_presentation_credits_obj_9", ":yellow_color"),
@@ -15769,6 +15773,17 @@ presentations = [
         (overlay_set_position, "$g_presentation_obj_11", pos2),
         (overlay_set_val, "$g_presentation_obj_11", "$disable_npc_complaints"),
         (val_add, ":pos_y", 50),
+        
+        ## NPCs' complaints
+        (create_text_overlay, reg0, "@Disable NPCs' join:", tf_left_align),
+        (position_set_y, pos1, ":pos_y"),
+        (overlay_set_position, reg0, pos1),
+        (create_check_box_overlay, "$g_presentation_obj_22", "mesh_checkbox_off", "mesh_checkbox_on"),
+        (position_set_y, pos2, ":pos_y"),
+        (overlay_set_position, "$g_presentation_obj_22", pos2),
+        (overlay_set_val, "$g_presentation_obj_22", "$disable_npc_join"),
+        (val_add, ":pos_y", 50),
+        
         ## morale threshold
         (create_text_overlay, reg0, "@Morale threshold on consuming food:", tf_left_align),
         (position_set_y, pos1, ":pos_y"),
@@ -16064,6 +16079,9 @@ presentations = [
         (else_try),
           (eq, ":object", "$g_presentation_obj_11"),
           (assign, "$disable_npc_complaints", ":value"),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_22"),
+          (assign, "$disable_npc_join", ":value"),
         (else_try),
           (eq, ":object", "$g_presentation_obj_12"),
           (assign, "$cheat_mode", ":value"),
@@ -29466,10 +29484,11 @@ presentations = [
         (position_set_x, pos1, 630),
         (position_set_y, pos1, 650),
         (str_store_troop_name, s0, "$g_player_troop"),
-        (str_store_string, s1, "@Please reselect a companion as the commander for the comming battle.^^Current commander: {s0}."),
+        (str_store_string, s1, "@Please reselect a companion as the commander for set magic.^^Current commander: {s0}."),
 
-        (create_text_overlay, "$g_presentation_obj_1", "@{s1}", tf_center_justify|tf_vertical_align_center|tf_scrollable),
+        (create_text_overlay, "$g_presentation_obj_1", "@{s1}", tf_center_justify|tf_vertical_align_center),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
+        
         
         (create_game_button_overlay, "$g_presentation_obj_2", "@Done"),
         (position_set_x, pos1, 900),
@@ -29559,14 +29578,14 @@ presentations = [
         (call_script, "script_get_troop_skill_temp", ":cur_troop"),
         
         
-        (create_text_overlay, reg1, "@Arms", tf_center_justify),
+        (create_text_overlay, reg1, "@spell", tf_center_justify),
         (store_add, ":pos_x", ":init_pos_x", 42), 
         (store_add, ":pos_y", ":init_pos_y", 2), 
         (position_set_x, pos1, ":pos_x"),
         (position_set_y, pos1, ":pos_y"),
         (overlay_set_position, reg1, pos1),
         
-        (create_text_overlay, reg1, "@Outfit", tf_center_justify),
+        (create_text_overlay, reg1, "@skill", tf_center_justify),
         (store_add, ":pos_x", ":init_pos_x", -98), 
         (store_add, ":pos_y", ":init_pos_y", 2), 
         (position_set_x, pos1, ":pos_x"),
@@ -29699,16 +29718,16 @@ presentations = [
         ################
         
         ##### mouse fix pos system #######
-        # (call_script, "script_mouse_fix_pos_ready"),
+         #(call_script, "script_mouse_fix_pos_ready"),
         ##### mouse fix pos system #######
       ]),
 
-      # (ti_on_presentation_run,
-        # [
+       #(ti_on_presentation_run,
+       #  [
         ##### mouse fix pos system #######
         # (call_script, "script_mouse_fix_pos_run"),
         ##### mouse fix pos system #######
-      # ]),
+       # ]),
 
     (ti_on_presentation_mouse_press,
      [(store_trigger_param_1, ":object"),
@@ -29967,14 +29986,12 @@ presentations = [
             (val_add, ":total_items", 1),
           (else_try),
             (item_slot_eq, ":item_no", slot_item_magic_type, spell),
-            (call_script, "script_check_troop_hold_magic", "$g_player_troop", ":item_no"),
-            (gt,reg0,1),
+            (item_slot_eq, ":item_no", slot_item_special_given, 1),
             (call_script, "script_troop_can_use_item", "$g_player_troop", ":item_no", 0),
             (val_add, ":total_items", 1),
           (else_try),
             (item_slot_eq, ":item_no", slot_item_magic_type, quick_spell),
-            (call_script, "script_check_troop_hold_magic", "$g_player_troop", ":item_no"),
-            (gt,reg0,1),
+            (item_slot_eq, ":item_no", slot_item_special_given, 1),
             (call_script, "script_troop_can_use_item", "$g_player_troop", ":item_no", 0),
             (val_add, ":total_items", 1),
           (else_try),
@@ -30040,18 +30057,21 @@ presentations = [
               (assign, ":continue", 1),
             (else_try),
               (item_slot_eq, ":item_no", slot_item_magic_type, spell),
-              (call_script, "script_check_troop_hold_magic", "$g_player_troop", ":item_no"),
-              (gt,reg0,1),
+              (item_slot_eq, ":item_no", slot_item_special_given, 1),
               (call_script, "script_troop_can_use_item", "$g_player_troop", ":item_no", 0),
               (assign, ":continue", 1),
             (else_try),
               (item_slot_eq, ":item_no", slot_item_magic_type, quick_spell),
-              (call_script, "script_check_troop_hold_magic", "$g_player_troop", ":item_no"),
-              (gt,reg0,1),
+              (item_slot_eq, ":item_no", slot_item_special_given, 1),
               (call_script, "script_troop_can_use_item", "$g_player_troop", ":item_no", 0),
               (assign, ":continue", 1),
             (else_try),
               (item_slot_eq, ":item_no", slot_item_magic_type, bash),
+              (neg|eq, ":item_no", "itm_bash_shadow_blade"),
+              (neg|eq, ":item_no", "itm_bash_seismic_slam"),
+              (neg|eq, ":item_no", "itm_bash_earth_shock"),
+              (neg|eq, ":item_no", "itm_bash_flame_burst"),
+              (neg|eq, ":item_no", "itm_bash_forst_ring"),
               (assign, ":continue", 1),
             (else_try),
               (this_or_next|eq, ":item_no", "itm_skill_deadly_strike"),

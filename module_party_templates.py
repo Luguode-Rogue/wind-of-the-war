@@ -934,13 +934,17 @@ party_templates = [
   ("mage_merc", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_human_magic_3, 5, 5),(trp_golem_3, 10, 10),(trp_gargoyle, 1, 2)]),
   ("mage_merc_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_human_magic_3, 3, 7),(trp_human_magic_2, 4, 9),(trp_we_recruit, 3, 6)]),
 
-  ("demon_merc_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_5, 1, 3), (trp_demon_4_2, 3, 5), (trp_demon_3, 5, 8)]),
-  ("demon_merc_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_6, 1, 5), (trp_demon_1, 13, 27)]),
+  ("demon_merc_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_5, 1, 3), (trp_demon_2, 5, 8), (trp_demon_1_2, 5, 8)]),
+  ("demon_merc_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_6, 1, 5), (trp_demon_1_4, 10, 20)]),
+  ("demon_merc_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_daemon_prince_slaanesh, 1, 5), (trp_demon_human_5_2, 5, 10)]),
+  ("demon_merc_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_daemon_prince_nurgle, 1, 5),(trp_demon_8, 5, 7), (trp_demon_1_3, 10, 10)]),
   
   
   ("undead_merc_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_undead_horse_3, 1, 3),(trp_vampire_1, 6, 18),(trp_undead_magic_2, 3, 5)]),
   ("undead_merc_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_lich_2, 1, 5), (trp_wight, 10, 10)]),
   ("undead_merc_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_skeleton_warrior, 10, 18),(trp_skeleton_archer, 12, 18),(trp_dullahan, 6, 6)]),
+  ("undead_merc_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_zombie_6, 5, 5),(trp_zombie_3, 6, 18),(trp_zombie_5, 5, 5)]),
+
 
   ("werewolf_merc_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_werewolf_1, 6, 30),(trp_werewolf_1_a,3,15)]),
   #("werewolf_merc_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_werewolf_2, 4, 12),(trp_werewolf_2_a,2,6)]),
@@ -966,7 +970,7 @@ party_templates = [
   ("wood_elven_merc_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_woodelf_sharpshooter, 2, 4), (trp_woodelf_druid_1, 2, 3), (trp_woodelf_spearman, 6, 8), (trp_woodelf_m_hunter, 3, 5)]),
 
   ("troll_merc", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_troll_2, 1, 3), (trp_troll_1, 4, 8)]),
-  ("ogre_merc", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_4_3, 1, 3),(trp_ogre_war, 5, 5), (trp_ogre, 15, 20), (trp_ogre_mega, 1, 1)]),
+  ("ogre_merc", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_ogre_cannon, 1, 3),(trp_ogre_war, 5, 5),(trp_ogre_gunner2, 5, 5), (trp_ogre, 15, 20), (trp_ogre_mega, 1, 1)]),
   
   ("witch_merc", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_polish_which_2, 1, 1), (trp_polish_which_1, 1, 3), (trp_werewolf_1, 4, 12)]),
   
@@ -1176,8 +1180,8 @@ party_templates = [
   
   ("forsaken_palace_1", "Khorne Palace", icon_hill_fort_evil|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_7, 8, 12),(trp_demon_5, 2, 3),(trp_demon_3, 8, 12),(trp_demon_1_2, 12, 12)]),
   ("forsaken_palace_2", "Tzeentch Palace", icon_evil_tower|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_human_5_1, 8, 12),(trp_demon_6, 2, 3)]),
-  ("forsaken_palace_3", "Nurgle Palace", icon_map_f_forsaken_palace|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_8, 8, 12),(trp_demon_9, 2, 3),(trp_demon_1_3, 12, 12)]),
-  ("forsaken_palace_4", "Slaanesh Palace", icon_map_prison|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_human_5_2, 8, 12),(trp_demon_human_5_2, 2, 3)]),
+  ("forsaken_palace_3", "Nurgle Palace", icon_map_f_forsaken_palace|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_8, 8, 12),(trp_daemon_prince_nurgle, 1, 3),(trp_demon_1_3, 12, 12)]),
+  ("forsaken_palace_4", "Slaanesh Palace", icon_map_prison|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_demon_human_5_2, 8, 12),(trp_daemon_prince_slaanesh, 2, 3)]),
     
   ("vampire_palace_1", "Scholomance", icon_evil_tower|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_lich_1, 8, 12),(trp_lich_2, 2, 3)]),
   ("vampire_palace_2", "vampire Palace", icon_map_prison|pf_is_static|pf_hide_defenders, 0, fac_neutral, bandit_personality, [(trp_undead_horse_2, 8, 12),(trp_undead_horse_3, 2, 3)]),

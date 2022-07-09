@@ -318,7 +318,7 @@ cast_melkoths_mystifying_miasma = [
     [
       (store_trigger_param_1, ":shooter"),
       (copy_position,pos52,pos1),
-      (call_script, "script_cf_burst_pos52_magic_banishment", ":shooter"),
+      (call_script, "script_cf_burst_pos52_melkoths_mystifying_miasma", ":shooter"),
     ])]
    
 cast_magic_steed_of_shadows = [
@@ -424,6 +424,14 @@ cast_magic_hand_of_glory = [
       (store_trigger_param_1, ":shooter"),
       (copy_position,pos52,pos1),
       (call_script, "script_cf_burst_pos52_magic_hand_of_glory", ":shooter"),
+    ])]
+
+cast_magic_curse_of_arrow_attraction = [
+  (ti_on_missile_hit, 
+    [
+      (store_trigger_param_1, ":shooter"),
+      (copy_position,pos52,pos1),
+      (call_script, "script_cf_burst_pos52_magic_curse_of_arrow_attraction", ":shooter"),
     ])]
 
 cast_magic_frostblade = [
@@ -747,6 +755,37 @@ cast_magic_summon_demon = [
       (copy_position,pos52,pos1),
       (call_script, "script_cf_burst_pos52_magic_summon_demon", ":shooter"),
     ])]
+    
+
+cast_magic_summon_demon_k = [
+  (ti_on_missile_hit, 
+    [
+      (store_trigger_param_1, ":shooter"),
+      (copy_position,pos52,pos1),
+      (call_script, "script_cf_burst_pos52_magic_summon_demon_k", ":shooter"),
+    ])]
+cast_magic_summon_demon_t = [
+  (ti_on_missile_hit, 
+    [
+      (store_trigger_param_1, ":shooter"),
+      (copy_position,pos52,pos1),
+      (call_script, "script_cf_burst_pos52_magic_summon_demon_t", ":shooter"),
+    ])]
+cast_magic_summon_demon_s = [
+  (ti_on_missile_hit, 
+    [
+      (store_trigger_param_1, ":shooter"),
+      (copy_position,pos52,pos1),
+      (call_script, "script_cf_burst_pos52_magic_summon_demon_s", ":shooter"),
+    ])]
+cast_magic_summon_demon_n = [
+  (ti_on_missile_hit, 
+    [
+      (store_trigger_param_1, ":shooter"),
+      (copy_position,pos52,pos1),
+      (call_script, "script_cf_burst_pos52_magic_summon_demon_n", ":shooter"),
+    ])]
+    
     
 cast_magic_armageddon = [
   (ti_on_missile_hit, 

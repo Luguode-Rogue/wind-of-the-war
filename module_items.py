@@ -7291,13 +7291,6 @@ weight(1.75)|difficulty(7)|accuracy(99)|spd_rtng(85)|shoot_speed(91)|thrust_dama
   imodbits_none, cast_magic_heal+missile_distance_trigger , [fac_demon_hunters, fac_hospitalier_knights, fac_hospitalier_knights] ],
 
 
- ["magic_summon_undead", "summon_undead_Scroll", [("bullet_1",0),("laser_bolt_green",ixmesh_flying_ammo),("icon_magic_summon_undead", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
-  6000, weight(2.0)|difficulty(12)|abundance(15)|weapon_length(3)|thrust_damage(5,cut)|max_ammo(6),
-  imodbits_none, cast_magic_basic_curse+missile_distance_trigger , [fac_undeads_2] ],
- ["magic_summon_undead_near_ememy", "cast_magic_summon_undeadl", [("bullet_1",0),("laser_bolt_green",ixmesh_flying_ammo),("icon_magic_summon_undead", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
-  6000, weight(2.0)|difficulty(12)|abundance(15)|weapon_length(4)|thrust_damage(10,cut)|max_ammo(4),
-  imodbits_none, cast_magic_basic_curse+cast_magic_summon_undead+missile_distance_trigger , [fac_undeads_2] ],
-
 
  ["magic_curse", "curse_Scroll", [("bullet_1",0),("laser_bolt_red",ixmesh_flying_ammo),("icon_magic_curse", ixmesh_inventory)], itp_merchandise|itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
   1500, weight(2.0)|difficulty(0)|abundance(90)|weapon_length(3)|thrust_damage(10,cut)|max_ammo(30),
@@ -9232,6 +9225,9 @@ weight(1.75)|difficulty(7)|accuracy(99)|spd_rtng(85)|shoot_speed(91)|thrust_dama
   6000, weight(2.0)|difficulty(21)|abundance(90)|weapon_length(3)|thrust_damage(50,cut)|max_ammo(20),
   imodbits_none, cast_magic_hand_of_glory , [fac_kingdom_1] ],
 
+ ["magic_curse_of_arrow_attraction", "Curse_of_Arrow_Attraction", [("bullet_1",0),("high_flare",ixmesh_flying_ammo),("magic_Curse_of_Arrow_Attraction", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
+  6000, weight(2.0)|difficulty(21)|abundance(90)|weapon_length(3)|thrust_damage(50,cut)|max_ammo(20),
+  imodbits_none, cast_magic_curse_of_arrow_attraction , [fac_kingdom_1] ],
 
  ["magic_walk_between_worlds", "walk_between_worlds", [("bullet_1",0),("high_flare",ixmesh_flying_ammo),("magic_walk_between_worlds", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
   4000, weight(2.0)|difficulty(12)|abundance(90)|weapon_length(3)|thrust_damage(10,cut)|max_ammo(30),
@@ -9285,6 +9281,20 @@ weight(1.75)|difficulty(7)|accuracy(99)|spd_rtng(85)|shoot_speed(91)|thrust_dama
  ["magic_frozen_ground", "frozen_ground", [("bullet_1",0),("guangjian_fly2",ixmesh_flying_ammo),("magic_frozen_ground", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
   6000, weight(2.0)|difficulty(15)|abundance(90)|weapon_length(3)|thrust_damage(50,cut)|max_ammo(20),
   imodbits_none, cast_magic_frozen_ground , [fac_kingdom_1] ],
+
+ ["magic_summon_demon_k", "summon_demon_Scroll", [("bullet_1",0),("laser_bolt_red",ixmesh_flying_ammo),("magic_summon_demon_k", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
+  9000, weight(2.0)|difficulty(18)|abundance(10)|weapon_length(3)|thrust_damage(5,cut)|max_ammo(3),
+  imodbits_none, cast_magic_summon_demon_k , [fac_undeads_2, fac_commoners] ],
+ ["magic_summon_demon_t", "summon_demon_Scroll", [("bullet_1",0),("laser_bolt_red",ixmesh_flying_ammo),("magic_summon_demon_t", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
+  9000, weight(2.0)|difficulty(18)|abundance(10)|weapon_length(3)|thrust_damage(5,cut)|max_ammo(3),
+  imodbits_none, cast_magic_summon_demon_t , [fac_undeads_2, fac_commoners] ],
+ ["magic_summon_demon_s", "summon_demon_Scroll", [("bullet_1",0),("laser_bolt_red",ixmesh_flying_ammo),("magic_summon_demon_s", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
+  9000, weight(2.0)|difficulty(18)|abundance(10)|weapon_length(3)|thrust_damage(5,cut)|max_ammo(3),
+  imodbits_none, cast_magic_summon_demon_s , [fac_undeads_2, fac_commoners] ],
+ ["magic_summon_demon_n", "summon_demon_Scroll", [("bullet_1",0),("laser_bolt_red",ixmesh_flying_ammo),("magic_summon_demon_n", ixmesh_inventory)], itp_type_bullets|itp_is_magic_staff|itp_unique, 0,
+  9000, weight(2.0)|difficulty(18)|abundance(10)|weapon_length(3)|thrust_damage(5,cut)|max_ammo(3),
+  imodbits_none, cast_magic_summon_demon_n , [fac_undeads_2, fac_commoners] ],
+
 
 #-#-#-#voice begin#-#-#-#
 ["voice_clear_skies","龙 吼 ·龙 破 净 空", [("yellow_big",0)], itp_unique|itp_type_goods|itp_is_magic_staff, 0, 15000,weight(3)|abundance(90),0],

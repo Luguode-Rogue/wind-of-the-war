@@ -177,6 +177,7 @@ slot_agent_double_wings_dest_pos     = 75
 slot_agent_archer_state              = 76
 slot_next_shoot_time                 = 77
 slot_agent_next_release_time         = 78
+
 burn  = 1
 wound  = 2
 poison  = 3 
@@ -189,6 +190,8 @@ curse = 9
 power_jump = 10 
 power_poison = 11 
 marked_for_death = 12 
+blinding = 13 
+
 
 ########################################################
 ##  FACTION SLOTS          #############################
@@ -2356,6 +2359,7 @@ slot_item_magic_cast_time              = 73
 voice    =  1
 spell    =  2
 quick_spell    =  3
+buff    =  4
 
 special_ability = 5
 special_ability_extra = 6

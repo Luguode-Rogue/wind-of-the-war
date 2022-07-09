@@ -176,82 +176,157 @@ magic_type = [
   ("itm_voice_soul_tear", 0, voice, 25, 0, 1, 0),
   ("itm_voice_drain_vitality", 0, voice, 20, 0, 1, 0),
 
-  ("itm_magic_ice_ray", 15, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_curse", 10, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_slow", 10, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_weakness", 25, quick_spell, 0, 0, 1, 0),
+  #("itm_magic_curse", 10, spell, 0, 0, 1, 0),
+  ("itm_magic_slow", 10, spell, 0, 0, 1, 0),
+  ("itm_magic_weakness", 25, spell, 60, 0, 1, 0),
   ("itm_magic_poison", 10, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_heal", 5, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_sun_ray", 10, quick_spell, 0, 0, 1, 0),
+  
+  #("itm_magic_heal", 5, quick_spell, 0, 0, 1, 0),
   ("itm_magic_heaven_fist_dummy", 10, quick_spell, 0, 0, 1, 0),
   ("itm_magic_poison_dummy", 10, quick_spell, 0, 0, 1, 0),
   
   ("itm_magic_arrow", 0, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_shrapmetal", 0, quick_spell, 0, 0, 1, 0),
+  #("itm_magic_shrapmetal", 0, quick_spell, 0, 0, 1, 0),
   ("itm_magic_ice_ray_dummy", 1, quick_spell, 0, 0, 1, 0),
   ("itm_magic_sun_ray_dummy", 1, quick_spell, 0, 0, 1, 0),
   ("itm_magic_fire_ray_dummy", 1, quick_spell, 0, 0, 1, 0),
   
   ("itm_magic_flamehand", 0, quick_spell, 0, 0, 1, 0),
   ("itm_magic_icehand", 0, quick_spell, 0, 0, 1, 0),
-  ("itm_magic_spark", 10, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_arcane_orb", 40, quick_spell, 0, 0, 1, 2),
+  ("itm_magic_lightningball", 25, quick_spell, 0, 0, 1, 1),
+  
+  ("itm_magic_frost_cloud_dummy", 15, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_meteor_shower_dummy", 0, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_armageddon_dummy", 0, quick_spell, 0, 0, 1, 0),
   
   
-  ("itm_magic_summon_neutral_near_ememy", 33, spell, 16, 0, 1, 2),
-  ("itm_magic_summon_demon", 50, spell, 25, 0, 1, 3),
-  ("itm_magic_summon_demon_near_ememy", 50, spell, 25, 0, 1, 3),
-  ("itm_magic_summon_undead", 33, spell, 16, 0, 1, 2),
-  ("itm_magic_summon_undead_near_ememy", 33, spell, 16, 0, 1, 2),
-  ("itm_magic_soulhunter", 0, spell, 0, 0, 1, 3),
-  ("itm_magic_zombie_lord", 0, spell, 0, 0, 1, 3),
   
   ("itm_magic_death_cloud_dummy", 15, spell, 7, 0, 1, 0),
-  ("itm_magic_death_cloud", 0, spell, 5, 0, 1, 2),
+  #("itm_magic_death_cloud", 0, spell, 5, 0, 1, 2),
   
-  ("itm_magic_deep_freeze", 30, spell, 15, 0, 1, 2),
-  ("itm_magic_arcane_orb", 40, spell, 20, 0, 1, 2),
-  ("itm_magic_fireball", 25, spell, 12, 0, 1, 1),
+  #("itm_magic_deep_freeze", 30, spell, 15, 0, 1, 2),
 
 
 
-  ("itm_magic_soul_leech", 25, spell, 12, 0, 1, 2),
-  ("itm_magic_frost_cloud", 0, spell, 10, 0, 1, 2),
-  ("itm_magic_frost_cloud_dummy", 15, spell, 0, 0, 1, 0),
-  ("itm_magic_deadly_cold", 40, spell, 20, 0, 1, 1),
-  ("itm_magic_frozen_orb", 25, spell, 12, 0, 1, 2),
-  ("itm_magic_blizzard", 0, spell, 10, 0, 1, 4),
   ("itm_magic_paralysis_cloud", 30, spell, 15, 0, 1, 1),
   
-  ("itm_magic_entangling", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_web", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_dispel_magic", 25, spell, 0, 0, 1, 0),
-  ("itm_magic_lightning", 10, spell, 5, 0, 1, 0),
-  ("itm_magic_black_hold", 25, spell, 13, 0, 1, 2),
-  ("itm_magic_black_hold_2", 25, spell, 10, 0, 1, 0),
-  ("itm_magic_lightning_burst", 25, spell, 10, 0, 1, 0),
-  ("itm_magic_lightningball", 25, spell, 10, 0, 1, 1),
+  #("itm_magic_web", 25, spell, 0, 0, 1, 0),
+
+  #("itm_magic_lightning_burst", 25, spell, 10, 0, 1, 0),
   
-  ("itm_magic_lightningball", 0, spell, 10, 0, 1, 0),
   ("itm_magic_summon_blade", 0, spell, 20, 0, 1, 0),
-  ("itm_magic_fireball_2", 30, spell, 15, 0, 1, 1),
-  ("itm_magic_pyroblast", 33, spell, 15, 0, 1, 2),
   ("itm_magic_dragon_breath", 0, spell, 0, 0, 1, 0),
   
   ("itm_magic_meteor_shower", 0, spell, 30, 0, 1, 3),
-  ("itm_magic_meteor_shower_dummy", 0, spell, 0, 0, 1, 0),
   
-  ("itm_magic_incediary_cloud", 0, spell, 20, 0, 1, 2),
-  ("itm_magic_incediary_cloud_dummy", 20, spell, 0, 0, 1, 0),
-  
-  ("itm_magic_heaven_fist", 0, spell, 10, 0, 1, 1),
-  ("itm_magic_column_of_fire", 0, spell, 0, 0, 1, 1),
-  
-  ("itm_magic_armageddon", 0, spell, 60, 0, 1, 4),
-  ("itm_magic_armageddon_dummy", 0, spell, 0, 0, 1, 0),
 
-  ("itm_magic_teleport", 15, spell, 0, 0, 1, 1),
+  #("itm_magic_incediary_cloud", 0, spell, 20, 0, 1, 2),
+  #("itm_magic_incediary_cloud_dummy", 20, spell, 0, 0, 1, 0),
+
+  ("itm_magic_heaven_fist", 0, spell, 10, 0, 1, 1),
+  ("itm_magic_column_of_fire", 40, spell, 30, 0, 1, 1),
+  
+  ("itm_magic_armageddon", 30, spell, 30, 0, 1, 4),
+
+  #("itm_magic_teleport", 15, spell, 0, 0, 1, 1),
   
   
+  #("itm_magic_mana", 0, quick_spell, 0, 0, 1, 0),
+  
+  ("itm_magic_burning_gaze", 10, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_blinding_light", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_heal_near", 15, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_net_of_amyntok", 20, spell, 30, 0, 1, 0),
+  ("itm_magic_light_of_battle", 40, buff, 45, 0, 1, 0),
+  ("itm_magic_bironas_timewarp", 40, buff, 45, 0, 1, 0),
+  ("itm_magic_banishment", 50, spell, 20, 0, 1, 0),
+  
+  ("itm_magic_spark", 12, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_wind_blast", 20, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_lightning", 15, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_harmonic_convergence", 40, buff, 30, 0, 1, 0),
+  ("itm_magic_curse_of_the_midnight_wind", 40, buff, 60, 0, 1, 0),
+  ("itm_magic_lightning_burst", 0, spell, 20, 0, 1, 0),
+  ("itm_magic_comet_of_casandora", 0, spell, 30, 0, 1, 0),
+  ("itm_comet_of_casandora_dummy", 15, quick_spell, 0, 0, 1, 0),
+  
+  ("itm_magic_fire_ray", 8, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_fireball", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_fireball_2", 10, spell, 15, 0, 1, 0),
+  ("itm_magic_cascading_fire_cloak", 40, buff, 30, 0, 1, 0),
+  ("itm_magic_pyroblast", 40, quick_spell, 20, 0, 1, 0),
+  ("itm_magic_piercing_bolts_of_burning", 10, spell, 30, 0, 1, 0),
+  ("itm_magic_flame_storm", 10, spell, 30, 0, 1, 0),
+  
+  ("itm_magic_searing_doom", 0, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_burnished_gauntlet", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_plague_of_rust", 50, quick_spell, 30, 0, 1, 0),
+  ("itm_magic_transmutation_of_lead", 40, buff, 50, 0, 1, 0),
+  ("itm_magic_final_transmutation", 50, spell, 30, 0, 1, 0),
+  
+  ("itm_magic_earth_blood", 20, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_animal_mastery", 15, quick_spell, 30, 0, 1, 0),
+  ("itm_magic_entangling", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_flesh_to_stone", 40, buff, 40, 0, 1, 0),
+  ("itm_magic_regrowth", 40, buff, 30, 0, 1, 0),
+  ("itm_magic_animate_tree", 50, spell, 30, 0, 1, 0),
+  
+  ("itm_magic_summon_neutral_near_ememy", 33, quick_spell, 20, 0, 1, 2),
+  
+  ("itm_magic_amber_spear", 20, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_bray_scream", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_wyssans_wildform", 40, buff, 30, 0, 1, 0),
+  ("itm_magic_panns_impenetrable_belt", 40, buff, 45, 0, 1, 0),
+  ("itm_magic_curse_of_anraheir", 40, buff, 45, 0, 1, 0),
+  ("itm_magic_savage_dominion", 50, spell, 30, 0, 1, 0),
+  
+  ("itm_magic_shadow_bolt", 10, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_melkoths_mystifying_miasma", 20, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_steed_of_shadows", 50, buff, 20, 0, 1, 0),
+  ("itm_magic_penumbral_pendulum", 50, spell, 10, 0, 1, 0),
+  ("itm_magic_pit_of_shades", 0, spell, 30, 0, 1, 0),
+  ("itm_magic_okkams_mindrazor", 50, buff, 50, 0, 1, 0),
+  
+  ("itm_magic_spirit_leech", 20, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_soulblight", 20, buff, 45, 0, 1, 0),
+  ("itm_magic_doom_and_darkness", 25, buff, 45, 0, 1, 0),
+  ("itm_magic_summon_undead", 33, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_summon_undead_near_ememy", 33, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_gaze_of_nagash", 40, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_death_cloud", 0, spell, 30, 0, 1, 0),
+  ("itm_magic_zombie_lord", 0, spell, 30, 0, 1, 0),
+  ("itm_ryze_the_grave_call", 0, spell, 30, 0, 1, 0),
+  ("itm_magic_soulhunter", 0, spell, 30, 0, 1, 3),
+  ("itm_magic_summon_demon", 50, quick_spell, 25, 0, 1, 3),
+  ("itm_magic_summon_demon_near_ememy", 50, quick_spell, 25, 0, 1, 3),
+  
+  
+  ("itm_magic_chill_wind", 30, spell, 15, 0, 1, 0),
+  ("itm_magic_oblivion", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_word_of_pain", 25, quick_spell, 60, 0, 1, 0),
+  ("itm_magic_doom_bolt", 40, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_power_of_darkness", 30, buff, 60, 0, 1, 0),
+  ("itm_magic_blade_wind", 0, spell, 50, 0, 1, 0),
+  ("itm_magic_soul_leech", 25, spell, 25, 0, 1, 0),
+  
+  ("itm_magic_soul_quench", 25, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_arcane_unforging", 60, quick_spell, 5, 0, 1, 0),
+  ("itm_magic_dispel_magic", 25, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_apotheosis", 0, buff, 10, 0, 1, 0),
+  ("itm_magic_hand_of_glory", 45, buff, 30, 0, 1, 0),
+  ("itm_magic_walk_between_worlds", 50, buff, 20, 0, 1, 0),
+  ("itm_magic_mana_tempest", 0, spell, 30, 0, 1, 0),
+  ("itm_magic_mana_tempest_dummy", 20, spell, 10, 0, 1, 0),
+  
+  ("itm_magic_ice_ray", 15, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_frostblade", 40, buff, 60, 0, 1, 0),
+  ("itm_magic_shield_of_cold", 40, buff, 60, 0, 1, 0),
+  ("itm_magic_frost_cloud", 0, spell, 20, 0, 1, 0),
+  ("itm_magic_deadly_cold", 40, quick_spell, 20, 0, 1, 0),
+  ("itm_magic_frozen_orb", 25, quick_spell, 20, 0, 1, 0),
+  ("itm_magic_blizzard", 15, spell, 30, 0, 1, 0),
+  ("itm_magic_frost_cloud_dummy", 15, quick_spell, 0, 0, 1, 0),
   
 
   ("itm_skill_inspire", 0, special_ability, 0, 0, 1, 0),
@@ -267,7 +342,7 @@ magic_type = [
   ("itm_skill_dive", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_mummy_curse", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_shadowking", 0, special_ability, 0, 0, 1, 0),
-  ("itm_skill_divine_strength", 0, special_ability, 0, 0, 1, 0),
+  #("itm_skill_divine_strength", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_regeneration", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_stoneskin", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_dragons_fear", 0, special_ability, 0, 0, 1, 0),
@@ -337,7 +412,8 @@ magic_type = [
   ("itm_skill_roll", 0, special_ability_extra, 0, 0, 1, 0),
   ("itm_skill_block", 0, special_ability_passive, 0, 0, 1, 0),
   
-  ("itm_skill_flamestrike", 0, special_ability_extra, 0, 0, 1, 0),
+  ("itm_skill_flamestrike", 0, special_ability, 0, 0, 1, 0),
+  
   ("itm_skill_flameswave", 0, special_ability_passive, 0, 0, 1, 0),
   
   ("itm_skill_call_lightning", 0, special_ability_extra, 0, 0, 1, 0),
@@ -635,9 +711,8 @@ magic_need = [
 
 
 
-
   ("itm_skill_dive", 0, 0, 0, 0, 0, 0, 0),
-  ("itm_skill_fly", 0, 0, 0, 0, 0, 0, 0),
+  ("itm_skill_fly", ca_charisma, 15, 0, 0, 0, 0, 0),
   ("itm_skill_undead_horse", 0, 0, 0, 0, 0, 0, 0),
   
   ("itm_bash_sidearm_1", 0, 0, 0, 0, 0, 0, join_mine_guild),
@@ -677,9 +752,9 @@ magic_need = [
   ("itm_skill_summon_demon", 0, 0, 0, 0, 0, 0, join_demon_guild),
   
 
-  ("itm_skill_divine_strength", 0, 0, 0, 0, 0, 0, join_order_guild),
+  #("itm_skill_divine_strength", 0, 0, 0, 0, 0, 0, join_order_guild),
   ("itm_bash_heal", 0, 0, 0, 0, 0, 0, join_order_guild),
-  ("itm_bash_mass_heal", 0, 0, 0, 0, 0, 0, join_order_guild),
+  #("itm_bash_mass_heal", 0, 0, 0, 0, 0, 0, join_order_guild),
   ("itm_skill_bane_evil", 0, 0, 0, 0, 0, 0, join_order_guild),
   ("itm_skill_bane_undead", 0, 0, 0, 0, 0, 0, join_order_guild),
   ("itm_skill_bane_outsider", 0, 0, 0, 0, 0, 0, join_order_guild),
@@ -689,15 +764,13 @@ magic_need = [
 
   ("itm_bash_shadow_blade", 0, 0, 0, 0, 0, 0, join_thief_guild),
   ("itm_bash_swift_strike", 0, 0, 0, 0, 0, 0, join_thief_guild),
-  ("itm_skill_smite_life", 0, 0, 0, 0, 0, 0, join_thief_guild),
+  ("itm_skill_smite_human", 0, 0, 0, 0, 0, 0, join_thief_guild),
   ("itm_skill_deadly_strike", 0, 0, 0, 0, 0, 0, join_thief_guild),
 
   ("itm_skill_reaper", 0, 0, 0, 0, 0, 0, join_necro_guild),
   ("itm_bash_summon_undead", 0, 0, 0, 0, 0, 0, join_necro_guild),
   ("itm_skill_mummy", 0, 0, 0, 0, 0, 0, join_necro_guild),
-  ("itm_skill_smite_human", 0, 0, 0, 0, 0, 0, join_necro_guild),
-  
-
+  ("itm_skill_smite_life", 0, 0, 0, 0, 0, 0, join_necro_guild),
   
   
   

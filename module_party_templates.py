@@ -479,24 +479,24 @@ party_templates = [
   ("khergit_lance_end", "{!}Lance", 0, 0, fac_neutral, 0, []),
   
   
-  ("orc_lance_t4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_blackorc_boss, 1, 3),(trp_troll_1, 1, 1),(trp_ogre_war, 2, 2),(trp_demon_4_2, 1, 1),(trp_orc_boar_big, 1, 2)]),
+  ("orc_lance_t4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_blackorc_boss, 1, 3),(trp_troll_1, 1, 2),(trp_ogre_war, 2, 2),(trp_demon_4_2, 1, 1),(trp_harpy_2, 2, 5)]),
 
   ("orc_lance_t3_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_veterun_blackorc, 5, 5), (trp_orc_blackorc, 10, 10)]),
-  ("orc_lance_t3_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_boar_big, 5, 5), (trp_orc_veteran_boar, 10, 10)]),
+  ("orc_lance_t3_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_harpy_2, 5, 5), (trp_orc_veteran_boar, 10, 10)]),
   ("orc_lance_t3_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_demon_4_3, 1, 5), (trp_demon_4_2, 5, 5)]),
-  ("orc_lance_t3_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_blackorc_boss, 1, 3), (trp_orc_veterun_blackorc, 10, 10)]),
-  ("orc_lance_t3_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_troll_2, 0, 1), (trp_orc_veterun_arrer, 10, 10)]),
+  ("orc_lance_t3_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_blackorc_boss, 5, 5), (trp_orc_veterun_blackorc, 10, 10)]),
+  ("orc_lance_t3_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_troll_2, 1, 1), (trp_ogre_gunner2, 10, 10)]),
   
   ("orc_lance_t2_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_big, 5, 5), (trp_orc_warrior, 15, 20)]),
   ("orc_lance_t2_2", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_veteran_boar, 5, 5), (trp_orc_boar_boy, 15, 20)]),
-  ("orc_lance_t2_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_goblin_knight, 5, 5), (trp_goblin_horseman, 15, 20)]),
+  ("orc_lance_t2_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_harpy_1, 5, 5), (trp_goblin_horseman, 15, 20)]),
   ("orc_lance_t2_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_veterun_blackorc, 5, 5), (trp_orc_blackorc, 10, 10)]),
-  ("orc_lance_t2_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_orc_arrer_boy, 5, 5), (trp_arrer_youngun, 15, 15)]),
+  ("orc_lance_t2_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_ogre_gunner, 5, 5), (trp_arrer_youngun, 15, 15)]),
 
   ("orc_lance_t1_1", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_goblin_horseman, 5, 5), (trp_orc_boy, 20, 20)]),
   ("orc_lance_t1_3", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_goblin_infantry, 10, 10), (trp_goblin_footman, 20, 20)]),
   ("orc_lance_t1_4", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_goblin_crossbowman, 10, 10), (trp_goblin_skirmisher, 20, 20)]),
-  ("orc_lance_t1_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_arrer_youngun, 5, 5), (trp_orc, 20, 20)]),
+  ("orc_lance_t1_5", "{!}Lance", 0, 0, fac_neutral, 0, [(trp_troll_1, 2, 2), (trp_orc, 20, 20)]),
 
   ("orc_lance_end", "{!}Lance", 0, 0, fac_neutral, 0, []),
   

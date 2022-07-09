@@ -3549,7 +3549,6 @@ simple_triggers = [
      (call_script, "script_update_ransom_brokers"),
      (call_script, "script_update_tavern_travellers"),
      (call_script, "script_update_tavern_minstrels"),
-     (call_script, "script_set_special_item"),
 ## CC
      (call_script, "script_update_mystic_merchant"),
 ## CC

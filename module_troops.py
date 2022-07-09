@@ -933,7 +933,7 @@ troops = [
     
   ["monk","Monk","Monk",
    tf_guarantee_all_wo_horse,0,0,fac_culture_7,
-   [itm_wooden_staff_1,itm_magic_sun_ray,
+   [itm_wooden_staff_1,itm_magic_burning_gaze,
 
     itm_priest_robe_1,itm_priest_1_boots,itm_black_hood,
 
@@ -943,7 +943,7 @@ troops = [
   ["clerics", "Clerics", "Clerics ", 
    tf_guarantee_all_wo_horse, 0, 0, fac_culture_7, 
    [
-    itm_bishop_staff,itm_magic_sun_ray,
+    itm_bishop_staff,itm_magic_burning_gaze,
 
     itm_priest_robe_2,itm_priest_robe_2,itm_priest_cap_1,
     itm_priest_2_boots,
@@ -954,7 +954,7 @@ troops = [
   ["priest", "Priest", "Priest ", 
    tf_guarantee_all, 0, 0, fac_culture_7, 
    [
-    itm_bishop_staff_2,itm_magic_sun_ray,
+    itm_bishop_staff_2,itm_magic_burning_gaze,
     itm_priest_robe_3,itm_priest_robe_3,itm_bishop_mitre,
     itm_priest_2_boots,itm_sg_yellow_small,itm_courser
    ], 
@@ -962,7 +962,7 @@ troops = [
 
   ["healer", "Healer", "Healer ", 
    tf_guarantee_all_wo_horse,0,0,fac_culture_7,
-   [itm_bishop_staff_2,itm_magic_sun_ray,
+   [itm_bishop_staff_2,itm_magic_blinding_light,
     itm_war_clerics_warhammer_cast_2,
     itm_bishop_armour,itm_bishop_great_helm,itm_wisby_gauntlets_black,itm_mail_boots,
     itm_bishop_armour,itm_bishop_great_helm,itm_wisby_gauntlets_black,itm_mail_boots,
@@ -1193,7 +1193,7 @@ troops = [
    [itm_swiss_halberd,itm_pike,itm_bastard_sword_b,itm_morningstar,itm_sword_medieval_b,itm_tab_shield_heater_c,itm_half_plates_blue,itm_plate_boots,itm_hounskull,itm_milanese_sallet,itm_milanese_gauntlets],
    def_attrib|level(25),wp(130),knows_common|knows_shield_3|knows_ironflesh_3|knows_power_strike_3|knows_magic_defence_10,west_euro_face_young_1, west_euro_face_old_2],
   ["france_castle_guard","Castle Guard","Castle Guards",tf_unmoveable_in_party_window|tf_allways_fall_dead|tf_guarantee_all_wo_horse,0,0,fac_kingdom_1,
-   [itm_war_clerics_warhammer_cast_2,itm_magic_ice_ray,itm_magic_ice_ray,itm_magic_ice_ray,itm_elf_twiligh_armor,itm_amade_bronze_greaves,itm_black_helmet_2,itm_amade_bronze_gauntlets],
+   [itm_war_clerics_warhammer_cast_2,itm_magic_soul_quench,itm_magic_wind_blast,itm_magic_burning_gaze,itm_elf_twiligh_armor,itm_amade_bronze_greaves,itm_black_helmet_2,itm_amade_bronze_gauntlets],
    horse_attrib_4|level(35),wp(300),knows_spearman_6|knows_magic_power_5|knows_magic_defence_10|knows_magic_skill_10,west_euro_face_young_1, west_euro_face_old_2],
          
   ["khergit_prison_guard","Prison Guard","Prison Guards", tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_kingdom_3,
@@ -1279,7 +1279,7 @@ troops = [
    [
     itm_enchanter_staff_1,
     
-    itm_magic_fire_ray_dummy,itm_magic_fireball_2,
+    itm_magic_fireball,itm_magic_fireball,
 
     itm_magic_robe_4,itm_leather_boots,itm_wizard_hat_4,itm_trophy_c,itm_sg_human_big],
    foot_attrib_5|level(55),wp_melee(250)|wp_firearm(300),knows_magic_8,euro_face_3, euro_face_4],
@@ -1371,7 +1371,7 @@ troops = [
    [
     itm_drow_staff_2,
     #itm_magic_summon_undead_near_ememy,
-    itm_magic_spark,
+    itm_magic_oblivion,
     itm_serpent_dagger,
     itm_xenoargh_mask_black,itm_grim_raider_armor_2,
     itm_demon_foot,itm_drow_elite_gloves,itm_trophy_c,
@@ -1380,7 +1380,7 @@ troops = [
   ["drowelf_which_2","Drow Elf Shadow Mistress","Drow Elf Shadow Mistress",
    tf_female_elf|tf_guarantee_all_wo_horse,0,0,fac_beast,
    [
-    itm_drow_staff_3,itm_magic_lightning_burst,
+    itm_drow_staff_3,itm_magic_word_of_pain,itm_magic_doom_bolt,
     
     #itm_magic_summon_demon_near_ememy,
     itm_serpent_dagger,
@@ -1841,7 +1841,7 @@ troops = [
   ["scottish_guard","Lizard Shaman","Lizard Shaman",
    tf_guarantee_all_wo_horse,0,0,fac_scotland,
    [
-      itm_magic_poison,itm_magic_entangling,
+      itm_magic_poison,
       itm_shaman_staff_2,
       itm_lizard_boot_1,itm_lizard_glove1,
       itm_lizard_shaman_helmet,itm_lizard_shaman_helmet,
@@ -2095,6 +2095,24 @@ troops = [
    ],
    def_attrib|str_40|level(40),wp(200),knows_billman_5, vaegir_face_young_1, vaegir_face_middle_2],
 
+  ["harpy_1","harpy","harpy",
+   tf_female|tf_guarantee_all_footman,0,0,fac_orc,
+   [
+    itm_sword_khergit_3,itm_fur_covered_shield,
+    itm_harpy_head_1,itm_demon_foot,
+    itm_harpy_body_1,itm_sg_orange_small
+   ], 
+   horse_attrib_3|level(30),wp_melee(200),knows_assasin_5,berber_face_1, berber_face_2],
+  ["harpy_2","Harpy_Hag","Harpy_Hag",
+   tf_female|tf_guarantee_all_footman,0,0,fac_orc,
+   [
+    itm_sword_khergit_4,itm_fur_covered_shield,
+    itm_magic_spirit_leech,itm_gold_dragon_sword,
+    itm_harpy_head_2,itm_demon_foot,
+    itm_harpy_body_2,itm_sg_orange_small
+   ], 
+   horse_attrib_3|level(30),wp_melee(200),knows_light_swordman_5,berber_face_1, berber_face_2],
+
   ["orc", "Orc", "Orcz", tf_orc|tf_randomize_face|tf_guarantee_boots, 0, 0, fac_orc, 
     [itm_club, itm_hatchet, itm_orc_boots], 
     foot_attrib_1|level(5),wp(50),knows_billman_1,
@@ -2255,7 +2273,7 @@ troops = [
    [
     itm_druid_staff_1,
     #itm_magic_summon_undead_near_ememy,
-    itm_magic_lightning,
+    itm_magic_amber_spear,
     itm_glass_sword_c,
     itm_druid_cap,itm_druid_robe_1,
     itm_mirkwood_boots,itm_trophy_c,
@@ -2264,7 +2282,7 @@ troops = [
   ["woodelf_druid_2","Wood Elf Druid Elder","Wood Elf Druid Elder",
    tf_male_elf|tf_guarantee_all_wo_horse,0,0,fac_forest_ranger,
    [
-    itm_druid_staff_2,itm_magic_lightning,
+    itm_druid_staff_2,itm_magic_amber_spear,
     #itm_magic_summon_demon_near_ememy,
     itm_sabre_2h_green,
     itm_mirkwood_helm_e,itm_druid_robe_2,
@@ -2457,7 +2475,7 @@ troops = [
    [
     itm_courtblades_ivory_1,
     itm_lorien_shield_c,
-    itm_magic_lightning,
+    itm_magic_soul_quench,
     itm_lorien_helm_e,itm_lorien_helm_d,
     itm_gold_elf_plate,itm_gold_elf_hand,
     itm_gold_elf_foot,itm_trophy_b,itm_wine
@@ -2466,7 +2484,7 @@ troops = [
   ["grandelf_mage_2","Grand Elf Dawn Blade","Grand Elf Dawn Blade",
    tf_male_elf|tf_guarantee_all_wo_horse,0,0,fac_elf,
    [
-    itm_dawnbreaker_1,itm_magic_lightning,
+    itm_dawnbreaker_1,itm_magic_soul_quench,
 
     itm_lorien_helm_f,
     itm_elf_twiligh_armor,itm_gold_elf_hand,
@@ -3057,7 +3075,7 @@ troops = [
    tf_undead|tf_no_capture_alive|tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves,0,0,fac_demon,
    [itm_lich_staff_1,itm_tomb_axe2,
     #itm_magic_summon_undead_near_ememy,
-    itm_magic_heal,
+    itm_magic_spirit_leech,
    
     #itm_mummy_staff,
     itm_tomb_king_helmet,itm_trophy_b,
@@ -3096,7 +3114,7 @@ troops = [
   ["mummy_4", "Anubis", "Anubis", 
    tf_titan|tf_no_capture_alive|tf_guarantee_ranged|tf_guarantee_all_footman, 0, 0, fac_demon, 
    [
-    itm_venom_staff_1,itm_destroyer,itm_magic_curse,
+    itm_venom_staff_1,itm_destroyer,itm_magic_spirit_leech,
     itm_demon_head,itm_demon_foot,itm_ushabti_hands,itm_trophy_c,
     itm_ushabti_body,itm_sg_black_big,itm_sg_black_big
    ], 
@@ -3129,7 +3147,7 @@ troops = [
    [
     itm_skull_staff,
     #itm_magic_summon_undead,
-    itm_magic_poison,
+    itm_magic_spirit_leech,
 
     itm_vampire_tunic,itm_leather_boots,itm_leather_gloves,itm_vampiehelm_0,itm_vampiehelm_0],
    horse_attrib_4|level(30),wp_melee(120)|wp_firearm(200),knows_vampire_2|knows_magic_3,euro_face_3, euro_face_4],
@@ -3137,14 +3155,14 @@ troops = [
  ["lich_1","Lich","Lich",
   tf_undead|tf_no_capture_alive|tf_guarantee_ranged|tf_guarantee_all_footman,0,0,fac_undeads_2,
    [itm_archlich_staff_1,
-    itm_magic_poison,
+    itm_magic_spirit_leech,
 
     itm_lich_armor,itm_gauntlets,itm_iron_greaves,itm_scull_head,itm_demon_hood,itm_sg_black_big,itm_trophy_b,itm_demon_hood],
    foot_attrib_4|level(40),wp_melee(120)|wp_firearm(250),knows_vampire_3|knows_magic_5, euro_face_4],
   ["lich_2", "Archlich", "Archlich", 
   tf_undead|tf_no_capture_alive|tf_guarantee_ranged|tf_guarantee_all_footman,0,0,fac_undeads_2,
    [itm_archlich_staff_1,
-    itm_magic_poison,
+    itm_magic_gaze_of_nagash,
 
     itm_twilight_boots,itm_twilight_gloves,itm_archlich_armor,itm_lich_helm,itm_crown,itm_velvet,itm_trophy_c,itm_sg_black_big,], 
    foot_attrib_5|level(50), wp_melee(140)|wp_firearm(300), knows_vampire_4|knows_magic_7, euro_face_3, euro_face_4 ],
@@ -3606,7 +3624,7 @@ troops = [
     itm_air_elemental_head,itm_demon_foot,itm_air_elemental_hand,
     itm_air_elemental_3,
    ],
-   horse_attrib_7|level(45),wp(250),knows_light_swordman_8,nord_face_middle_1, nord_face_older_2],
+   horse_attrib_7|level(45),wp(250),knows_light_swordman_8|knows_magic_power_4,nord_face_middle_1, nord_face_older_2],
   ["water_elemental_3","Water Elemental","Water Elemental",
    tf_beastman|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_ranged,0,0,fac_dark_knights,
    [
@@ -3641,7 +3659,7 @@ troops = [
   tf_guarantee_ranged|tf_guarantee_all_footman,0,0,fac_dark_knights,
    [
     itm_wooden_staff_1,
-    itm_magic_arrow,
+    itm_magic_searing_doom,
     
     itm_magic_robe,itm_leather_boots,itm_wizard_hat],
    foot_attrib_3|level(15),wp_melee(90)|wp_firearm (100),knows_magic_2,euro_face_3, euro_face_4],
@@ -3650,7 +3668,7 @@ troops = [
   tf_guarantee_ranged|tf_no_capture_alive|tf_guarantee_all_footman,0,0,fac_dark_knights,
    [itm_mage_staff_1,
     #itm_magic_summon_neutral_near_ememy,
-    itm_magic_arrow,
+    itm_magic_searing_doom,
     itm_horse_euro,
     itm_wizard_hat_2_1,
     itm_leather_boots,itm_magic_robe_2_1],
@@ -3661,8 +3679,8 @@ troops = [
    [
     itm_archmage_staff_1,
     
-    #itm_magic_summon_neutral_near_ememy,itm_magic_deep_freeze,
-    itm_magic_arrow,
+    #itm_magic_summon_neutral_near_ememy,
+    itm_magic_searing_doom,
     itm_hunter,
 
     itm_magic_robe_3,itm_leather_boots,itm_wizard_hat_3,itm_trophy_b,itm_sg_human_big],
@@ -3689,6 +3707,15 @@ troops = [
     itm_iron_golemgloves,itm_iron_golemhelm,itm_iron_golemarmor,itm_iron_golemboots,
    ],
    str_75|agi_5|int_4|cha_4|level(30),wp(200),knows_ironflesh_8|knows_twohand_5|knows_magic_defence_8,nord_face_middle_1, nord_face_older_2],  
+
+
+  ["dendroid","Dendroid_Guard","Dendroid_Guard",
+   tf_beastman|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves,0,0,fac_dark_knights,
+   [
+    itm_tree_trunk_invis,itm_werewolfclaw_dual_w,
+    itm_dendroid_body,
+   ],
+   str_50|agi_50|int_4|cha_4|level(35),wp(200),knows_ironflesh_10|knows_twohand_7|knows_magic_defence_6,nord_face_middle_1, nord_face_older_2],  
 
   ["golem_4","gold golem","gold golem",
    tf_beastman|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves,0,0,fac_dark_knights,
@@ -3827,7 +3854,7 @@ troops = [
   tf_guarantee_ranged|tf_no_capture_alive|tf_guarantee_all_footman,0,0,fac_beast,
    [
     #itm_magic_summon_neutral_near_ememy,itm_magic_summon_undead_near_ememy,
-    itm_magic_curse,itm_magic_ice_ray,itm_magic_poison,
+    itm_magic_spirit_leech,itm_magic_ice_ray,itm_magic_poison,
     itm_gold_dragon_sword,
     itm_beholder,itm_demon_foot,itm_demon_hand,itm_demon_head,
    ],
@@ -3857,7 +3884,7 @@ troops = [
   tf_demon_human|tf_guarantee_ranged|tf_no_capture_alive|tf_guarantee_all_footman,0,0,fac_demon,
    [
     itm_demon_staff_1,
-    itm_magic_fire_ray_dummy,
+    itm_magic_poison_dummy,
     #itm_magic_summon_demon_near_ememy,
     itm_trophy_b,
     itm_nec_robe,itm_sarranid_boots_b,itm_leather_gloves,itm_demon_hood],
@@ -4054,7 +4081,7 @@ troops = [
    tf_titan|tf_guarantee_all_footman, 0, 0, fac_demon, 
    [
     itm_undead_scythe,
-    itm_nurgle_shield_1,itm_nurgle_shield_2,itm_nurgle_mace,
+    #itm_nurgle_shield_1,itm_nurgle_shield_2,itm_nurgle_mace,
     itm_trophy_c,itm_trophy_b,
     
     itm_demon_head,itm_demon_foot,itm_nurgle_hands,
@@ -4066,7 +4093,7 @@ troops = [
    tf_titan|tf_guarantee_all_wo_horse, 0, 0, fac_demon, 
    [
     itm_balor_sword,
-    itm_magic_fire_ray_dummy,
+    itm_magic_poison_dummy,
     itm_trophy_c,itm_trophy_b,
     itm_demon_head,itm_demon_foot,itm_tzeentch_hands,
     itm_balor_body,itm_sg_purple_big
@@ -4313,7 +4340,7 @@ troops = [
   ["teutonic_pilgrim","Pilgrim","Pilgrims",
    tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet, 0,0,fac_kingdom_1,
   [ 
-    itm_wooden_staff_1,itm_magic_sun_ray,itm_magic_heal,
+    itm_wooden_staff_1,itm_magic_burning_gaze,itm_magic_earth_blood,
     itm_priest_robe_1,itm_priest_1_boots,itm_priest_cap_1,
     itm_pilgrim_hood,itm_teu_padded_cloth,
 
@@ -5299,7 +5326,7 @@ troops = [
    tf_female|tf_guarantee_all_wo_horse,0,0,fac_kingdom_8,
    [
     itm_skull_staff,
-    itm_magic_weakness,
+    itm_magic_shadow_bolt,
     itm_wizard_hat_2_2,itm_witch_robe_1,
     itm_leather_boots,itm_trophy_b,
    ],
@@ -5308,7 +5335,7 @@ troops = [
    tf_female|tf_guarantee_all_wo_horse,0,0,fac_kingdom_8,
    [
     itm_gold_dragon_sword,
-    itm_magic_weakness,
+    itm_magic_shadow_bolt,
     itm_toumingtou,
     itm_witch_robe_3,itm_witch_robe_4,itm_witch_robe_4,
     itm_imp_foot,itm_daemonette_claws,itm_trophy_c,
@@ -6072,7 +6099,7 @@ troops = [
   ["grey_knight_inquisitor", "Grey Knight Inquisitor", "Grey Knight Inquisitor", 
   tf_guarantee_all, 0, 0, fac_kingdom_7, 
   [
-   itm_grey_knight_staff,itm_grey_knight_staff,itm_magic_spark,
+   itm_grey_knight_staff,itm_grey_knight_staff,itm_magic_wind_blast,
    itm_grey_knight_plate,itm_grey_knight_plate,itm_trophy_b,
    itm_grey_knight_foot,itm_grey_knight_foot,
    itm_grey_knight_head,itm_grey_knight_head,
@@ -6732,7 +6759,7 @@ troops = [
   tf_undead|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_undeads_2,
    [
     itm_lich_helm,itm_crown,itm_scull_head,itm_demon_hood,
-    itm_archlich_staff_1,itm_skull_staff,itm_magic_curse,itm_magic_summon_undead,
+    itm_archlich_staff_1,itm_skull_staff,itm_magic_spirit_leech,itm_magic_summon_undead,
     itm_lich_armor,itm_archlich_armor,itm_tabard,itm_vampire_tunic,
     itm_iron_greaves,itm_twilight_boots,itm_splinted_leather_greaves,
    ],
@@ -7179,7 +7206,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["custom_cannon_man","Personal cannon_man","Personal cannon_men",tf_guarantee_all,0,0,fac_neutral,[],def_attrib_nobel_low|level(60),wp_one_handed(90)|wp_two_handed(90)|wp_polearm(90)|wp_firearm(220),knows_ironflesh_10|knows_physique_6|knows_power_strike_6|knows_magic_power_5|knows_magic_defence_5|knows_magic_skill_10,mercenary_face_1,mercenary_face_2],
 ["custom_cannon_man_equip","{!}na","{!}nas",tf_hero|tf_inactive,0,0,fac_neutral,[itm_cartridges_cannon,itm_hand_cannon,itm_bnw_armour_green,itm_sturmhaube_bnw1,itm_bnw_armour,itm_combed_morion,itm_splinted_leather_greaves,itm_sword_medieval_c],def_attrib|level(1),wp(60),knows_common,0],
 ["custom_cannon_man_selection", "{!}na","{!}nas", tf_hero|tf_inactive, no_scene, reserved, fac_neutral, 
- [itm_cartridges_thrust,itm_cartridges_cannon,itm_cartridges_burst,itm_hand_cannon,itm_bnw_armour_green,itm_sturmhaube_bnw1,itm_bnw_armour,itm_combed_morion,itm_splinted_leather_greaves,itm_sword_medieval_c,itm_half_plates_blue,itm_half_plates_red,itm_half_plates,itm_half_plates,itm_steel_greaves,itm_musket_rifle,itm_wooden_staff_1,itm_magic_ice_ray,itm_magic_sun_ray,itm_magic_arrow], 
+ [itm_cartridges_thrust,itm_cartridges_cannon,itm_cartridges_burst,itm_hand_cannon,itm_bnw_armour_green,itm_sturmhaube_bnw1,itm_bnw_armour,itm_combed_morion,itm_splinted_leather_greaves,itm_sword_medieval_c,itm_half_plates_blue,itm_half_plates_red,itm_half_plates,itm_half_plates,itm_steel_greaves,itm_musket_rifle,itm_wooden_staff_1,itm_magic_ice_ray,itm_magic_burning_gaze,itm_magic_searing_doom], 
  def_attrib|level(1), wp(60), knows_common|knows_inventory_management_10, 0 ],
 
 
@@ -7283,14 +7310,14 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 # Tavern traveler.
   ["tavern_traveler_1","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_pilgrim_disguise, itm_pilgrim_hood, itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   ["tavern_traveler_2","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_ranger_armor1,itm_hood_c,itm_bamboo_arrows,itm_long_bow,itm_wrapping_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
-  ["tavern_traveler_3","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_wizard_hat,itm_wooden_staff_1,itm_magic_arrow,itm_magic_robe,itm_leather_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+  ["tavern_traveler_3","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_wizard_hat,itm_wooden_staff_1,itm_magic_searing_doom,itm_magic_robe,itm_leather_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
         
   ["tavern_traveler_4","Traveller","Traveller",tf_male_elf|tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_war_bow,itm_elven_arrows,itm_lorien_armor_a,itm_lorien_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   
   
   ["tavern_traveler_5","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_highlander_hat1_1,itm_highlander_armor4_1,itm_highlander_boot1_1],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   ["tavern_traveler_6","Traveller","Traveller",tf_female|tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_lady_dress_blue,itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,refugee_face1,refugee_face2],
-  ["tavern_traveler_7","Traveller","Traveller",tf_vampire|tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_skull_staff,itm_magic_curse,itm_vampire_tunic,itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+  ["tavern_traveler_7","Traveller","Traveller",tf_vampire|tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_skull_staff,itm_magic_spirit_leech,itm_vampire_tunic,itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   ["tavern_traveler_8","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_armor7,itm_assasin_hood_2,itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   ["tavern_traveler_9","Traveller","Traveller",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_kaftan,itm_cossack_hat_c,itm_rus_shoes],horse_attrib_2|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
   ["tavern_traveler_10","Traveller","Traveller",tf_female|tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_valkyrie_helm_1,itm_valkyrie_armor_1,itm_tab_shield_round_c,itm_nordhero_sword_long,itm_nord_throwing_spears,itm_hide_boots],horse_attrib_2|level(5),wp(20),knows_common,refugee_face1,refugee_face2],
@@ -7361,10 +7388,10 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["npc19","Boadicea, Battle Maiden","Boadicea",tf_female_elf|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_drow_elite_armor, itm_drow_hood_elite, itm_drow_elite_gloves, itm_drow_elite_boots, itm_soul_stealer, itm_drow_basilisk, itm_drow_lance, itm_drow_shield],str_21|agi_20|int_15|cha_25|level(42),wp(400),knight_skills_5|knows_riding_7|knows_assasin_5|knows_leadership_9|knows_tactics_6|knows_power_strike_6|knows_ironflesh_6|knows_pathfinding_5|knows_prisoner_management_5|knows_magic_defence_8,0x000000072500000536db6db6db6db6db00000000001db6db0000000000000000],
 
 ["npc20","Karn, the Silver Knight","Karn",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_plate_armor, itm_gauntlets, itm_iron_greaves, itm_great_lance,itm_sword_medieval_d_long, itm_dawnbreaker,itm_warhorse_teuton],horse_attrib_4|level(30),wp(250),knight_skills_3|knows_twohand_6|knows_magic_defence_10,0x00000001bf002008399d6db6db4996da00000000001d54d30000000000000000],
-["npc21","Ostanes","Ostanes",tf_undead|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_mages_shade,itm_pilgrim_disguise, itm_leather_boots, itm_lich_staff_1,itm_magic_curse],str_16|agi_4|int_30|cha_30|level(50),wp(150)|wp_firearm(250),   knows_tracker_npc|knows_magic_power_10|knows_magic_defence_10|knows_magic_7|knows_necromancy_8|knows_undead_master_10|knows_wound_treatment_10|knows_first_aid_10|knows_riding_3|knows_magic_skill_15,0x0000000fc00060074f8ba62a9cd5d36d00000000001e36250000000000000000],
+["npc21","Ostanes","Ostanes",tf_undead|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_mages_shade,itm_pilgrim_disguise, itm_leather_boots, itm_lich_staff_1,itm_magic_spirit_leech],str_16|agi_4|int_30|cha_30|level(50),wp(150)|wp_firearm(250),   knows_tracker_npc|knows_magic_power_10|knows_magic_defence_10|knows_magic_7|knows_necromancy_8|knows_undead_master_10|knows_wound_treatment_10|knows_first_aid_10|knows_riding_3|knows_magic_skill_15,0x0000000fc00060074f8ba62a9cd5d36d00000000001e36250000000000000000],
 ["npc22","Agustina, Battle Maiden","Agustina",tf_female|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_half_plates, itm_milanese_gauntlets,itm_combed_morion, itm_steel_greaves, itm_sword_medieval_d_long, itm_charger, itm_hand_cannon, itm_cartridges_cannon_2, itm_cartridges_cannon],str_20|agi_20|int_15|cha_25|level(41),wp(200)|wp_firearm(250),knight_skills_5|knows_ironflesh_6|knows_trainer_4|knows_stealth_4|knows_undead_master_5|knows_horse_archery_5,0x00000001800000150000000000000e0000000000000000000000000000000000],
 ["npc23","Joan, War Maiden","Joan",tf_female|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_knight_plate, itm_french_helm_closed, itm_hourglass_gauntlets, itm_iron_greaves2,itm_great_lance2, itm_skycutter, itm_charger_noble, itm_steel_shield],str_30|agi_20|int_25|cha_30|level(50),wp(300),knight_skills_5|knows_magic_defence_10|knows_weapon_master_10|knows_riding_8|knows_physique_6|knows_leadership_10|knows_tactics_7|knows_power_strike_9|knows_ironflesh_9|knows_trainer_5|knows_prisoner_management_4|knows_pathfinding_3|knows_necromancy_6,0x00000001800000110000000000000e0000000000000000000000000000000000],
-["npc24","Xin Tian","Xin Tian",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_robe, itm_leather_boots, itm_sword_viking_2_small, itm_thunder_staff_1, itm_magic_fire_ray_dummy],str_16|agi_4|int_30|cha_4|level(50),wp(100)|wp_firearm(250),   knows_magic_power_9|knows_magic_defence_9|knows_tracker_npc|knows_ironflesh_5|knows_physique_1|knows_tactics_10|knows_engineer_10|knows_riding_3|knows_magic_skill_10,0x00000003ff001388241f8dca2bc596d400000000001e36fa0000000000000000],
+["npc24","Xin Tian","Xin Tian",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_robe, itm_leather_boots, itm_sword_viking_2_small, itm_thunder_staff_1, itm_magic_poison_dummy],str_16|agi_4|int_30|cha_4|level(50),wp(100)|wp_firearm(250),   knows_magic_power_9|knows_magic_defence_9|knows_tracker_npc|knows_ironflesh_5|knows_physique_1|knows_tactics_10|knows_engineer_10|knows_riding_3|knows_magic_skill_10,0x00000003ff001388241f8dca2bc596d400000000001e36fa0000000000000000],
 #["npc25","Bhagwandas","Bhagwandas",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_rich_outfit, itm_leather_boots,],str_4|agi_4|int_30|cha_4|level(50),wp(30),   knows_merchant_npc|knows_ironflesh_1|knows_physique_1|knows_trade_10|knows_looting_10|knows_riding_3,0x000000048000759437df6dc8e378b6db00000000001db6c30000000000000000],
 
 
@@ -7374,7 +7401,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 #governers olgrel rasevas                                                                        Horse          Bodywear                Footwear_in                     Footwear_out                    Armor                       Weapon                  Shield                  Headwaer
 ["kingdom_1_lord",  "King Harlaus",  "Harlaus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_armor_griffin,   itm_rich_outfit,        itm_blue_hose,                  itm_iron_greaves2,               itm_gondor_lord_armor, itm_gondor_gauntlets,    itm_swiftness_sword,itm_great_lance2,      itm_lordaeron,       itm_horned_great_helmet_2],          king_attrib,wp(450),king_skills|knows_trainer_5, 0x0000000f45041105241acd2b5a66a86900000000001e98310000000000000000,0x0000000fc00062c76ddcdf7feefbffff00000000001efdbc0000000000000000],
-["kingdom_2_lord",  "King Yaroglek",  "Yaroglek",  tf_hero, 0,reserved,  fac_kingdom_2,[    itm_courtly_outfit,      itm_leather_boots,              itm_mages_shade,itm_archlich_armor,itm_twilight_gloves, itm_leather_boots, itm_archlich_staff_1,itm_magic_curse],    king_attrib,wp(450),king_skills|knows_trainer_4|knows_magic_power_10|knows_magic_defence_10|knows_magic_7|knows_necromancy_8|knows_undead_master_10|knows_wound_treatment_10|knows_first_aid_10|knows_magic_skill_15, 0x0000000fc00060074f8ba62a9cd5d36d00000000001e36250000000000000000, vaegir_face_old_2],
+["kingdom_2_lord",  "King Yaroglek",  "Yaroglek",  tf_hero, 0,reserved,  fac_kingdom_2,[    itm_courtly_outfit,      itm_leather_boots,              itm_mages_shade,itm_archlich_armor,itm_twilight_gloves, itm_leather_boots, itm_archlich_staff_1,itm_magic_spirit_leech],    king_attrib,wp(450),king_skills|knows_trainer_4|knows_magic_power_10|knows_magic_defence_10|knows_magic_7|knows_necromancy_8|knows_undead_master_10|knows_wound_treatment_10|knows_first_aid_10|knows_magic_skill_15, 0x0000000fc00060074f8ba62a9cd5d36d00000000001e36250000000000000000, vaegir_face_old_2],
 
 
 
@@ -7384,7 +7411,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 
 ## CC
-["kingdom_5_lord",  "King Graveth",  "Graveth",  tf_hero|tf_vampire, 0,reserved,  fac_kingdom_5,[itm_charger_noble,  itm_vampire_tunic,             itm_leather_boots,              itm_twilight_boots,   itm_archlich_armor,  itm_twilight_gloves, itm_ebony_blade,         itm_magic_curse,itm_archlich_staff_1, itm_crown],         king_attrib,wp(450),knows_magic_power_9|king_skills|knows_trainer_5, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000, rhodok_face_old_2],
+["kingdom_5_lord",  "King Graveth",  "Graveth",  tf_hero|tf_vampire, 0,reserved,  fac_kingdom_5,[itm_charger_noble,  itm_vampire_tunic,             itm_leather_boots,              itm_twilight_boots,   itm_archlich_armor,  itm_twilight_gloves, itm_ebony_blade,         itm_magic_spirit_leech,itm_archlich_staff_1, itm_crown],         king_attrib,wp(450),knows_magic_power_9|king_skills|knows_trainer_5, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000, rhodok_face_old_2],
 
 ["kingdom_6_lord",  "Sultan Hakim",  "Hakim",  tf_ogre|tf_hero, 0,reserved,  fac_kingdom_6,[itm_gorgon_2,     itm_ogre_armor,          itm_ogre_boots_02,       itm_ogre_barbar_helm,        itm_slaughter_axe,itm_nord_javelin,    itm_vanguard_shield],         king_attrib,wp(450),king_skills|knows_trainer_5, 0x0000000a4b103354189c71d6d386e8ac00000000001e24eb0000000000000000, rhodok_face_old_2],
 
@@ -7394,7 +7421,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 ["kingdom_7_lord",  "King Harlaus",  "Harlaus",  tf_hero, 0,reserved,  fac_kingdom_7,[itm_armor_demi_griffin,   itm_rich_outfit,        itm_blue_hose,                  itm_maximilian_greaves,               itm_maximilian_plate, itm_maximilian_gauntlets,    itm_gothic_lance, itm_angel_blade,      itm_lordaeron,       itm_new_sallet],          king_attrib,wp(450),king_skills|knows_trainer_5, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000,swadian_face_older_2],
 ["kingdom_8_lord",  "King Yaroglek",  "Yaroglek",  tf_hero, 0,reserved,  fac_kingdom_8,[itm_vaegir_charger,    itm_courtly_outfit,      itm_leather_boots,              itm_drow_plate_foot,              itm_dragon_heart_plate, itm_drow_plate_hand,      itm_blinding_sand,itm_serpent_sword,      itm_dragon_shield,      itm_litchina_helm],    king_attrib,wp(450),king_skills|knows_trainer_4, 0x0000000ec50001400a2269f919dee11700000000001cc57d0000000000000000, 0x0000000cbf00230c4deeffffffffffff00000000001efff90000000000000000],
-["kingdom_9_lord",  "Sanjar Khan",  "Sanjar",  tf_hero, 0,reserved,  fac_kingdom_9,[itm_hell_nightmare,   itm_nomad_robe,             itm_leather_boots,              itm_demon_knight_leg,           itm_demon_knight_plate,  itm_demon_knight_hand,     itm_zamorak,itm_balor_sword,itm_magic_fire_ray_dummy,              itm_demon_knight_shield,       itm_demon_knight_head],      king_attrib,wp(450),king_skills|knows_trainer_6, 0x000000050b003004072d51c293a9a70b00000000001dd6a90000000000000000,khergit_face_old_2],
+["kingdom_9_lord",  "Sanjar Khan",  "Sanjar",  tf_hero, 0,reserved,  fac_kingdom_9,[itm_hell_nightmare,   itm_nomad_robe,             itm_leather_boots,              itm_demon_knight_leg,           itm_demon_knight_plate,  itm_demon_knight_hand,     itm_zamorak,itm_balor_sword,itm_magic_poison_dummy,              itm_demon_knight_shield,       itm_demon_knight_head],      king_attrib,wp(450),king_skills|knows_trainer_6, 0x000000050b003004072d51c293a9a70b00000000001dd6a90000000000000000,khergit_face_old_2],
 
 ["kingdom_10_lord",  "King Ragnar",  "Ragnar",  tf_hero, 0,reserved,  fac_kingdom_10,[itm_nord_warhorse,    itm_nobleman_outfit,    itm_leather_boots,              itm_plate_boots,                 itm_gothic_plate_2,  itm_gauntlets,    itm_throwing_gungnir,itm_frostfang, itm_dragon_shield,    itm_winged_great_helmet_ger],            king_attrib,wp(450),king_skills|knows_trainer_7, 0x00000006f00026863bbd61d693e0758300000000001c6ce60000000000000000, nord_face_older_2],
 ## CC
@@ -7432,7 +7459,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 #Older knights with higher skills moved to top
 ["knight_1_1", "Count Klargus", "Klargus", tf_hero, 0, reserved,  fac_kingdom_1, [itm_armor_demi_griffin,      itm_courtly_outfit,      itm_knight_plate_4,   itm_woolen_hose, itm_iron_greaves2,       itm_winged_great_helmet_blue,           itm_gondor_citadel_sword,itm_great_lance2,  itm_gondor_gauntlets,         itm_gondor_shield_e],   knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3, 0x0000000c3e08601414ab4dc6e39296b200000000001e231b0000000000000000, swadian_face_older_2],
 
-["knight_1_2", "Count Delinard", "Delinard", tf_hero, 0, reserved,  fac_kingdom_1, [           itm_red_gambeson,      itm_empire_priest,               itm_woolen_hose,            itm_iron_greaves,                    itm_french_helm_3,  itm_gondor_gauntlets,        itm_war_clerics_warhammer_cast_2,itm_magic_heal    ],       knight_attrib_5,wp(400),knight_skills_5|knows_magic_defence_5|knows_magic_power_4, 0x0000000c0f08000458739a9a1476199800000000001fb6f10000000000000000, swadian_face_young_2],
+["knight_1_2", "Count Delinard", "Delinard", tf_hero, 0, reserved,  fac_kingdom_1, [           itm_red_gambeson,      itm_empire_priest,               itm_woolen_hose,            itm_iron_greaves,                    itm_french_helm_3,  itm_gondor_gauntlets,        itm_war_clerics_warhammer_cast_2,itm_magic_earth_blood    ],       knight_attrib_5,wp(400),knight_skills_5|knows_magic_defence_5|knows_magic_power_4, 0x0000000c0f08000458739a9a1476199800000000001fb6f10000000000000000, swadian_face_young_2],
 
 ["knight_1_3", "Count Haringoth", "Haringoth", tf_hero, 0, reserved,  fac_kingdom_1, [itm_armor_griffin,          itm_nobleman_outfit,     itm_white_twiligh_armor,                 itm_leather_boots,          itm_steel_greaves,        itm_black_helmet2, itm_gondor_gauntlets, itm_mjolnir, itm_great_lance2,itm_gondor_shield_e,  ],  knight_attrib_5,wp(300),knight_skills_5|knows_trainer_3, 0x0000000c0610351048e325361d7236cd00000000001d532a0000000000000000, swadian_face_young_2],
 
@@ -7535,7 +7562,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["knight_3_15", "Tansugai Noyan", "Tansugai", tf_hero, 0, reserved,  fac_kingdom_3, [itm_warhorse_steppe,   itm_ragged_outfit, itm_lamellar_vest_black, itm_hide_boots, itm_rus_cav_boots,  itm_khergit_cavalry_helmet, itm_sword_khergit_4, itm_khergit_sword_two_handed_b, itm_tab_shield_small_round_c],  knight_attrib_5,wp(300),knight_skills_5|knows_trainer_4|knows_power_draw_4, 0x0000000c360c524b6454465b59b9d93500000000001ea4860000000000000000, khergit_face_older_2],
 
 ["knight_3_16", "Tirida Noyan","Tirida", tf_hero|tf_vampire, 0, reserved,  fac_kingdom_3, [itm_nightmare_armor, itm_nazgul_robes,  itm_death_body,  itm_khergit_leather_boots,  itm_black_knight_foot,  itm_nazgul_hood_2, itm_black_knight_hand, itm_ebony_long_mace,  itm_drow_shield_rider,  itm_black_bow,  itm_flame_arrows],  knight_attrib_4,wp(300),knight_skills_5|knows_magic_power_4|knows_power_draw_4, 0x0000000c350c418438ab85b75c61b8d300000000001d21530000000000000000, khergit_face_middle_2],
-["knight_3_17", "Ulusamai Noyan", "Ulusamai", tf_hero|tf_vampire, 0, reserved,  fac_kingdom_3, [itm_nightmare_armor,  itm_nazgul_robes, itm_twiligh_armor, itm_khergit_leather_boots, itm_black_knight_foot, itm_nazgul_hood_2, itm_black_knight_hand,   itm_ebony_axe, itm_archlich_staff_1,itm_magic_curse],  knight_attrib_4,wp(300),knight_skills_5|knows_magic_power_4|knows_necromancy_4, 0x0000000c3c0821c647264ab6e68dc4d500000000001e42590000000000000000, khergit_face_old_2],
+["knight_3_17", "Ulusamai Noyan", "Ulusamai", tf_hero|tf_vampire, 0, reserved,  fac_kingdom_3, [itm_nightmare_armor,  itm_nazgul_robes, itm_twiligh_armor, itm_khergit_leather_boots, itm_black_knight_foot, itm_nazgul_hood_2, itm_black_knight_hand,   itm_ebony_axe, itm_archlich_staff_1,itm_magic_spirit_leech],  knight_attrib_4,wp(300),knight_skills_5|knows_magic_power_4|knows_necromancy_4, 0x0000000c3c0821c647264ab6e68dc4d500000000001e42590000000000000000, khergit_face_old_2],
 ["knight_3_18", "Karaban Noyan", "Karaban", tf_hero|tf_vampire, 0, reserved,  fac_kingdom_3, [itm_nightmare_armor,   itm_nazgul_robes, itm_death_body, itm_khergit_leather_boots, itm_black_knight_foot,  itm_nazgul_hood_2, itm_black_knight_hand,   itm_ebony_scimitar_2,itm_ebony_scimitar_long_3, itm_drow_shield_rider, itm_khergit_lance,  ],   knight_attrib_4,wp(300),knight_skills_5|knows_trainer_4|knows_riding_4, 0x0000000c0810500347ae7acd0d3ad74a00000000001e289a0000000000000000, khergit_face_older_2],
 ["knight_3_19", "Akadan Noyan","Akadan", tf_hero, 0, reserved,  fac_kingdom_3, [itm_khergit_war_horse,   itm_nomad_robe, itm_khergit_guard_armor, itm_leather_boots, itm_khergit_guard_boots,  itm_khergit_guard_helmet, itm_lamellar_gauntlets, itm_khergit_lance, itm_sword_khergit_7, itm_dec_steel_shield],  knight_attrib_4,wp(300),knight_skills_4|knows_trainer_5|knows_power_draw_4, 0x0000000c1500510528f50d52d20b152300000000001d66db0000000000000000, khergit_face_older_2],
 ["knight_3_20", "Dundush Noyan","Dundush", tf_hero, 0, reserved,  fac_kingdom_3, [itm_khergit_war_horse, itm_lamellar_vest, itm_khergit_guard_armor, itm_hide_boots, itm_khergit_guard_boots, itm_khergit_guard_helmet, itm_scale_gauntlets, itm_khergit_sword_two_handed_a,  itm_khergit_lance, itm_khergit_long_bow, itm_demon_arrow],  knight_attrib_5,wp(300),knight_skills_5|knows_power_draw_8, 0x0000000f7800620d66b76edd5cd5eb6e00000000001f691e0000000000000000, khergit_face_older_2],
@@ -7647,7 +7674,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
   0x0000000c3e08601414ab4dc6e39296b200000000001e231b0000000000000000, swadian_face_older_2],
   
  ["knight_7_2", "Count Athalwolf", "Athalwolf", tf_hero, 0, reserved, fac_kingdom_7, 
- [itm_armor_demi_griffin, itm_red_gambeson, itm_enchanter_robe, itm_woolen_hose, itm_leather_boots, itm_wizard_hat_4, itm_hourglass_gauntlets, itm_magic_shrapmetal,itm_enchanter_staff_1,itm_magic_shrapmetal,], 
+ [itm_armor_demi_griffin, itm_red_gambeson, itm_enchanter_robe, itm_woolen_hose, itm_leather_boots, itm_wizard_hat_4, itm_hourglass_gauntlets, itm_magic_searing_doom,itm_enchanter_staff_1,itm_magic_searing_doom,], 
  knight_attrib_5,wp(300),knight_skills_5|knows_magic_power_8|knows_magic_defence_6|knows_necromancy_4, 
  0x0000000c0f0c320627627238dcd6599400000000001c573d0000000000000000, swadian_face_young_2],
  
@@ -7655,7 +7682,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 [ itm_nobleman_outfit, itm_grey_knight_plate, itm_leather_boots, itm_grey_knight_foot, itm_grey_knight_head, itm_grey_knight_hand, itm_grey_knight_poleaxe,itm_grey_knight_sword, itm_grey_knight_shield], knight_attrib_5|knows_weapon_master_8|knows_magic_power_8|knows_magic_defence_10,wp(300),knight_skills_5|knows_trainer_3, 0x0000000cb700210214ce89db276aa2f400000000001d36730000000000000000, swadian_face_young_2],
         
  ["knight_7_4", "Count Gottfied", "Gottfied", tf_hero, 0, reserved, fac_kingdom_7, 
-[itm_armor_demi_griffin, itm_short_tunic, itm_empire_priest, itm_leather_boots, itm_iron_greaves, itm_bishop_mitre, itm_hourglass_gauntlets, itm_war_clerics_warhammer_cast_2, itm_war_clerics_warhammer_2, itm_magic_sun_ray, itm_magic_sun_ray], knight_attrib_5,wp(300),knight_skills_5|knows_trainer_4|knows_magic_power_6|knows_magic_defence_10|knows_necromancy_4, 0x0000000c370c1194546469ca6c4e450e00000000001ebac40000000000000000, swadian_face_older_2],
+[itm_armor_demi_griffin, itm_short_tunic, itm_empire_priest, itm_leather_boots, itm_iron_greaves, itm_bishop_mitre, itm_hourglass_gauntlets, itm_war_clerics_warhammer_cast_2, itm_war_clerics_warhammer_2, itm_magic_burning_gaze, itm_magic_burning_gaze], knight_attrib_5,wp(300),knight_skills_5|knows_trainer_4|knows_magic_power_6|knows_magic_defence_10|knows_necromancy_4, 0x0000000c370c1194546469ca6c4e450e00000000001ebac40000000000000000, swadian_face_older_2],
     
  ["knight_7_5", "Count Sigismund", "Sigismund", tf_hero, 0, reserved, fac_kingdom_7, 
 [itm_armor_demi_griffin, itm_rich_outfit, itm_bane_blade_plate,itm_woolen_hose, itm_bane_blade_foot, itm_sallet_beret_plumes_red, itm_bane_blade_hand, itm_flamberge_fire,itm_morningstar2,itm_gothic_lance, itm_grey_knight_shield], knight_attrib_4,wp(300),knight_skills_4|knows_trainer_6, 0x0000000c0c1064864ba34e2ae291992b00000000001da8720000000000000000, swadian_face_older_2],
@@ -7679,7 +7706,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 [itm_charger_german, itm_red_gambeson, itm_knight_plate_5, itm_woolen_hose, itm_iron_greaves, itm_winged_great_helmet_ger, itm_hourglass_gauntlets, itm_bastard_sword_a,itm_great_lance, itm_tab_shield_heater_cav_b], knight_attrib_3,wp(300),knight_skills_3, 0x0000000c03104490280a8cb2a24196ab00000000001eb4dc0000000000000000, swadian_face_older_2],
   
  ["knight_7_12", "Count Ulrich", "Ulrich", tf_hero, 0, reserved, fac_kingdom_7, 
-[itm_charger_german, itm_rich_outfit, itm_empire_priest, itm_woolen_hose, itm_iron_greaves, itm_bishop_great_helm, itm_hourglass_gauntlets, itm_war_clerics_warhammer_cast_2,itm_magic_sun_ray,itm_magic_sun_ray, itm_shield_heater_c], knight_attrib_3|knows_magic_power_5,wp(300),knight_skills_3, 0x0000000c2a0805442b2c6cc98c8dbaac00000000001d389b0000000000000000, swadian_face_older_2],
+[itm_charger_german, itm_rich_outfit, itm_empire_priest, itm_woolen_hose, itm_iron_greaves, itm_bishop_great_helm, itm_hourglass_gauntlets, itm_war_clerics_warhammer_cast_2,itm_magic_burning_gaze,itm_magic_burning_gaze, itm_shield_heater_c], knight_attrib_3|knows_magic_power_5,wp(300),knight_skills_3, 0x0000000c2a0805442b2c6cc98c8dbaac00000000001d389b0000000000000000, swadian_face_older_2],
     
  ["knight_7_13", "Count Hugo", "Hugo", tf_hero, 0, reserved, fac_kingdom_7, 
 [itm_warhorse_german, itm_ragged_outfit, itm_bnw_armour_german, itm_woolen_hose, itm_bnw_gauntlets, itm_sturmhaube_bnw4, itm_bnw_splinted_greaves, itm_bastard_sword_f, itm_gothic_lance, itm_reitern_pistol_4s,itm_cartridges_burst], knight_attrib_2,wp(300),knight_skills_2|knows_horse_archery_8|knows_stealth_6, 0x0000000c380c30c2392a8e5322a5392c00000000001e5c620000000000000000, swadian_face_older_2],
@@ -7743,7 +7770,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["knight_8_18", "Boyar Valishin", "Valishin", tf_female_elf|tf_hero, 0, reserved,  fac_kingdom_8, [itm_drow_basilisk_2,            itm_nomad_robe,             itm_ebony_male_plate,                     itm_woolen_hose,            itm_drow_plate_foot,                   itm_ebony_male_head,  itm_drow_plate_hand,      itm_drow_lance, itm_ebony_scimitar_2,   itm_drow_shield_rider],    knight_attrib_3,wp(450),knight_skills_3, 0x0000000fff0800042a6972b923522b1300000000001d67260000000000000000,mirkwood_elf_face_2],
 
 
-["knight_8_19", "Boyar Rudin", "Rudin", tf_female_elf|tf_hero, 0, reserved,  fac_kingdom_8, [itm_drow_basilisk,      itm_rich_outfit,        itm_mistress_armor,                     itm_rus_shoes,          itm_demon_foot,                   itm_xenoargh_mask_black, itm_drow_elite_gloves,         itm_drow_staff_3,  itm_serpent_dagger,itm_magic_fire_ray_dummy, itm_magic_fire_ray_dummy],    knight_attrib_4,wp(300),knight_skills_4|knows_trainer_10|knows_magic_power_15|knows_magic_defence_8|knows_necromancy_10|knows_magic_skill_10, 0x000000020200000126ed6e47238dc94d00000000001d36eb0000000000000000,mirkwood_elf_face_2],
+["knight_8_19", "Boyar Rudin", "Rudin", tf_female_elf|tf_hero, 0, reserved,  fac_kingdom_8, [itm_drow_basilisk,      itm_rich_outfit,        itm_mistress_armor,                     itm_rus_shoes,          itm_demon_foot,                   itm_xenoargh_mask_black, itm_drow_elite_gloves,         itm_drow_staff_3,  itm_serpent_dagger,itm_magic_poison_dummy, itm_magic_fire_ray_dummy],    knight_attrib_4,wp(300),knight_skills_4|knows_trainer_10|knows_magic_power_15|knows_magic_defence_8|knows_necromancy_10|knows_magic_skill_10, 0x000000020200000126ed6e47238dc94d00000000001d36eb0000000000000000,mirkwood_elf_face_2],
 
 
 ["knight_8_20", "Boyar Kumipa", "Kumipa", tf_female_elf|tf_hero, 0, reserved,  fac_kingdom_8, [itm_drow_basilisk_2,          itm_kuyak,        itm_drow_plate,               itm_woolen_hose,            itm_drow_plate_foot,                      itm_ebony_male_head,  itm_drow_plate_hand,      itm_drow_lance, itm_ebony_scimitar_2,   itm_drow_shield_rider],      knight_attrib_5,wp(450),knight_skills_5|knows_trainer_10|knows_magic_defence_10, 0x000000009610000d6a9aad47286e74a90000000000125a8b0000000000000000,mirkwood_elf_face_2],
@@ -7773,7 +7800,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["knight_9_13", "Emir Amdar", "Amdar", tf_demon_human|tf_hero, 0, reserved,  fac_kingdom_9, [itm_nightmare,     itm_rhun_armor_9,       itm_chaos_leg_3,      itm_sarranid_boots_c,  itm_rhun_helm_9,   itm_chaos_gauntlets,     itm_demon_sword_3,itm_chaos_sword4,  itm_chaos_chosen_shield],    knight_attrib_3,wp(300),knight_skills_3, 0x00000000001021435b734d4ad94eba9400000000001eb8eb0000000000000000, rhodok_face_older_2],
 ["knight_9_14", "Emir Hiwan", "Hiwan", tf_hero, 0, reserved,  fac_kingdom_9, [itm_warhorse_sarranid,     itm_rhun_armor_9,       itm_sarranid_boots_c,      itm_chaos_leg_3,    itm_rhun_helm_9, itm_mark_chaos,  itm_chaos_sword4,    itm_chaos_chosen_shield],    knight_attrib_4,wp(300),knight_skills_4, 0x000000000c0c45c63a5b921ac22db8e200000000001cca530000000000000000, rhodok_face_older_2],
 
-["knight_9_15", "Emir Muhnir", "Muhnir", tf_demon_human|tf_hero, 0, reserved,  fac_kingdom_9, [itm_nightmare,     itm_demon_knight_plate,       itm_sarranid_boots_c,    itm_demon_knight_hand, itm_demon_knight_leg,    itm_demon_knight_head,  itm_balor_sword,itm_magic_fire_ray_dummy,itm_magic_fire_ray_dummy,  itm_demon_knight_shield], knight_attrib_5,wp(300),knight_skills_5, 0x000000001b0c4185369a6938cecde95600000000001f25210000000000000000, rhodok_face_older_2],
+["knight_9_15", "Emir Muhnir", "Muhnir", tf_demon_human|tf_hero, 0, reserved,  fac_kingdom_9, [itm_nightmare,     itm_demon_knight_plate,       itm_sarranid_boots_c,    itm_demon_knight_hand, itm_demon_knight_leg,    itm_demon_knight_head,  itm_balor_sword,itm_magic_poison_dummy,itm_magic_fire_ray_dummy,  itm_demon_knight_shield], knight_attrib_5,wp(300),knight_skills_5, 0x000000001b0c4185369a6938cecde95600000000001f25210000000000000000, rhodok_face_older_2],
 
 ["knight_9_16", "Emir Ayyam", "Ayyam", tf_hero, 0, reserved,  fac_kingdom_9, [itm_arabian_horse_a,    itm_rhun_armor_7,             itm_sarranid_boots_c,      itm_chaos_leg_2,    itm_rhun_helm_7, itm_leather_gloves,  itm_khergit_lance,    itm_chaos_sword4,   itm_chaos_warrior_shield],    knight_attrib_1,wp(300),knight_skills_1, 0x00000007770841c80a01e1c5eb51ffff00000000001f12d80000000000000000, rhodok_face_middle_2],
 ["knight_9_17", "Emir Raddoun", "Raddoun", tf_hero, 0, reserved,  fac_kingdom_9, [itm_arabian_horse_b,     itm_rhun_armor_9,          itm_sarranid_boots_c,    itm_chaos_leg_2,       itm_rhun_helm_9,  itm_leather_gloves,      itm_chaos_sword4,itm_chaos_lance_1,    itm_chaos_chosen_shield],     knight_attrib_2,wp(300),knight_skills_2, 0x000000007f0462c32419f47a1aba8bcf00000000001e7e090000000000000000, rhodok_face_old_2],
@@ -7788,7 +7815,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["knight_10_3", "Jarl Olaf", "Olaf", tf_hero, 0, reserved,  fac_kingdom_10, [itm_nord_warhorse, itm_rich_outfit,  itm_berserk_armor,   itm_nomad_boots,  itm_iron_greaves2, itm_plate_mittens,   itm_berserk_helm,   itm_ebony_double_axe, itm_tab_shield_round_e],  knight_attrib_3,wp(300),knight_skills_3, 0x0000000c03040289245a314b744b30a400000000001eb2a90000000000000000, nord_face_older_2],
 
 ["knight_10_4", "Jarl Reamald", "Reamald", tf_hero, 0, reserved,  fac_kingdom_10, [   itm_leather_vest,   itm_dawnguard_armor,   itm_woolen_hose,  itm_black_greaves, itm_plate_mittens,  itm_dawnguard_helmet, itm_dawnguard_hammer, itm_van_helsing_crossbow_bolt,itm_van_helsing_crossbow_auto,itm_dawnguard_shield],  knight_attrib_4,wp(300),knight_skills_4, 0x0000000c3f1001ca3d6955b26a8939a300000000001e39b60000000000000000, nord_face_older_2],
-["knight_10_5", "Jarl Turya", "Turya", tf_hero, 0, reserved,  fac_kingdom_10, [  itm_highlander_armor3,   itm_berserk_armor,   itm_highlander_boot2,  itm_iron_greaves2,  itm_plate_mittens, itm_berserk_helm, itm_shaman_staff_1,itm_magic_fire_ray_dummy, itm_magic_fire_ray_dummy], knight_attrib_5,wp(300),knight_skills_5|knows_magic_power_7|knows_magic_defence_7|knows_necromancy_4, 0x0000000ff508330546dc4a59422d450c00000000001e51340000000000000000, nord_face_older_2],
+["knight_10_5", "Jarl Turya", "Turya", tf_hero, 0, reserved,  fac_kingdom_10, [  itm_highlander_armor3,   itm_berserk_armor,   itm_highlander_boot2,  itm_iron_greaves2,  itm_plate_mittens, itm_berserk_helm, itm_shaman_staff_1,itm_magic_poison_dummy, itm_magic_fire_ray_dummy], knight_attrib_5,wp(300),knight_skills_5|knows_magic_power_7|knows_magic_defence_7|knows_necromancy_4, 0x0000000ff508330546dc4a59422d450c00000000001e51340000000000000000, nord_face_older_2],
 
 ["knight_10_6", "Jarl Gundur", "Gundur", tf_hero, 0, reserved,  fac_kingdom_10, [   itm_nomad_robe,   itm_huscarl_armor,  itm_nomad_boots,  itm_iron_greaves2,   itm_nord_berserker_mask, itm_plate_mittens,   itm_knightaxe,itm_ebony_double_axe, itm_tab_shield_round_d, itm_throwing_pike],   knight_attrib_1,wp(300),knight_skills_1, 0x00000005b00011813d9b6d4a92ada53500000000001cc1180000000000000000, nord_face_middle_2],
 ["knight_10_7", "Jarl Harald", "Harald", tf_hero, 0, reserved,  fac_kingdom_10, [  itm_fur_coat,   itm_huscarl_armor_2,   itm_nomad_boots,  itm_iron_greaves2,  itm_nord_berserker_mask, itm_plate_mittens,   itm_longsword, itm_long_axe_c_alt,  itm_tab_shield_round_d, itm_vk_axe],   knight_attrib_2,wp(300),knight_skills_2|knows_trainer_4, 0x00000006690002873d9b6d4a92ada53500000000001cc1180000000000000000, nord_face_old_2],
@@ -7906,7 +7933,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 ["adventurer_troop_1","White evil","White evil", tf_vampire|tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
  [
-  itm_gwilith,itm_werewolfclaw_dual_w,itm_magic_curse,itm_gold_dragon_sword,
+  itm_gwilith,itm_werewolfclaw_dual_w,itm_magic_spirit_leech,itm_gold_dragon_sword,
   itm_wight_body,itm_demon_foot,itm_demon_head,itm_death_hand
  ],
  horse_attrib_5|level(35),wp(450),knows_knight_2|knows_assasin_7|knows_magic_defence_10,
@@ -7937,7 +7964,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 ["adventurer_troop_5","Terry the Wiseman","Terry the Wiseman", tf_ogre|tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
  [
   #itm_shaman_staff_1, itm_magic_pyroblast,itm_magic_apocalypse, itm_burning_axe, 
-  itm_shaman_staff_1, itm_magic_book_5,itm_magic_fire_ray_dummy, itm_burning_axe, 
+  itm_shaman_staff_1, itm_magic_book_5,itm_magic_poison_dummy, itm_burning_axe, 
   itm_ogre_barbar_helm, itm_ogre_boots_02, itm_ogre_armor,
  ],
  str_21|agi_21|int_100|cha_3|level(45),wp(250),knows_knight_4|knows_horse_shoot_10|knows_crossbowman_8|knows_magic_power_4|knows_magic_defence_4|knows_magic_skill_8,
@@ -7957,7 +7984,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 ["adventurer_troop_8","Dawn the Trial","Terry the Trial", tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
  [
-  itm_war_clerics_warhammer_cast_2, itm_magic_sun_ray,itm_magic_sun_ray, itm_dawnbreaker, 
+  itm_war_clerics_warhammer_cast_2, itm_magic_burning_gaze,itm_magic_burning_gaze, itm_dawnbreaker, 
   itm_toumingtou, itm_iron_greaves, itm_dawnguard_armor,itm_hourglass_gauntlets,
  ],
  str_50|agi_50|int_50|cha_10|level(30),wp(300),knows_knight_4|knows_twohand_8|knows_magic_power_7|knows_necromancy_5|knows_magic_defence_10|knows_magic_skill_10,
@@ -8015,7 +8042,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
 
 ["adventurer_troop_15","kugath the Plague Father","kugath the Plague Father", tf_demon_human|tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
  [
-  itm_plague_staff_1,itm_magic_curse, itm_magic_curse, itm_magic_curse, 
+  itm_plague_staff_1,itm_magic_spirit_leech, itm_magic_spirit_leech, itm_magic_spirit_leech, 
   itm_shadow_robes, itm_black_knight_foot, itm_frankenstein_head,itm_death_finger,
  ],
  str_80|agi_40|int_60|cha_12|level(60),wp(500)|wp_firearm(450),knows_knight_foot_4|knows_twohand_9|knight_skills_5|knows_magic_power_10|knows_necromancy_9|knows_magic_skill_10, 0x0000000c3c0821c647264ab6e68dc4d500000000001e42590000000000000000,
@@ -8041,7 +8068,7 @@ def_attrib|level(1),wp(60),knows_recruit,0],
  str_80|agi_22|int_12|cha_12|level(50),wp(350)|wp_melee(350),knight_skills_1|knows_knight_6|knows_spearman_8|knows_magic_power_2|knows_weapon_master_3|knows_magic_defence_5, 
  vaegir_face_middle_1, vaegir_face_middle_2
 ],
-["knight_6_1", "Emir Uqais", "Uqais", tf_hero|tf_female, 0, reserved,  fac_kingdom_6, [itm_lamellar_warhorse,   itm_death_body,          itm_sarranid_boots_c,   itm_leather_gloves,    itm_venom_staff_1, itm_magic_book_9,   itm_magic_curse,itm_magic_curse],     knight_attrib_1,wp(300),knight_skills_5|knows_necromancy_10|knows_magic_power_5|knows_magic_defence_9, 0x000000050b003004072d51c293a9a70b00000000001dd6a90000000000000000, rhodok_face_middle_2],
+["knight_6_1", "Emir Uqais", "Uqais", tf_hero|tf_female, 0, reserved,  fac_kingdom_6, [itm_lamellar_warhorse,   itm_death_body,          itm_sarranid_boots_c,   itm_leather_gloves,    itm_venom_staff_1, itm_magic_book_9,   itm_magic_spirit_leech,itm_magic_spirit_leech],     knight_attrib_1,wp(300),knight_skills_5|knows_necromancy_10|knows_magic_power_5|knows_magic_defence_9, 0x000000050b003004072d51c293a9a70b00000000001dd6a90000000000000000, rhodok_face_middle_2],
 
 
 
@@ -9644,6 +9671,7 @@ upgrade(troops,"orc_boar_boy","orc_veteran_boar")
 upgrade(troops,"orc_veteran_boar","orc_boar_big")
 upgrade(troops,"arrer_youngun","orc_arrer_boy")
 upgrade(troops,"orc_arrer_boy","orc_veterun_arrer")
+upgrade(troops,"harpy_1","harpy_2")
 
 
 upgrade2(troops,"woodelf_recruit","woodelf_watchman","woodelf_scout")

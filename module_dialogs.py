@@ -8429,7 +8429,7 @@ dialogs = [
   ]],
   [anyone|plyr,"upgrade_personal_troop_cannon_2", [  #item
     (assign,":troop_no","trp_custom_cannon_man"),
-    (assign,":buy","itm_magic_deep_freeze"),
+    (assign,":buy","itm_magic_chill_wind"),
     (assign,":sell","itm_sg_blue_big"),
     (assign,":price",1),
     (player_has_item,":buy"),
@@ -8439,7 +8439,7 @@ dialogs = [
     (store_item_kind_count,reg10,":sell","trp_player"),
     (ge,reg10,":price"),], 
    "buy {s1} for {s3} need {reg11}{s2} (now you have {reg10}{s2}).", "upgrade_personal_troop_cannon_3",[
-    (assign,":buy","itm_magic_deep_freeze"),
+    (assign,":buy","itm_magic_chill_wind"),
     (assign,":sell","itm_sg_blue_big"),
     (assign,":price",1),
     (troop_remove_items,"trp_player",":sell",":price"),
@@ -30484,7 +30484,7 @@ Hand over my {reg19} denars, if you please, and end our business together.", "lo
 
     (assign, ":num_enemies", 0),
     (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
-      (faction_slot_eq, "$g_talk_troop_faction", slot_faction_state, sfs_active),
+      (faction_slot_eq, ":faction_no", slot_faction_state, sfs_active),
       (store_relation, ":reln", "$g_talk_troop_faction", ":faction_no"),
       (lt, ":reln", 0),
       (val_add, ":num_enemies", 1),
@@ -42001,7 +42001,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       
       
       (gt, ":back", -1),
-      
+      (store_item_value, ":weapons_cost", ":weapons"),
+      (call_script, "script_game_get_item_buy_price_factor", ":weapons"),
+      (val_mul, ":weapons_cost", reg0),
+      (val_div, ":weapons_cost", 100),
+      (val_div, ":weapons_cost", 10),
       (str_store_item_name,s5,":weapons"),
       (str_store_item_name,s6,":back"),
       (store_item_value, ":weapons_cost", ":weapons"),
@@ -49594,13 +49598,16 @@ slot_center_mercenary_troop_type),
    ]],
    
    [anyone|plyr,"lord_specialise",[
+    (eq, 1, 0),
    ],"manhunter","lord_request_enlistment",
    [
         (assign, "$player_cur_troop", "trp_farmer"),
    ]],
 
    [anyone|plyr,"lord_specialise",[
+   
      (troop_slot_ge,"trp_player", slot_troop_player_class,4),
+    (eq, 1, 0),
    ],"watchman","lord_request_enlistment",
    [
         (assign, "$player_cur_troop", "trp_caravan_guard"),
@@ -49608,7 +49615,7 @@ slot_center_mercenary_troop_type),
    
    [anyone|plyr,"lord_specialise",[
      (troop_slot_ge,"trp_player", slot_troop_player_class,5),
-
+    (eq, 1, 0),
    ],"town man","lord_request_enlistment",
    [
         (assign, "$player_cur_troop", "trp_we_noble_lad"),

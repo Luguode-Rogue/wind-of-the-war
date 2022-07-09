@@ -3434,7 +3434,7 @@ particle_systems = [
      (0.0, 0.0), (1.0, 0.0),      #red keys
      (0.0, 1.0), (1.0, 1.0),       #green keys
      (0.0, 0.0), (1.0, 0.0),      #blue keys
-     (0, 10),    (1.0, 10.0),        #scale keys
+     (0, 20),    (1.0, 10.0),        #scale keys
      (0.0, 0.0, 0.0),           #emit box size
      (0.0, 0.0, 0.0),                 #emit velocity
      0.0,                       #emit dir randomness

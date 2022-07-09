@@ -2159,7 +2159,7 @@ animations = [
 
   
  ["cast_magic", acf_enforce_rightside, amf_play|amf_priority_mount|amf_use_weapon_speed,
-   [3.0, "ani_magic_1", 0, 43, arf_blend_in_5],
+   [2.0, "ani_magic_1", 0, 43, arf_blend_in_5],
    #[3.0, "man_cheer", 0, 60, arf_blend_in_5],
    #[3.0, "man_cheer", 200, 289, arf_blend_in_5],
  ],
@@ -2247,20 +2247,20 @@ animations = [
  ],
  
  ["fangun_forward", acf_enforce_all|acf_displace_position, amf_priority_defend_parry|amf_play|amf_accurate_body|amf_client_prediction,
-   [0.8, "fangun_forward", 0, 72,  arf_blend_in_1, 0, (0,3,0)], 
+   [0.5, "fangun_forward", 0, 72,  arf_blend_in_1, 0, (0,2,0)], 
 ],
 
 ["fangun_left", acf_enforce_all|acf_displace_position, amf_priority_defend_parry|amf_play|amf_accurate_body|amf_client_prediction,#
-   [0.8, "fangun_left", 0, 72, arf_blend_in_1, 0, (-3,0,0)], 
+   [0.5, "fangun_left", 0, 72, arf_blend_in_1, 0, (-2,0,0)], 
 ],
 
 ["fangun_right", acf_enforce_all|acf_displace_position, amf_priority_defend_parry|amf_play|amf_accurate_body|amf_client_prediction,#
-   [0.8, "fangun_right", 0, 72, arf_blend_in_1, 0, (3,0,0)], 
+   [0.5, "fangun_right", 0, 72, arf_blend_in_1, 0, (2,0,0)], 
 ],
 
 ["fangun_backward", acf_enforce_all|acf_displace_position, amf_priority_defend_parry|amf_play|amf_accurate_body|amf_client_prediction,#
-   [0.8, "fangun_backward", 0, 72, arf_blend_in_1, 0, (0,-3,0)], 
-   [0.8, "jump_y", 0, 18, arf_blend_in_1, 0, (0,-3,0)], 
+   [0.5, "fangun_backward", 0, 72, arf_blend_in_1, 0, (0,-2,0)], 
+   [0.5, "jump_y", 0, 18, arf_blend_in_1, 0, (0,-2,0)], 
 ],
 
 
@@ -2270,6 +2270,14 @@ animations = [
    [0.3, "defend_shield_right", 5, 40, arf_blend_in_1, 0, (0,-2,0)],
    [0.3, "kick_rightlegreverse", 5, 50, arf_blend_in_1, 0, (0,-2,0)],
    [0.3, "right_swing", 5, 50, arf_blend_in_1, 0, (0,-2,0)],
+ ],
+ 
+ ["shoot_lefthand", acf_enforce_all, amf_rider_rot_pistol|amf_priority_mount|amf_play|amf_accurate_body|amf_client_prediction,
+   [0.5, "left_shoot", 6, 7, arf_blend_in_0],
+ ],
+
+ ["double_shoot", acf_enforce_all, amf_rider_rot_pistol|amf_priority_mount|amf_play|amf_accurate_body|amf_client_prediction,
+   [0.5, "double_shoot", 5, 6, arf_blend_in_0],
  ],
 
 #["fei", acf_enforce_lowerbody, amf_priority_jump|amf_play|amf_accurate_body|amf_keep|amf_client_prediction,
@@ -2308,8 +2316,8 @@ animations = [
  #["unused_human_anim_86", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  #["unused_human_anim_87", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  #["unused_human_anim_88", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_89", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_90", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_89", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_90", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_91", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_92", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_93", 0, 0, [1.0, "anim_human", 0, 1, 0]],

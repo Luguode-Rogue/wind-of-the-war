@@ -2581,7 +2581,7 @@ dialogs = [
   [anyone ,"member_chat", [(is_between, "$g_talk_troop", pretenders_begin, pretenders_end),],
    "Greetings, {playername}, my first and foremost vassal. I await your counsel.", "supported_pretender_talk", []],
   [anyone ,"supported_pretender_pretalk", [],
-   "Anything else?", "supported_pretender_talk", []],
+   "Anything else?", "supported_pretender_talk", [(set_player_troop, "trp_player"),]],
 
   [anyone|plyr,"supported_pretender_talk", [],
    "What do you think about our progress so far?", "pretender_progress",[]],
@@ -2737,11 +2737,11 @@ dialogs = [
   [anyone|plyr,"supported_pretender_talk", [],
    "{reg65?My lady:My lord}, would you allow me to check out your equipment?", "supported_pretender_equip",[]],
   [anyone,"supported_pretender_equip", [], "Very well, it's all here...", "supported_pretender_pretalk",[
-      (change_screen_equip_other),
+      (set_player_troop, "trp_player"),(change_screen_equip_other),
       ]],
 
   [anyone|plyr,"supported_pretender_talk", [], "If it would please you, can you tell me about your skills?", "pretneder_view_char_requested",[]],
-  [anyone,"pretneder_view_char_requested", [], "Well, all right.", "supported_pretender_pretalk",[(change_screen_view_character)]],
+  [anyone,"pretneder_view_char_requested", [], "Well, all right.", "supported_pretender_pretalk",[(set_player_troop,"$g_talk_troop"),(change_screen_view_character)]],
 
   
   [anyone|plyr,"supported_pretender_talk", [
@@ -2788,7 +2788,7 @@ dialogs = [
   
 
   [anyone|plyr,"supported_pretender_talk", [],
-   "Let us keep going, {reg65?my lady:sir}.", "close_window",[]],
+   "Let us keep going, {reg65?my lady:sir}.", "close_window",[(set_player_troop, "trp_player"),]],
 
 
   [anyone,"do_member_trade", [], "Anything else?", "member_talk",[]],
@@ -3141,13 +3141,13 @@ dialogs = [
    "Let me see your equipment.", "member_equipment",[]],
   [anyone,"member_equipment", [], "Very well, it's all here...", "do_member_personal_action",[
       #(change_screen_loot),
-      (change_screen_equip_other),
+      (set_player_troop, "trp_player"),(change_screen_equip_other),
       ]],
 
   [anyone|plyr,"member_personal_action", [],
    "Let me see your inventory.", "member_inventory",[]],
   [anyone,"member_inventory", [], "Very well, it's all here...", "do_member_personal_action",[
-      (change_screen_loot, "$g_talk_troop"),
+      (set_player_troop, "trp_player"),(change_screen_loot, "$g_talk_troop"),
       #(change_screen_equip_other),
       ]],
       
@@ -3157,7 +3157,7 @@ dialogs = [
   [anyone,"do_member_trade", [], "Anything else?", "member_talk",[]],
 
   [anyone|plyr,"member_talk", [], "What can you tell me about your skills?", "view_member_char_requested",[]],
-  [anyone,"view_member_char_requested", [], "All right, let me tell you...", "do_member_view_char",[(change_screen_view_character)]],
+  [anyone,"view_member_char_requested", [], "All right, let me tell you...", "do_member_view_char",[(set_player_troop,"$g_talk_troop"),(change_screen_view_character)]],
 
   [anyone|plyr,"member_talk", [], "We need to separate for a while.", "member_separate",[
             (call_script, "script_npc_morale", "$g_talk_troop"),
@@ -3191,7 +3191,7 @@ dialogs = [
 
   [anyone|plyr,"member_talk", [], "I'd like to ask you something.", "member_question",[]],
 
-  [anyone|plyr,"member_talk", [], "Never mind.", "close_window",[]],
+  [anyone|plyr,"member_talk", [], "Never mind.", "close_window",[(set_player_troop, "trp_player"),]],
 
   [anyone,"member_question", [], "Very well. What did you want to ask?", "member_question_2",[]],
 
@@ -22115,6 +22115,10 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
    "I have no faith that this wedding will be concluded. Please return my dower.", "lord_return_dower", #add in new dialog
    []],
 
+  [anyone|plyr, "lord_wedding_reschedule", [(ge, "$cheat_mode", 1),(quest_get_slot, "$g_player_bride", "qst_wed_betrothed", slot_quest_target_troop),],
+   "CHEAT:  Let's finish the wedding right now.", "wedding_ceremony_bride_vow",
+   []],
+   
   [anyone, "lord_return_dower", [],
    "Well, that is your right, if you indeed have no confidence in our family's commitments. Take your money.", "close_window",
    [
@@ -23484,14 +23488,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (lt, "$g_encountered_party_relation", 0),
     (encountered_party_is_attacker),
   ],
-   "But enough talking - yield or fight!", "party_encounter_lord_hostile_attacker_2",[]],
+   "But enough talking - yield or fight!", "party_encounter_lord_hostile_attacker_2",[(set_player_troop, "trp_player"),]],
 #lord recruitment changes end
 
 
 
 
   [anyone,"lord_pretalk", [(troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero)],
-   "Anything else?", "lord_talk",[]],
+   "Anything else?", "lord_talk",[(set_player_troop, "trp_player"),]],
 
    
   #[anyone,"hero_pretalk", [(troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_adventurer)],"Anything else?", "adventurer_talk",[]],
@@ -27370,7 +27374,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
         (troop_add_item,"trp_temp_array_b",":item"),
         (troop_set_inventory_slot, "trp_temp_array_b", ":i_slot", -1),
       (try_end),
-  
+      (set_player_troop, "trp_player"),
       (change_screen_loot, "trp_temp_array_b"),
     ]],
   [anyone, "do_view_lord_inventory", [],
@@ -27388,7 +27392,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   ],
    "If it would please you, can you tell me about your skills?", "lord_talk_ask_skill",[]],
   
-  [anyone,"lord_talk_ask_skill", [], "Well, all right.", "lord_pretalk",[(change_screen_view_character)]],
+  [anyone,"lord_talk_ask_skill", [], "Well, all right.", "lord_pretalk",[(set_player_troop,"$g_talk_troop"),(change_screen_view_character)]],
 ## CC
 
   [anyone,"lord_talk_ask_something_again", [],
@@ -30333,6 +30337,26 @@ Hand over my {reg19} denars, if you please, and end our business together.", "lo
   [anyone|plyr,"lord_suggest_action", [],
    "{!}CHEAT: Like me.", "lord_pretalk",[(call_script,"script_change_player_relation_with_troop","$g_talk_troop",20)]],
 
+  [anyone|plyr,"lord_suggest_action", [(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),],
+   "{!}CHEAT: Make peace with me.", "lord_pretalk",[
+     (call_script, "script_diplomacy_start_peace_between_kingdoms", "$g_talk_troop_faction", "$players_kingdom", 1),
+      	 (store_relation, ":players_kingdom_relation", "$g_talk_troop_faction", "$players_kingdom"),
+	 
+     (try_begin),
+       (this_or_next|eq, "$players_kingdom", 0),
+		(ge, ":players_kingdom_relation", 0),
+       (call_script, "script_set_player_relation_with_faction", "$g_talk_troop_faction", 0),
+     (else_try),
+       (call_script, "script_diplomacy_start_peace_between_kingdoms", "$g_talk_troop_faction", "$players_kingdom", 1),
+     (try_end),]],
+  [anyone|plyr,"lord_suggest_action", [(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),],
+   "{!}CHEAT: Make your faction like me.", "lord_pretalk",[
+     (store_relation, ":players_kingdom_relation", "$g_talk_troop_faction", "$players_kingdom"),
+     (val_add,":players_kingdom_relation",20),
+     (val_min,":players_kingdom_relation",100),
+     (call_script, "script_set_player_relation_with_faction", "$g_talk_troop_faction", ":players_kingdom_relation"),
+     ]],
+
   [anyone,"lord_suggest_lift_siege", [],
    "{!}As you wish, {playername}.", "close_window",[(call_script, "script_party_set_ai_state", "$g_talk_troop_party", spai_undefined),
                                            (party_leave_cur_battle, "$g_talk_troop_party"),
@@ -33214,7 +33238,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "So be it -- let us then part", "lady_conclude_relationship",[
     ]],
 
-    
+    [anyone|plyr,"lady_betrothed", [(eq, "$cheat_mode", 1),],
+    "CHEAT:  Wed me.","lady_pretalk",[(call_script, "script_courtship_event_bride_marry_groom", "$g_talk_troop", "trp_player", 0),]],
+            
     [anyone,"lady_suggest_elope", [(troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_conventional)],
     "Good {playername} -- you are a good and kind man, but a lady cannot defy her family. Such things are not done!", "lady_conclude_relationship",[]],
 
@@ -33371,7 +33397,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone, "lady_meet_end", [],  "Can I help you with anything?", "lady_talk", []],
 
-  
+[anyone|plyr,"lady_talk", [(ge, "$cheat_mode", 1),],
+   "{!}CHEAT: Like me.", "lady_pretalk",[(call_script,"script_change_player_relation_with_troop","$g_talk_troop",20)]],  
+   
+  [anyone|plyr,"lady_talk", [(ge, "$cheat_mode", 1),(troop_slot_eq, "$g_talk_troop", slot_troop_spouse, -1),],
+   "{!}CHEAT: Break ties with other suitors.", "lady_pretalk",[
+	(try_for_range, ":active_npc", active_npcs_begin, active_npcs_end),
+		(try_for_range, ":love_interest_slot", slot_troop_love_interest_1, slot_troop_love_interests_end),
+			(troop_slot_eq, ":active_npc", ":love_interest_slot", "$g_talk_troop"),
+			(call_script, "script_courtship_event_lady_break_relation_with_suitor", "$g_talk_troop", ":active_npc"),
+		(try_end),
+	(try_end),
+]],   
   [anyone|plyr,"lady_talk", [(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
                              (ge, "$g_encountered_party_relation", 0),
   ],
@@ -48267,8 +48304,8 @@ slot_center_mercenary_troop_type),
 
   [anyone,"member_chat", [], "Your orders {sir/madam}?", "regular_member_talk",[]],
   [anyone|plyr,"regular_member_talk", [], "Tell me about yourself", "view_regular_char_requested",[]],
-  [anyone,"view_regular_char_requested", [], "Aye {sir/madam}. Let me tell you all there is to know about me.", "do_regular_member_view_char",[[change_screen_view_character]]],
-  [anyone,"do_regular_member_view_char", [], "Anything else?", "regular_member_talk",[]],
+  [anyone,"view_regular_char_requested", [], "Aye {sir/madam}. Let me tell you all there is to know about me.", "do_regular_member_view_char",[(set_player_troop,"$g_talk_troop"),[change_screen_view_character]]],
+  [anyone,"do_regular_member_view_char", [], "Anything else?", "regular_member_talk",[(set_player_troop, "trp_player"),]],
   
 # Custom Troops begin
   [anyone|plyr,"regular_member_talk", [(is_between,"$g_talk_troop",customizable_troops_begin, customizable_troops_end)], "I'd like to select your equipment.", "customize_troop_equipment_requested",[]],
@@ -48984,8 +49021,8 @@ slot_center_mercenary_troop_type),
 
   [anyone,"start", [(neq, "$talk_context", tc_tavern_talk),], "Hello. What can I do for you?", "free",[]],
   [anyone|plyr,"free", [[neg|in_meta_mission]], "Tell me about yourself", "view_char_requested",[]],
-  [anyone,"view_char_requested", [], "Very well, listen to this...", "view_char",[[change_screen_view_character]]],
-  [anyone,"view_char", [], "Anything else?", "free",[]],
+  [anyone,"view_char_requested", [], "Very well, listen to this...", "view_char",[(set_player_troop,"$g_talk_troop"),[change_screen_view_character]]],
+  [anyone,"view_char", [], "Anything else?", "free",[(set_player_troop, "trp_player"),]],
 
   [anyone|plyr,"end", [], "[Done]", "close_window",[]],
   

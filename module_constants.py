@@ -1446,8 +1446,13 @@ scene_prop_next_entry_point_id      = 4 #for belfries only
 scene_prop_belfry_platform_moved    = 5 #for belfries only
 scene_prop_slots_end                = 6
 
-scene_prop_slots_mine_spawn                = 6
-scene_prop_slots_mine_time                 = 8
+scene_prop_owner                = 10
+scene_prop_owner_team           = 11
+scene_prop_spell_id             = 12
+scene_prop_spawn_time           = 13
+scene_prop_attached_agent       = 14
+scene_prop_scale                = 15
+scene_prop_is_move              = 16
 
 ########################################################
 rel_enemy   = 0

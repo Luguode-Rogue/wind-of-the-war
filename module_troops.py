@@ -858,7 +858,7 @@ troops = [
     itm_tab_shield_round_d,
     itm_long_axe_alt,itm_long_axe_b_alt,itm_long_axe_c_alt,
     itm_throwing_spears,itm_throwing_spears,
-    itm_byrnie_1,itm_mail_hauberk_3,itm_mail_hauberk_2,
+    itm_byrnie_3,itm_mail_hauberk_3,itm_mail_hauberk_2,
     itm_splinted_leather_greaves,
     itm_nordic_warlord_helmet,
     itm_nordic_huscarl_helmet
@@ -892,7 +892,7 @@ troops = [
     itm_tab_shield_pavise_d,
     itm_one_handed_battle_axe_b,
     itm_leather_gloves,itm_leather_boots,
-    itm_bnw_armour,itm_bnw_armour,
+    itm_bnw_armour,itm_bnw_armour_red,
     itm_open_sallet_coif,itm_sallet_coif
     ],
    foot_attrib_4|level(28),wp_melee (140)|wp_firearm (180),knows_swordman_3,mercenary_face_1,mercenary_face_2],
@@ -2223,7 +2223,7 @@ troops = [
    [
     itm_glass_arrow,itm_woodelf_mutil_arrows,
     itm_mirkwood_sword,itm_courtblades_green,itm_mirkwood_war_spear,
-    itm_long_bow,itm_long_bow_2,itm_mirkwood_spear_shield_c,
+    itm_long_bow,itm_long_bow_2,itm_mirkwood_spear_shield_b,
 
     itm_wizard_hood_3,
     itm_mirkwood_armor_d,
@@ -2263,7 +2263,7 @@ troops = [
     #itm_mirkwood_sword_reward,
     
     itm_mirkwood_helm_e,
-    itm_mirkwood_armor_g,
+    itm_mirkwood_armor_g,itm_mirkwood_armor_f,
     itm_mirkwood_boots,itm_trophy_b,itm_sg_green_big
    ],
    horse_attrib_5|level(50),wp_melee(250)|wp_archery(400),knows_magic_power_6|knows_ranger_7|knows_magic_defence_8,mirkwood_elf_face_1,mirkwood_elf_face_2],
@@ -2294,7 +2294,7 @@ troops = [
    tf_male_elf|tf_guarantee_all_footman,0,0,fac_forest_ranger,
    [
     itm_mirkwood_great_spear,itm_mirkwood_sword,
-    itm_mirkwood_spear_shield_c,
+    itm_mirkwood_spear_shield_b,
     #itm_mirkwood_knife,itm_mirkwood_knife,itm_mirkwood_sword,
     
     itm_mirkwood_helm_a,
@@ -2358,7 +2358,7 @@ troops = [
    tf_male_elf|tf_guarantee_all_wo_horse,0,0,fac_elf,
    [
     itm_elven_arrow,
-    itm_lorien_sword_a,
+    itm_lorien_sword_b,
     itm_war_bow,
     
     itm_lorien_archer,itm_lorien_armor_e,
@@ -2369,7 +2369,7 @@ troops = [
    tf_male_elf|tf_guarantee_all_wo_horse,0,0,fac_elf,
    [
     itm_elven_arrows,
-    itm_lorien_sword_a,itm_lorien_round_shield,
+    itm_lorien_sword_b,itm_lorien_round_shield,
     itm_lorien_bow,
 
     itm_lorien_helm_a,
@@ -2381,7 +2381,7 @@ troops = [
    tf_male_elf|tf_guarantee_all_wo_horse,0,0,fac_elf,
    [
     itm_mutil_arrow,itm_lorien_bow,itm_lorien_bow,
-    itm_lorien_sword_a,itm_lorien_round_shield,
+    itm_lorien_sword_b,itm_lorien_round_shield,
     
     itm_lorien_helm_b,
     itm_lorien_armor_c,itm_lorien_armor_d,
@@ -2419,7 +2419,7 @@ troops = [
   ["grandelf_infantry","Grand Elf infantry","Grand Elf infantry",
    tf_male_elf|tf_guarantee_all_footman,0,0,fac_elf,
    [
-    itm_lorien_sword_a,itm_lorien_sword_c,itm_lorien_sword_a,
+    itm_lorien_sword_a,itm_lorien_sword_c,itm_lorien_sword_b,
     itm_lorien_round_shield,
 
     itm_lorien_helm_c,itm_lorien_helm_b,
@@ -3311,7 +3311,7 @@ troops = [
     itm_org_axe3,itm_org_sword2,itm_club_with_spike_head,itm_spiked_mace,itm_sledgehammer,
     itm_flintlock_pistol, itm_flintlock_pistol_2,itm_carbine,itm_samopal,itm_cartridges,
     itm_fur_covered_shield,itm_leather_covered_round_shield,
-    itm_rat_armor_4,itm_rat_armor_5,itm_rat_armor_6,itm_tribal_warrior_outfit,
+    itm_rat_armor_4,itm_rat_armor_5,itm_rat_armor_6,itm_rat_armor_7,
     itm_rat_wolfboots,itm_rat_wolfboots,
     itm_rathelm2,itm_wolfgloves,itm_cheese
    ],
@@ -3324,7 +3324,7 @@ troops = [
     itm_war_axe,itm_warhammer,itm_voulge,
     itm_carbine_batarey_2shot,itm_good_musket,itm_flintlock_pistol_2s,itm_cartridges,
     itm_plate_covered_round_shield,itm_leather_covered_round_shield,
-    itm_rat_armor_8,itm_rat_armor_9,itm_rat_armor_10,
+    itm_rat_armor_7,itm_rat_armor_8,itm_rat_armor_9,itm_rat_armor_10,
     itm_rus_shoes,
     itm_rathelm2,itm_wolfgloves,itm_cheese
    ],
@@ -4725,7 +4725,7 @@ troops = [
   ["german_twohander_2", "Landschneckt Doppelsoeldner", "Landschneckt Doppelsoeldners", tf_guarantee_all_footman, no_scene, reserved, fac_kingdom_7, 
   [itm_flamberge,itm_flamberge_alt,itm_trophy_a,
    itm_german_armour_5,itm_red_armour_5,itm_blue_armour_5,
-   itm_steel_greaves,itm_sallet_beret_plumes_red,itm_hourglass_gauntlets_ornate,
+   itm_steel_greaves,itm_sallet_coif_ger,itm_hourglass_gauntlets_ornate,
    itm_steel_greaves,itm_sallet_beret_plumes_red,itm_hourglass_gauntlets_ornate,
   ], 
   horse_attrib_4|level(30), wp_melee(220), knows_twohand_6|knows_physique_3|knows_magic_defence_2|knows_weapon_master_2, swadian_face_face_1, swadian_face_face_2 ],
@@ -4733,7 +4733,7 @@ troops = [
   ["german_twohander_3", "Landschneckt Champion", "German Champion", tf_guarantee_all_footman, no_scene, reserved, fac_kingdom_7, 
   [itm_ebony_great_sword,itm_trophy_b,
    itm_maximilian_plate,itm_maximilian_plate,
-   itm_maximilian_greaves,itm_sallet_beret_plumes_red,itm_hourglass_gauntlets_ornate,
+   itm_maximilian_greaves,itm_sallet_coif_ger,itm_hourglass_gauntlets_ornate,
    itm_maximilian_greaves,itm_sallet_beret_plumes_red,itm_hourglass_gauntlets_ornate,
   ], 
   horse_attrib_6|level(45), wp_melee(300), knows_twohand_8|knows_physique_3|knows_magic_defence_10|knows_weapon_master_10, swadian_face_face_1, swadian_face_face_2 ],
@@ -5295,7 +5295,7 @@ troops = [
   ["nord_crossbow_1","NE Crossbowman","NE Crossbowman",
   tf_dwarf|tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_kingdom_10,
    [
-    itm_drawf_musket_1,itm_drawf_musket_2,
+    itm_drawf_musket_1,itm_drawf_musket_2,itm_drawf_musket,
     itm_cartridges_thrust,itm_cartridges_thrust,
     itm_sword_viking_2,itm_dwarf_fighting_axe,
     itm_highlander_armor1,itm_highlander_armor1,itm_highlander_boot1,itm_dwarf_miner_helm,itm_dwarf_miner_helm],
@@ -5884,7 +5884,7 @@ troops = [
 
   ["khergit_lancer","Khergit Lancer","Khergit Lancers",tf_mounted|tf_guarantee_all_lancer,0,0,fac_kingdom_3,
    [
-    itm_sword_khergit_4,itm_spiked_mace,itm_sword_khergit_5,itm_heavy_lance,
+    itm_sword_khergit_4,itm_spiked_mace,itm_sword_khergit_5,itm_sipah_lance,
     itm_rhun_dragon_cavalry_shield,itm_javelin,
     itm_rhun_helm_i,itm_rhun_armor_p,itm_rhun_greaves,itm_leather_gloves,
     itm_rhun_helm_i,itm_rhun_armor_p,itm_rhun_greaves,itm_leather_gloves,
@@ -5893,7 +5893,7 @@ troops = [
    horse_attrib_4|level(28),wp_melee(250)|wp_throwing(300),knows_riding_7|knows_nomad_5|knows_horse_archery_10,khergit_face_middle_1,khergit_face_older_2],
    
   ["khergit_heavy","Khergit Heavy Lancer","Khergit Heavy Lancers",tf_mounted|tf_guarantee_all_lancer,0,0,fac_kingdom_3,
-   [itm_mace_woodenhandle,itm_sword_khergit_7,itm_heavy_lance,itm_sword_khergit_5,        
+   [itm_mace_woodenhandle,itm_sword_khergit_7,itm_khergit_lance,itm_sword_khergit_5,        
     itm_rhun_dragon_cavalry_shield,itm_javelin,
     itm_rhun_helm_i,itm_rhun_armor_p,itm_rhun_greaves,itm_leather_gloves,
     itm_rhun_helm_i,itm_rhun_armor_p,itm_rhun_greaves,itm_leather_gloves,
@@ -6076,7 +6076,7 @@ troops = [
      itm_great_sword,itm_ebony_arming_sword,itm_mace_knobbedlong,
      itm_tab_shield_heater_cav_a,
      itm_reiksguard_armour,itm_reiksguard_armour,itm_iron_greaves2,
-     itm_empire_helmet2,itm_empire_helmet3,
+     itm_empire_helmet1,itm_empire_helmet2,itm_empire_helmet3,
      itm_warhorse_german,itm_warhorse_german,
     itm_hourglass_gauntlets_ornate,itm_hourglass_gauntlets],
    horse_attrib_4|level(30), wp_melee(210), knows_knight_foot_2|knows_twohand_5, swadian_face_face_1, swadian_face_face_2 ],
@@ -6720,7 +6720,7 @@ troops = [
   tf_male_elf|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_forest_ranger,
    [
     itm_wizard_hood_2_2,itm_mirkwood_helm_e,
-    itm_mirkwood_armor_a,itm_mirkwood_armor_d,itm_mirkwood_armor_g,itm_druid_robe_1,
+    itm_mirkwood_armor_a,itm_mirkwood_armor_d,itm_mirkwood_armor_f,itm_druid_robe_1,
     itm_mirkwood_boots,itm_mirkwood_boots,
    ],
    def_attrib|level(4),wp(60),knows_common,mirkwood_elf_face_1,mirkwood_elf_face_2],

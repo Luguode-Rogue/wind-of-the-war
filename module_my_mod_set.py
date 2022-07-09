@@ -177,8 +177,8 @@ magic_type = [
   ("itm_voice_drain_vitality", 0, voice, 20, 0, 1, 0),
 
   #("itm_magic_curse", 10, spell, 0, 0, 1, 0),
-  ("itm_magic_slow", 10, spell, 0, 0, 1, 0),
-  ("itm_magic_weakness", 25, spell, 60, 0, 1, 0),
+  ("itm_magic_slow", 10, quick_spell, 0, 0, 1, 0),
+  ("itm_magic_weakness", 25, quick_spell, 60, 0, 1, 0),
   ("itm_magic_poison", 10, quick_spell, 0, 0, 1, 0),
   
   #("itm_magic_heal", 5, quick_spell, 0, 0, 1, 0),
@@ -209,7 +209,6 @@ magic_type = [
 
 
 
-  ("itm_magic_paralysis_cloud", 30, spell, 15, 0, 1, 1),
   
   #("itm_magic_web", 25, spell, 0, 0, 1, 0),
 
@@ -239,8 +238,10 @@ magic_type = [
   ("itm_magic_heal_near", 15, quick_spell, 5, 0, 1, 0),
   ("itm_magic_net_of_amyntok", 20, spell, 30, 0, 1, 0),
   ("itm_magic_light_of_battle", 40, buff, 45, 0, 1, 0),
+  ("itm_magic_phas_protection", 40, buff, 30, 0, 1, 0),
   ("itm_magic_bironas_timewarp", 40, buff, 45, 0, 1, 0),
   ("itm_magic_banishment", 50, spell, 20, 0, 1, 0),
+  
   
   ("itm_magic_spark", 12, quick_spell, 0, 0, 1, 0),
   ("itm_magic_wind_blast", 20, quick_spell, 5, 0, 1, 0),
@@ -258,6 +259,8 @@ magic_type = [
   ("itm_magic_pyroblast", 40, quick_spell, 20, 0, 1, 0),
   ("itm_magic_piercing_bolts_of_burning", 10, spell, 30, 0, 1, 0),
   ("itm_magic_flame_storm", 10, spell, 30, 0, 1, 0),
+  ("itm_magic_flaming_sword_of_rhuin", 40, buff, 30, 0, 1, 0),
+  
   
   ("itm_magic_searing_doom", 0, quick_spell, 5, 0, 1, 0),
   ("itm_magic_burnished_gauntlet", 25, quick_spell, 5, 0, 1, 0),
@@ -271,6 +274,14 @@ magic_type = [
   ("itm_magic_flesh_to_stone", 40, buff, 40, 0, 1, 0),
   ("itm_magic_regrowth", 40, buff, 30, 0, 1, 0),
   ("itm_magic_animate_tree", 50, spell, 30, 0, 1, 0),
+  ("itm_magic_paralysis_cloud", 30, spell, 15, 0, 1, 1),
+  
+  ("itm_magic_summon_air_elemental", 30, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_summon_fire_elemental", 30, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_summon_water_elemental", 30, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_summon_earth_elemental", 33, quick_spell, 20, 0, 1, 2),
+  ("itm_magic_summon_golem", 30, buff, 15, 0, 1, 2),
+  
   
   ("itm_magic_summon_neutral_near_ememy", 33, quick_spell, 20, 0, 1, 2),
   
@@ -300,7 +311,7 @@ magic_type = [
   ("itm_magic_soulhunter", 0, spell, 30, 0, 1, 3),
   ("itm_magic_summon_demon", 50, quick_spell, 25, 0, 1, 3),
   ("itm_magic_summon_demon_near_ememy", 50, quick_spell, 25, 0, 1, 3),
-  
+  ("itm_magic_turn_vampire", 40, buff, 20, 0, 1, 0),
   
   ("itm_magic_chill_wind", 30, spell, 15, 0, 1, 0),
   ("itm_magic_oblivion", 25, quick_spell, 5, 0, 1, 0),
@@ -317,7 +328,7 @@ magic_type = [
   ("itm_magic_hand_of_glory", 45, buff, 30, 0, 1, 0),
   ("itm_magic_walk_between_worlds", 50, buff, 20, 0, 1, 0),
   ("itm_magic_mana_tempest", 0, spell, 30, 0, 1, 0),
-  ("itm_magic_mana_tempest_dummy", 20, spell, 10, 0, 1, 0),
+  ("itm_magic_mana_tempest_dummy", 20, quick_spell, 10, 0, 1, 0),
   
   ("itm_magic_ice_ray", 15, quick_spell, 0, 0, 1, 0),
   ("itm_magic_frostblade", 40, buff, 60, 0, 1, 0),
@@ -327,7 +338,7 @@ magic_type = [
   ("itm_magic_frozen_orb", 25, quick_spell, 20, 0, 1, 0),
   ("itm_magic_blizzard", 15, spell, 30, 0, 1, 0),
   ("itm_magic_frost_cloud_dummy", 15, quick_spell, 0, 0, 1, 0),
-  
+  ("itm_magic_frozen_ground", 40, buff, 20, 0, 1, 0),
 
   ("itm_skill_inspire", 0, special_ability, 0, 0, 1, 0),
   ("itm_skill_warcry", 0, special_ability, 0, 0, 1, 0),
@@ -518,6 +529,16 @@ magic_type = [
   ("itm_bash_rush", 0, bash, 0, 0, 1, 0),
   ("itm_bash_shield_bash", 0, bash, 0, 0, 1, 0),
   ("itm_bash_kick", 0, bash, 0, 0, 1, 0),
+  
+  ("itm_bash_left_hand_cast", 0, bash, 0, 0, 1, 0),
+  ("itm_skill_bash_text", 0, bash, 0, 0, 1, 0),
+  ("itm_skill_cast_text", 0, bash, 0, 0, 1, 0),
+  ("itm_skill_skill_text", 0, special_ability, 0, 0, 1, 0),
+  ("itm_skill_extra_skill_text", 0, special_ability_extra, 0, 0, 1, 0),
+  ("itm_skill_passiv_skill_text", 0, special_ability_passive, 0, 0, 1, 0),
+  ("itm_skill_selec_skill_text", 0, bash, 0, 0, 1, 0),
+  
+  
   #("itm_skill_dragon_blade_slash", 0, bash, 0, 0, 1, 0),
   #("itm_skill_dragon_blade_slash", 0, bash, 0, 0, 1, 0),
   #("itm_skill_dragon_blade_slash", 0, bash, 0, 0, 1, 0),

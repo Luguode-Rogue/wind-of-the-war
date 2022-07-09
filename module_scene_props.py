@@ -3249,6 +3249,123 @@ scene_props = [
   
   ("bomb_blast", 0, "Trap", "0", []),
   ("trap", 0, "Trap", "0", []),
+  
+  ("dummy_lightning_burst", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_spark_explosion",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  ("dummy_incediary_cloud", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_incediary_cloud",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  ("dummy_black_hold", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_black_hold",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  ("dummy_mana_tempest", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_mana_tempest",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  ("dummy_death_cloud", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_death_cloud",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  ("dummy_Frost_cloud", sokf_moveable, "0", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (scene_prop_set_hit_points, ":instance_no", 10),
+        (prop_instance_get_position, pos6, ":instance_no"),
+        (position_move_z,pos6,200),
+        (particle_system_add_new, "psys_Ice_Storm",pos6),
+        (store_mission_timer_a, ":time"),
+        (val_add, ":time", reg31),
+        (scene_prop_set_slot, ":instance_no", scene_prop_spawn_time, ":time"),
+        (scene_prop_set_slot, ":instance_no", scene_prop_owner, reg30),
+    ]),
+  ]),
+  
+  ("beam_emitter_transmutationcircle", sokf_dynamic|sokf_moveable, "propspell_transmutation_circle", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (set_position_delta, 0, 0, 100),
+        (particle_system_add_new, "psys_transmutation_circle_ray_vertical"),
+        (scene_prop_fade_out, ":instance_no", 5),
+    ]),
+  ]),
+  
+  ("propspell_scythe", sokf_moveable, "propspell_scythe", "0", [
+    (ti_on_init_scene_prop,
+    [
+        (store_trigger_param_1, ":instance_no"),
+        (set_fixed_point_multiplier, 1),
+        (prop_instance_enable_physics, ":instance_no", 0),
+        (copy_position, pos2, pos1),
+        (position_rotate_x, pos2, -90),
+        (prop_instance_animate_to_position, ":instance_no", pos2, 150),
+        (scene_prop_fade_out, ":instance_no", 4),
+    ]),
+  ]),
+  
+  
 ]
 
 

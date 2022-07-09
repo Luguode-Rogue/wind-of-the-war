@@ -946,6 +946,8 @@ meshes = [
   #("flag_nord", 0, "banner_a03", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   #("flag_rhodok", 0, "banner_a04", 0, 0, 0, 0, 0, 0, 1, 1, 1),  
 
+
+
   ("mouse_arrow_down", 0, "mouse_arrow_down", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mouse_arrow_right", 0, "mouse_arrow_right", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mouse_arrow_left", 0, "mouse_arrow_left", 0, 0, 0, 0, 0, 0, 1, 1, 1),
@@ -1163,6 +1165,8 @@ meshes = [
   
   
   ("pic_hunting", 0, "lair_elf_homestead", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
+  ("menu_flag1", 0, "banners_default_e", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   
 ]
 # modmerger_start version=201 type=2

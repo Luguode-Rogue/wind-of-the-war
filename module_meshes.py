@@ -1016,7 +1016,7 @@ meshes = [
 
   ("relation_bar", 0, "talk_relation_bar", 0, 0, 0, 0, 0, 0, 1.06, 1, 1),
   ("reln_pointer", 0, "talk_reln_pointer", 0, 0, 0, 0, 0, 0, 1.06, 1, 1),
-
+  ("recruit_troop_background", 0, "window_11", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
 ##diplomacy begin
   # Jrider +

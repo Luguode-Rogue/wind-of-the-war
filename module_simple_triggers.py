@@ -8282,23 +8282,6 @@ simple_triggers = [
 		(party_set_slot, "p_main_party", slot_party_pref_prefs_set, 1),
 	 (try_end),	
 	 #END Preference Transition
-	
-     #(call_script, "script_cust_cam_init_default_keys"),
-     #(assign,":num_player", 0),
-     #(try_for_parties, ":party_no"),
-       #(party_get_template_id, ":party_template", ":party_no"),
-       #(is_between, ":party_template", "pt_looters", "pt_kingdom_hero_party"),
-	   #(party_count_members_of_type,":num_player",":party_no","trp_player"),
-	   #(ge,":num_player", 1),
-	   #(party_remove_members, ":party_no", "trp_player", ":num_player"),
-     #(try_end),
-     
-     #(try_for_parties, ":party_no"),
-       #(is_between, ":party_no", walled_centers_begin, walled_centers_end),
-	   #(party_count_members_of_type,":num_player",":party_no","trp_player"),
-	   #(ge,":num_player", 1),
-	   #(party_remove_members, ":party_no", "trp_player", ":num_player"),
-     #(try_end),
      
         (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
           #(neg|eq, "$game_mode", game_mode_heroes),
@@ -8348,7 +8331,7 @@ simple_triggers = [
           (troop_add_gold, ":troop_no", 25000),  
           (call_script, "script_change_troop_as_adventurer", ":troop_no"),
           (store_troop_faction, ":troop_faction_no", ":troop_no"),
-          (call_script, "script_cf_select_random_town_at_peace_with_faction", ":troop_faction_no"),
+          (call_script, "script_cf_select_random_village_with_faction", ":troop_faction_no"),
           (assign, ":quest_target_center", reg0),
           (call_script, "script_cf_spawn_adventurer_party", ":troop_no", ":quest_target_center"),
         (try_end),

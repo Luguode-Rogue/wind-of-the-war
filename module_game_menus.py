@@ -18397,6 +18397,22 @@ game_menus = [
         (troop_remove_gold,"trp_player",":troop_cost"),
      ]),
      
+      ("upgrade_troop_3",
+      [
+        (party_slot_eq, "$current_town", slot_party_type, spt_town),
+        (call_script, "script_get_town_upgrade_troop", 1),
+        (assign, ":upgrade_troop", reg0),
+        (gt, ":upgrade_troop", 0),
+      ], "upgrade_troop menu",
+      [
+        (call_script, "script_get_town_upgrade_troop", 1),
+        (assign, ":upgrade_troop", reg0),
+        (gt, ":upgrade_troop", 0),
+        (assign, "$g_prsnt_param_1", ":upgrade_troop"),
+        (start_presentation, "prsnt_town_upgrade_troops"),
+      ]),
+     
+     
      ("buy_horse",
       [
         (assign, ":faction", "fac_undeads_2"),

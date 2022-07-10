@@ -385,7 +385,7 @@ vortices_magic_trigger =   (
 
 
 magic_trigger_1  =(
-    0, 0, 0, [], 
+    0.5, 0, 0, [], 
     [
   (get_player_agent_no,":player"),
 
@@ -483,6 +483,7 @@ magic_trigger_1  =(
           (val_add, ":extra_cooldown", 3),
           (agent_set_slot, ":agent_no", slot_agent_shield_bash_timer, ":extra_cooldown"),
         (else_try),  
+          (gt, ":choose_magic", -1),
           (item_get_slot, ":magic_type", ":choose_magic", slot_item_magic_type),
           (item_get_slot, ":magic_cost", ":choose_magic", slot_item_magic_cost),
           (item_get_slot, ":magic_cooldown", ":choose_magic", slot_item_magic_cooldown),
@@ -526,7 +527,7 @@ magic_trigger_1  =(
             (eq,":cooldown_2",0),
             
             (ge, ":stamina", ":magic_cost"),
-            (call_script, "script_cf_magic_cast_trigger_2", ":agent_no", ":choose_magic",-1),
+            (call_script, "script_cf_magic_cast_trigger_2", ":agent_no", ":choose_magic"),
             (val_sub, ":stamina", ":magic_cost"),
             (agent_play_sound, ":agent_no", "snd_spell_cast"),
             (agent_set_slot, ":agent_no", slot_agent_mana, ":stamina"),
@@ -545,7 +546,7 @@ magic_trigger_1  =(
             (eq, ":action", 1), #readying_attack.
             
             (ge, ":stamina", ":magic_cost"),
-            (call_script, "script_cf_magic_cast_trigger_2", ":agent_no", ":choose_magic",-1),
+            (call_script, "script_cf_magic_cast_trigger_2", ":agent_no", ":choose_magic"),
             (val_sub, ":stamina", ":magic_cost"),
             (agent_play_sound, ":agent_no", "snd_spell_cast"),
             (agent_set_slot, ":agent_no", slot_agent_mana, ":stamina"),
@@ -702,7 +703,7 @@ magic_trigger_player  =(
         (eq,":cooldown_2",0),
         (agent_get_slot, ":stamina", ":player", slot_agent_mana),
         (ge, ":stamina", ":magic_cost"),
-        (call_script, "script_cf_magic_cast_trigger_2", ":player", ":choose_magic",-1),
+        (call_script, "script_cf_magic_cast_trigger_2", ":player", ":choose_magic",),
         (val_sub, ":stamina", ":magic_cost"),
         (agent_set_slot, ":player", slot_agent_mana, ":stamina"),
         (agent_play_sound, ":player", "snd_spell_cast"),
@@ -722,7 +723,7 @@ magic_trigger_player  =(
         (item_has_property, ":weapon", itp_is_magic_staff),
         (agent_get_slot, ":stamina", ":player", slot_agent_mana),
         (ge, ":stamina", ":magic_cost"),
-        (call_script, "script_cf_magic_cast_trigger_2", ":player", ":choose_magic",-1),
+        (call_script, "script_cf_magic_cast_trigger_2", ":player", ":choose_magic",),
         (val_sub, ":stamina", ":magic_cost"),
         (agent_set_slot, ":player", slot_agent_mana, ":stamina"),
         (agent_play_sound, ":player", "snd_spell_cast"),
@@ -1191,8 +1192,6 @@ custom_commander_change_weather = (
     (call_script, "script_change_rain_or_snow"),
     (assign, "$g_show_hp_agent", -1),
     (assign, "$g_enemy_hpbar_showtime", 0),
-    (get_player_agent_no, ":player_agent"),
-    (agent_set_slot, ":player_agent", slot_agent_player_target, "$g_show_hp_agent"),  
    ])
 
 custom_commander_toggle_charging = (
@@ -1747,8 +1746,6 @@ custom_commander_fill_agent_empty_wpn_slot =(
   ti_on_agent_spawn, 0, 0, [],
     [
       (store_trigger_param_1, ":agent_no"),
-      
-      
       (store_random_in_range, ":rand", 1, 11),
       (agent_set_slot, ":agent_no", slot_agent_special_ability_cooldown, ":rand"),
       (agent_set_slot, ":agent_no", slot_agent_cur_magic, slot_troop_spell_1),
@@ -10777,14 +10774,15 @@ custom_commander_special_strike =(
           (try_end),
           
           (try_begin),
+            (agent_slot_ge, ":inflicted_agent", slot_agent_special_ability_affect_time, 1),
+            (agent_slot_eq, ":inflicted_agent", slot_agent_special_ability_affect_type, "itm_magic_curse_of_arrow_attraction"), 
+            (gt, ":dealer_item_id", -1),
             (item_get_type, ":item_type", ":dealer_item_id"),
             (this_or_next|eq, ":item_type", itp_type_bow),
             (this_or_next|eq, ":item_type", itp_type_crossbow),
             (this_or_next|eq, ":item_type", itp_type_thrown),
             (this_or_next|eq, ":item_type", itp_type_pistol),
             (eq, ":item_type", itp_type_musket),
-            (agent_slot_ge, ":inflicted_agent", slot_agent_special_ability_affect_time, 1),
-            (agent_slot_eq, ":inflicted_agent", slot_agent_special_ability_affect_type, "itm_magic_curse_of_arrow_attraction"), 
             (val_add, ":reduced_damage_percent", -50), 
           (try_end),
           
@@ -11029,17 +11027,17 @@ custom_commander_special_strike =(
           (try_end),
 
           (try_begin),
+            (agent_slot_ge, ":inflicted_agent", slot_agent_special_ability_affect_time, 1),
+            (agent_slot_eq, ":inflicted_agent", slot_agent_special_ability_affect_type, "itm_magic_curse_of_arrow_attraction"), 
+            (gt, ":dealer_item_id", -1),
             (item_get_type, ":item_type", ":dealer_item_id"),
             (this_or_next|eq, ":item_type", itp_type_bow),
             (this_or_next|eq, ":item_type", itp_type_crossbow),
             (this_or_next|eq, ":item_type", itp_type_thrown),
             (this_or_next|eq, ":item_type", itp_type_pistol),
             (eq, ":item_type", itp_type_musket),
-            (agent_slot_ge, ":inflicted_agent", slot_agent_special_ability_affect_time, 1),
-            (agent_slot_eq, ":inflicted_agent", slot_agent_special_ability_affect_type, "itm_magic_curse_of_arrow_attraction"), 
             (val_add, ":block_attack_rate", -50), 
           (try_end),
-            
             
           (try_begin),
             (agent_slot_ge, ":dealer_agent", slot_agent_special_ability_affect_time, 1),

@@ -14670,6 +14670,11 @@ presentations = [
         
         ## init troop items
         (call_script, "script_copy_inventory", ":selected_troop", "trp_temp_array_a"),
+        (try_for_range, ":i_slot", slot_troop_spell_1, slot_troop_has_drink),
+          (troop_get_slot, ":special", ":selected_troop", ":i_slot"),
+          (gt, ":special", 0),
+          (troop_add_item,"trp_temp_array_a",":special", 0),
+        (try_end),
         (try_for_range, ":i_slot", 0, 10),
           (troop_get_inventory_slot, ":item", "trp_temp_array_a", ":i_slot"),
           (troop_get_inventory_slot_modifier, ":cur_imod", "trp_temp_array_a", ":i_slot"),
@@ -14683,6 +14688,17 @@ presentations = [
         (position_set_x, pos1, 900),
         (position_set_y, pos1, 25),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
+
+        ## get the troop
+        (create_game_button_overlay, "$g_presentation_obj_7", "@CHEAT: get the troop"),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 70),
+        (overlay_set_position, "$g_presentation_obj_7", pos1),
+        (try_begin), # cheat_mode is off or troop is hero
+          (this_or_next|eq, "$cheat_mode", 0),
+          (troop_is_hero, ":selected_troop"),
+          (overlay_set_display, "$g_presentation_obj_7", 0),
+        (try_end),
 
         ## previous
         (create_game_button_overlay, "$g_presentation_obj_3", "@Previous"),
@@ -14698,12 +14714,12 @@ presentations = [
         ## troop class
         (create_text_overlay, reg0, "@Class of troop", tf_center_justify|tf_vertical_align_center),
         (position_set_x, pos1, 875),
-        (position_set_y, pos1, 340),
+        (position_set_y, pos1, 480),
         (overlay_set_position, reg0, pos1),
         
         (create_combo_button_overlay, "$g_presentation_obj_5"),
         (position_set_x, pos1, 930),
-        (position_set_y, pos1, 300),
+        (position_set_y, pos1, 440),
         (overlay_set_position, "$g_presentation_obj_5", pos1),
         (position_set_x, pos1, 500),
         (position_set_y, pos1, 600),
@@ -14720,10 +14736,10 @@ presentations = [
         (store_mul, ":cur_troop", ":selected_troop", 2), #with weapons
         (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_game_party_window", ":cur_troop"),
         (position_set_x, pos1, 750),
-        (position_set_y, pos1, 750),
+        (position_set_y, pos1, 1000),
         (overlay_set_size, reg0, pos1),
         (position_set_x, pos1, 765),
-        (position_set_y, pos1, 350),
+        (position_set_y, pos1, 500),
         (overlay_set_position, reg0, pos1),
 
         (str_store_troop_name, s1, ":selected_troop"),
@@ -14920,6 +14936,7 @@ presentations = [
           (assign, ":offset", 1),
         (try_end),
         
+        
         (try_begin),
           (eq, ":object", "$g_presentation_obj_3"),
           (val_sub, ":selected_troop", ":offset"),
@@ -14936,6 +14953,12 @@ presentations = [
           (eq, ":object", "$g_presentation_obj_5"),
           (store_sub, ":troop_class", 8, ":value"),
           (troop_set_class, ":selected_troop", ":troop_class"),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_7"),
+          (assign, reg1, ":offset"),
+          (party_add_members, "p_main_party", ":selected_troop", ":offset"),
+          (str_store_troop_name_plural, s1, ":selected_troop"),
+          (display_message, "@CHEAT! You get {reg1} {s1}.", 0xFF0000),
         (else_try),
           (eq, ":object", "$g_presentation_obj_1"),
           (try_begin),
@@ -27485,6 +27508,16 @@ presentations = [
         (position_set_y, pos1, 25),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
 
+        (create_game_button_overlay, "$g_presentation_obj_2", "@Import All"),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 70),
+        (overlay_set_position, "$g_presentation_obj_2", pos1),
+
+        (create_game_button_overlay, "$g_presentation_obj_3", "@Export All"),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 115),
+        (overlay_set_position, "$g_presentation_obj_3", pos1),
+
         (create_text_overlay, reg1, "@This is a screen for gem_exchange books for inventory or bookcase. Hold down control key while clicking on a book to inventory or bookcase.^^The right side is your bookcase, The left side is your inventory. ", tf_double_space|tf_scrollable),
         (position_set_x, pos1, 345),
         (position_set_y, pos1, 290),
@@ -27667,6 +27700,34 @@ presentations = [
           (eq, ":object", "$g_presentation_obj_1"),
           (presentation_set_duration, 0),
           (mission_enable_talk),
+        (else_try), # export book
+          (eq, ":object", "$g_presentation_obj_3"),
+          (troop_get_inventory_capacity, ":inv_cap", "trp_trainer_5"),
+          (try_for_range, ":i_slot", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item", "trp_trainer_5", ":i_slot"),
+            (gt, ":item", -1),
+            (this_or_next|is_between, ":item", "itm_spice", "itm_smoked_fish"),
+            (this_or_next|is_between, ":item", "itm_trophy_a", "itm_dragon_knight_lance"),
+            (is_between, ":item", "itm_sg_human_small", "itm_green_dragon_body"),
+            (troop_get_inventory_slot_modifier, ":imod", "trp_trainer_5", ":i_slot"),
+            (troop_set_inventory_slot, "trp_trainer_5", ":i_slot", -1),
+            (troop_add_item, "trp_player", ":item", ":imod"),
+          (try_end),
+          (start_presentation, "prsnt_gem_exchange"),
+        (else_try), # import books
+          (eq, ":object", "$g_presentation_obj_2"),
+          (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+          (try_for_range, ":i_slot", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item", "trp_player", ":i_slot"),
+            (gt, ":item", -1),
+            (this_or_next|is_between, ":item", "itm_spice", "itm_smoked_fish"),
+            (this_or_next|is_between, ":item", "itm_trophy_a", "itm_dragon_knight_lance"),
+            (is_between, ":item", "itm_sg_human_small", "itm_green_dragon_body"),
+            (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+            (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+            (troop_add_item, "trp_trainer_5", ":item", ":imod"),
+          (try_end),
+          (start_presentation, "prsnt_gem_exchange"),
         (try_end),
         
         (troop_get_inventory_capacity, ":capacity", "trp_trainer_5"),
@@ -27726,13 +27787,17 @@ presentations = [
         (position_set_y, pos1, 0),
         (overlay_set_position, reg1, pos1),
         
+        (assign, ":selected_book_slot", "$g_prsnt_param_1"),
+        
         # init holders
         (try_begin),
           (eq, "$book_holders_reseted", 0),
+          # set all holder to -1
           (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
-          (try_for_range, ":i_slot", 10, ":inv_cap"), # set all holder to -1
+          (try_for_range, ":i_slot", 10, ":inv_cap"), 
             (troop_set_slot, "trp_bookcase", ":i_slot", -1),
           (try_end),
+          # set current_reading_book to 0
           (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
           (try_for_range, ":i_stack", 0, ":num_stacks"),
             (party_stack_get_troop_id, ":troop_no", "p_main_party", ":i_stack"),
@@ -27746,41 +27811,66 @@ presentations = [
         (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
         (try_for_range, ":i_slot", 10, ":inv_cap"),
           (troop_get_slot, ":book_holder", "trp_bookcase", ":i_slot"),
+          (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":i_slot"),
           (gt, ":book_holder", -1),
-          (neg|main_party_has_troop, ":book_holder"),
-          (troop_set_slot, "trp_bookcase", ":i_slot", -1),
+          (try_begin), # holder in not in main_party
+            (neg|main_party_has_troop, ":book_holder"),
+            (troop_set_slot, "trp_bookcase", ":i_slot", -1), # set holder as none
+            (troop_set_slot, ":book_holder", slot_troop_current_reading_book, 0),
+          (else_try),
+            #(main_party_has_troop, ":book_holder"),
+            (lt, ":cur_book", 0), # book is not in bookcase
+            (troop_set_slot, "trp_bookcase", ":i_slot", -1), # set holder as none
+          (try_end),
         (try_end),
         
         (create_text_overlay, reg1, "@Click on a book on the left to select it, then click on a hero's name below to set the holder of the book or set its holder as None.", tf_double_space|tf_scrollable),
-        (position_set_x, pos1, 690),
-        (position_set_y, pos1, 560),
+        (position_set_x, pos1, 700),
+        (position_set_y, pos1, 580),
         (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 800),
+        (position_set_y, pos1, 800),
+        (overlay_set_size, reg1, pos1),
         (position_set_x, pos1, 270),
         (position_set_y, pos1, 120),
         (overlay_set_area_size, reg1, pos1),
         
         ## back
-        (create_game_button_overlay, "$g_presentation_obj_1", "@Done"),
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_1", "@Back"),
         (position_set_x, pos1, 910),
         (position_set_y, pos1, 12),
-        (overlay_set_position, "$g_presentation_obj_1", pos1),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_1", pos1),
         ## Reset All
-        (create_game_button_overlay, "$g_presentation_obj_2", "@Reset All"),
-        (position_set_x, pos1, 740),
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_2", "@Reset All"),
+        (position_set_x, pos1, 745),
         (position_set_y, pos1, 12),
-        (overlay_set_position, "$g_presentation_obj_2", pos1),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_2", pos1),
         ## Auto-Distribute
-        (create_game_button_overlay, "$g_presentation_obj_3", "@Auto-Distribute"),
-        (position_set_x, pos1, 570),
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_3", "@Auto-Distribute"),
+        (position_set_x, pos1, 580),
         (position_set_y, pos1, 12),
-        (overlay_set_position, "$g_presentation_obj_3", pos1),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_3", pos1),
         ## Sort
-        (create_game_button_overlay, "$g_presentation_obj_5", "@Re-sort"),
-        (position_set_x, pos1, 400),
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_5", "@Re-sort"),
+        (position_set_x, pos1, 415),
         (position_set_y, pos1, 12),
-        (overlay_set_position, "$g_presentation_obj_5", pos1),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_5", pos1),
+        ## import books
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_6", "@Import books"),
+        (position_set_x, pos1, 250),
+        (position_set_y, pos1, 12),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_6", pos1),
+        ## export books
+        (create_game_button_overlay, "$g_presentation_obj_admin_panel_7", "@Export book"),
+        (position_set_x, pos1, 85),
+        (position_set_y, pos1, 12),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_7", pos1),
         
         # reference books
+        # background
+        (call_script, "script_prsnt_line", 320, 665, 20, 70, 0),
+        (overlay_set_alpha, reg1, 0x33),
+        # background
         (assign, ":reference_books", 0),
         (assign, ":reference_book_holders", 0),
         (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
@@ -27800,17 +27890,17 @@ presentations = [
         (position_set_x, pos1, 1200),
         (position_set_y, pos1, 1200),
         (overlay_set_size, reg1, pos1),
-        (position_set_x, pos1, 155),
-        (position_set_y, pos1, 660),
+        (position_set_x, pos1, 175),
+        (position_set_y, pos1, 700),
         (overlay_set_position, reg1, pos1),
         
         (str_clear, s0),
-        (create_text_overlay, reg1, s0, tf_scrollable),
-        (position_set_x, pos1, 0),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
+        (position_set_x, pos1, 20),
         (position_set_y, pos1, 70),
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, 300),
-        (position_set_y, pos1, 590),
+        (position_set_y, pos1, 630),
         (overlay_set_area_size, reg1, pos1),
         (set_container_overlay, reg1),
         
@@ -27819,8 +27909,8 @@ presentations = [
         (val_min, ":col_mod", 1),
         (val_add, ":num_rows", ":col_mod"),
         (store_mul, ":pos_y", ":num_rows", 125),
-        (val_max, ":pos_y", 565),
-        (val_sub, ":pos_y", 140),
+        (val_max, ":pos_y", 625),
+        (val_sub, ":pos_y", 80),
         (assign, ":pos_x", 40),
         (assign, ":slot_no", 0),
         (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
@@ -27877,10 +27967,11 @@ presentations = [
         (try_end),
         (set_container_overlay, -1),
         
-        # division line
-        (call_script, "script_prsnt_lines", 2, 650, 330, 80, 0),
-        
         # readable books
+        # background
+        (call_script, "script_prsnt_line", 320, 665, 350, 70, 0),
+        (overlay_set_alpha, reg1, 0x33),
+        # background
         (assign, ":readable_books", 0),
         (assign, ":readable_book_holders", 0),
         (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
@@ -27901,16 +27992,16 @@ presentations = [
         (position_set_y, pos1, 1200),
         (overlay_set_size, reg1, pos1),
         (position_set_x, pos1, 505),
-        (position_set_y, pos1, 660),
+        (position_set_y, pos1, 700),
         (overlay_set_position, reg1, pos1),
         
         (str_clear, s0),
-        (create_text_overlay, reg1, s0, tf_scrollable),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
         (position_set_x, pos1, 350),
         (position_set_y, pos1, 70),
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, 300),
-        (position_set_y, pos1, 590),
+        (position_set_y, pos1, 630),
         (overlay_set_area_size, reg1, pos1),
         (set_container_overlay, reg1),
         
@@ -27919,8 +28010,8 @@ presentations = [
         (val_min, ":col_mod", 1),
         (val_add, ":num_rows", ":col_mod"),
         (store_mul, ":pos_y", ":num_rows", 125),
-        (val_max, ":pos_y", 565),
-        (val_sub, ":pos_y", 140),
+        (val_max, ":pos_y", 625),
+        (val_sub, ":pos_y", 80),
         (assign, ":pos_x", 40),
         (try_for_range, ":i_slot", 10, ":inv_cap"),
           (troop_get_inventory_slot, ":item", "trp_bookcase", ":i_slot"),
@@ -27977,17 +28068,16 @@ presentations = [
         
         (assign, "$temp", ":slot_no"),
         (try_for_range, ":slot_no", 0, "$temp"),
-          (troop_slot_eq, "trp_temp_array_c", ":slot_no", "$g_selected_book_slot"),
-          (gt, "$g_selected_book_slot", -1),
+          (troop_slot_eq, "trp_temp_array_c", ":slot_no", ":selected_book_slot"),
+          (gt, ":selected_book_slot", -1),
           (troop_get_slot, ":inventory_choose_obj", "trp_temp_array_a", ":slot_no"),
           (overlay_set_alpha, ":inventory_choose_obj", 0x80),
         (try_end),
         
-        # troop list
         (assign, ":difficulty", 0),
         (try_begin),
-          (gt, "$g_selected_book_slot", -1),
-          (troop_get_inventory_slot, ":cur_book", "trp_bookcase", "$g_selected_book_slot"),
+          (gt, ":selected_book_slot", -1),
+          (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":selected_book_slot"),
           (is_between, ":cur_book", readable_books_begin, readable_books_end),
           (item_get_slot, ":difficulty", ":cur_book", slot_item_intelligence_requirement),
         (try_end),
@@ -27997,7 +28087,7 @@ presentations = [
         (assign, ":area_size_x", 300),
         (assign, ":area_size_y", 420),
         (assign, ":offset_y", 30),
-        (create_text_overlay, reg1, s0, tf_scrollable),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
         (position_set_x, pos1, 650),
         (position_set_y, pos1, 150),
         (overlay_set_position, reg1, pos1),
@@ -28015,16 +28105,16 @@ presentations = [
         (store_div, ":pos_x", ":area_size_x", 2),
         
         # None
-        (create_button_overlay, "$g_presentation_obj_4", "@Set as None", tf_center_justify),
+        (create_button_overlay, "$g_presentation_obj_admin_panel_4", "@Set as None", tf_center_justify),
         (position_set_x, pos1, ":pos_x"),
         (position_set_y, pos1, ":pos_y"),
-        (overlay_set_position, "$g_presentation_obj_4", pos1),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_4", pos1),
         (val_sub, ":pos_y", ":offset_y"),
-
+        
         (assign, ":trp_slot_prsnt_no", 0),
         (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
         (try_for_range, ":i_stack", 0, ":num_stacks"),
-          (party_stack_get_troop_id,":stack_troop","p_main_party",":i_stack"),
+          (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":i_stack"),
           (troop_is_hero, ":stack_troop"),
           (str_store_troop_name, s1, ":stack_troop"),
           (store_attribute_level, ":skill", ":stack_troop", ca_intelligence),
@@ -28055,7 +28145,6 @@ presentations = [
           (val_add, ":trp_slot_prsnt_no", 1),
         (try_end),
         (assign, "$temp_2", ":trp_slot_prsnt_no"),
-
         
         (set_container_overlay, -1),
         # ##### mouse fix pos system #######
@@ -28064,11 +28153,11 @@ presentations = [
       ]),
       
     # (ti_on_presentation_run,
-     #  [
+      # [
         # ####### mouse fix pos system #######
-       #  (call_script, "script_mouse_fix_pos_run"),
+        # (call_script, "script_mouse_fix_pos_run"),
         # ####### mouse fix pos system #######
-     #]),
+    # ]),
     
     (ti_on_presentation_mouse_enter_leave,
       [
@@ -28104,6 +28193,8 @@ presentations = [
         (store_trigger_param_1, ":object"),
         #(store_trigger_param_2, ":value"),
         
+        (assign, ":selected_book_slot", "$g_prsnt_param_1"),
+        
         # $temp = num_books, select book
         (try_for_range, ":slot_no", 0, "$temp"),
           (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object"),
@@ -28114,11 +28205,12 @@ presentations = [
             (overlay_set_alpha, ":cur_object", 0xFF),
           (try_end),
           (overlay_set_alpha, ":object", 0x80),
-          (assign, "$g_selected_book_slot", ":i_slot"),
+          (assign, ":selected_book_slot", ":i_slot"),
+          (assign, "$g_prsnt_param_1", ":i_slot"),
           # reset all texts of heroes 
           (assign, ":difficulty", 0),
           (try_begin),
-            (troop_get_inventory_slot, ":cur_book", "trp_bookcase", "$g_selected_book_slot"),
+            (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":selected_book_slot"),
             (is_between, ":cur_book", readable_books_begin, readable_books_end),
             (item_get_slot, ":difficulty", ":cur_book", slot_item_intelligence_requirement),
           (try_end),
@@ -28149,8 +28241,8 @@ presentations = [
         (try_for_range, ":slot_no", 0, "$temp_2"),
           (troop_slot_eq, "trp_temp_array_d", ":slot_no", ":object"),
           (troop_get_slot, ":troop_no", "trp_temp_array_e", ":slot_no"),
-          (gt, "$g_selected_book_slot", -1),
-          (troop_get_inventory_slot, ":selected_book", "trp_bookcase", "$g_selected_book_slot"),
+          (gt, ":selected_book_slot", -1),
+          (troop_get_inventory_slot, ":selected_book", "trp_bookcase", ":selected_book_slot"),
           (try_begin), # readable books
             (is_between, ":selected_book", readable_books_begin, readable_books_end),
             (item_get_slot, ":difficulty", ":selected_book", slot_item_intelligence_requirement),
@@ -28160,41 +28252,74 @@ presentations = [
               (call_script, "script_get_book_read_slot", ":troop_no", ":selected_book"),
               (assign, ":book_read_slot_no", reg0),
               (troop_slot_eq, "trp_book_read", ":book_read_slot_no", 0),
-              (troop_set_slot, "trp_bookcase", "$g_selected_book_slot", ":troop_no"),
+              (troop_set_slot, "trp_bookcase", ":selected_book_slot", ":troop_no"),
               (troop_set_slot, ":troop_no", slot_troop_current_reading_book, ":selected_book"),
               # can only hold one readable book
               (try_for_range, ":slot_no_2", 0, "$temp"),
                 (troop_get_slot, ":i_slot", "trp_temp_array_c", ":slot_no_2"),
-                (neq, ":i_slot", "$g_selected_book_slot"),
+                (neq, ":i_slot", ":selected_book_slot"),
                 (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":i_slot"),
                 (is_between, ":cur_book", readable_books_begin, readable_books_end),
                 (troop_get_slot, ":cur_holder", "trp_bookcase", ":i_slot"),
                 (eq, ":cur_holder", ":troop_no"),
                 (troop_set_slot, "trp_bookcase", ":i_slot", -1),
               (try_end),
-              (assign, "$g_selected_book_slot", -1),
+              (assign, "$g_prsnt_param_1", -1),
               (start_presentation, "prsnt_book_management"),
             (try_end),
           (else_try), # reference books
             (is_between, ":selected_book", reference_books_begin, reference_books_end),
-            (troop_set_slot, "trp_bookcase", "$g_selected_book_slot", ":troop_no"),
+            (troop_set_slot, "trp_bookcase", ":selected_book_slot", ":troop_no"),
             # can't hold the same reference book
-            #(try_for_range, ":slot_no_2", 0, "$temp"),
-            #  (troop_get_slot, ":i_slot", "trp_temp_array_c", ":slot_no_2"),
-            #  (neq, ":i_slot", "$g_selected_book_slot"),
-            #  (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":i_slot"),
-            #  (eq, ":cur_book", ":selected_book"),
-            #  (troop_get_slot, ":cur_holder", "trp_bookcase", ":i_slot"),
-            #  (eq, ":cur_holder", ":troop_no"),
-            #  (troop_set_slot, "trp_bookcase", ":i_slot", -1),
-            #(try_end),
-            (assign, "$g_selected_book_slot", -1),
+            (try_for_range, ":slot_no_2", 0, "$temp"),
+              (troop_get_slot, ":i_slot", "trp_temp_array_c", ":slot_no_2"),
+              (neq, ":i_slot", ":selected_book_slot"),
+              (troop_get_inventory_slot, ":cur_book", "trp_bookcase", ":i_slot"),
+              (eq, ":cur_book", ":selected_book"),
+              (troop_get_slot, ":cur_holder", "trp_bookcase", ":i_slot"),
+              (eq, ":cur_holder", ":troop_no"),
+              (troop_set_slot, "trp_bookcase", ":i_slot", -1),
+            (try_end),
+            (assign, "$g_prsnt_param_1", -1),
             (start_presentation, "prsnt_book_management"),
           (try_end),
         (try_end),
         
-        (try_begin), # re-sort
-          (eq, ":object", "$g_presentation_obj_5"),
+        (try_begin), # export book
+          (eq, ":object", "$g_presentation_obj_admin_panel_7"),
+          (try_begin),
+            (store_free_inventory_capacity, ":space", "trp_player"),
+            (gt, ":space", 0),
+            (gt, ":selected_book_slot", -1),
+            (troop_get_inventory_slot, ":selected_book", "trp_bookcase", ":selected_book_slot"),
+            (troop_get_slot, ":book_holder", "trp_bookcase", ":selected_book_slot"),
+            (try_begin),
+              (gt, ":book_holder", -1),
+              (troop_set_slot, "trp_bookcase", ":selected_book_slot", -1),
+              (is_between, ":selected_book", readable_books_begin, readable_books_end),
+              (troop_set_slot, ":book_holder", slot_troop_current_reading_book, 0),
+            (try_end),
+            (troop_set_inventory_slot, "trp_bookcase", ":selected_book_slot", -1),
+            (troop_add_item, "trp_player", ":selected_book"),
+            (assign, "$g_prsnt_param_1", -1),
+            (start_presentation, "prsnt_book_management"),
+          (try_end),
+        (else_try), # import books
+          (eq, ":object", "$g_presentation_obj_admin_panel_6"),
+          (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+          (try_for_range, ":i_slot", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item", "trp_player", ":i_slot"),
+            (gt, ":item", -1),
+            (item_get_type, ":item_type", ":item"),
+            (eq, ":item_type", itp_type_book),
+            (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+            (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+            (troop_add_item, "trp_bookcase", ":item", ":imod"),
+          (try_end),
+          (assign, "$g_prsnt_param_1", -1),
+          (start_presentation, "prsnt_book_management"),
+        (else_try), # re-sort
+          (eq, ":object", "$g_presentation_obj_admin_panel_5"),
           # num_books
           (call_script, "script_get_num_of_item_by_type", "trp_bookcase", itp_type_book),
           (assign, ":num_books", reg0),
@@ -28239,28 +28364,28 @@ presentations = [
               (troop_set_slot, "trp_bookcase", ":i_slot", ":dest_troop"),
             (try_end),
             # restart presentation
-            (assign, "$g_selected_book_slot", -1),
+            (assign, "$g_prsnt_param_1", -1),
             (start_presentation, "prsnt_book_management"),
           (try_end),
         (else_try), # set holder to -1
-          (eq, ":object", "$g_presentation_obj_4"),
+          (eq, ":object", "$g_presentation_obj_admin_panel_4"),
           (try_begin),
-            (gt, "$g_selected_book_slot", -1),
-            (troop_get_slot, ":troop_no", "trp_bookcase", "$g_selected_book_slot"),
+            (gt, ":selected_book_slot", -1),
+            (troop_get_slot, ":troop_no", "trp_bookcase", ":selected_book_slot"),
             (try_begin),
               (gt, ":troop_no", -1),
-              (troop_set_slot, "trp_bookcase", "$g_selected_book_slot", -1),
+              (troop_set_slot, "trp_bookcase", ":selected_book_slot", -1),
               (try_begin),
-                (troop_get_inventory_slot, ":selected_book", "trp_bookcase", "$g_selected_book_slot"),
+                (troop_get_inventory_slot, ":selected_book", "trp_bookcase", ":selected_book_slot"),
                 (is_between, ":selected_book", readable_books_begin, readable_books_end),
                 (troop_set_slot, ":troop_no", slot_troop_current_reading_book, 0),
               (try_end),
             (try_end),
-            (assign, "$g_selected_book_slot", -1),
+            (assign, "$g_prsnt_param_1", -1),
             (start_presentation, "prsnt_book_management"),
           (try_end),
         (else_try), # Auto-Distribute
-          (eq, ":object", "$g_presentation_obj_3"),
+          (eq, ":object", "$g_presentation_obj_admin_panel_3"),
           (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
           (troop_get_inventory_capacity, ":inv_cap", "trp_bookcase"),
           (try_for_range, ":i_slot", 10, ":inv_cap"),
@@ -28278,7 +28403,7 @@ presentations = [
               (troop_is_hero, ":stack_troop"),
               # no current reading book
               (troop_slot_eq, ":stack_troop", slot_troop_current_reading_book, 0),
-              # not read yet 
+              # not finish reading yet 
               (call_script, "script_get_book_read_slot", ":stack_troop", ":cur_book"),
               (assign, ":book_read_slot_no", reg0), 
               (troop_slot_eq, "trp_book_read", ":book_read_slot_no", 0),
@@ -28295,20 +28420,20 @@ presentations = [
             (troop_set_slot, "trp_bookcase", ":i_slot", ":best_stack_troop"),
             (troop_set_slot, ":best_stack_troop", slot_troop_current_reading_book, ":cur_book"),
           (try_end),
-          (assign, "$g_selected_book_slot", -1),
+          (assign, "$g_prsnt_param_1", -1),
           (start_presentation, "prsnt_book_management"),
         (else_try), # reset all
-          (eq, ":object", "$g_presentation_obj_2"),
+          (eq, ":object", "$g_presentation_obj_admin_panel_2"),
           (assign, "$book_holders_reseted", 0),
-          (assign, "$g_selected_book_slot", -1),
+          (assign, "$g_prsnt_param_1", -1),
           (start_presentation, "prsnt_book_management"),
         (else_try),
-          (eq, ":object", "$g_presentation_obj_1"),
+          (eq, ":object", "$g_presentation_obj_admin_panel_1"),
           (presentation_set_duration, 0),
         (try_end),
       ]),
     ]),
-
+    
 ### Three Cards ### Find the Lady ###
 # prsnt_three_card
   ("three_card", 0, 0,#find the lady
@@ -30519,6 +30644,11 @@ presentations = [
         (position_set_y, pos1, 25),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
 
+        (create_game_button_overlay, "$g_presentation_obj_2", "@Import All"),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 70),
+        (overlay_set_position, "$g_presentation_obj_2", pos1),
+
         (create_text_overlay, reg1, "@This is a screen for book_exchange books for inventory or bookcase. Hold down control key while clicking on a book to inventory or bookcase.^^The right side is your bookcase, The left side is your inventory. ", tf_double_space|tf_scrollable),
         (position_set_x, pos1, 345),
         (position_set_y, pos1, 290),
@@ -30701,6 +30831,19 @@ presentations = [
           (eq, ":object", "$g_presentation_obj_1"),
           (presentation_set_duration, 0),
           (mission_enable_talk),
+        (else_try), # import books
+          (eq, ":object", "$g_presentation_obj_2"),
+          (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+          (try_for_range, ":i_slot", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item", "trp_player", ":i_slot"),
+            (gt, ":item", -1),
+            (item_slot_eq, ":item", slot_item_is_magic_spell, 1),
+            (item_slot_eq, ":item", slot_item_special_given, 0),
+            (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+            (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+            (troop_add_item, "trp_bookcase_spell", ":item", ":imod"),
+          (try_end),
+          (start_presentation, "prsnt_magic_book_exchange"),
         (try_end),
         
         (troop_get_inventory_capacity, ":capacity", "trp_bookcase_spell"),

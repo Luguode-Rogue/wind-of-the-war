@@ -4944,12 +4944,7 @@ game_menus = [
           (start_presentation, "prsnt_change_all_factions_color"),
         ]
        ),
-      ("action_export_import",[],"Export/import NPCs.",
-        [
-          (assign, "$g_player_troop", "trp_player"),
-          (jump_to_menu, "mnu_export_import_npcs"),
-        ]
-      ),
+
       ("remove_ships",[],"Remove all ships.",
         [
           (try_for_parties, ":cur_party"),
@@ -5113,6 +5108,20 @@ game_menus = [
       ("action_export_import",[],"Export/import NPCs.",
         [
           (assign, "$g_player_troop", "trp_player"),
+          # copy all IDs of npc to temp_array_a
+          (assign, ":slot_no", 0),
+          (try_for_range, ":cur_npc", active_npcs_begin, active_npcs_end),
+            (troop_slot_eq, ":cur_npc", slot_troop_occupation, slto_player_companion),
+            (troop_set_slot, "trp_temp_array_a", ":slot_no", ":cur_npc"),
+            (val_add, ":slot_no", 1),
+          (try_end),
+          (assign, "$temp_3", ":slot_no"), # $temp_3: total slots
+          
+          (assign, "$temp", 0), # $temp: cur page
+          (store_div, ":num_pages", "$temp_3", 6),
+          (store_mod, ":mod", "$temp_3", 6),
+          (val_min, ":mod", 1),
+          (store_add, "$temp_2", ":num_pages", ":mod"), # $temp_2: total pages
           (jump_to_menu, "mnu_export_import_npcs"),
         ]
       ),
@@ -5139,53 +5148,56 @@ game_menus = [
 #### export/import NPCs begin ####
   ("export_import_npcs", mnf_enable_hot_keys,
    "Please choose an NPC, then press key C to view and export/import this character.^^You choose {reg0?{s0}:none}.",
-   "none", 
+   "none",
     [
       (assign, reg0, "$g_player_troop"),
       (str_store_troop_name, s0, "$g_player_troop"),
     ],
     [
-      ("export_import_back",[],"Go back", 
+      ("export_import_back",[],"Go back",
         [
           (assign, "$g_player_troop", "trp_player"),
           (set_player_troop, "$g_player_troop"),
           (jump_to_menu, "mnu_camp_action"),
         ]
       ),
-    ]+[("export_import_npc"+str(x+1), 
+      ("export_import_prev",
         [
-          (store_add, ":dest_npc", "trp_npc1", x),
+          (gt, "$temp", 0), # not the fist page
+        ],"Previous page", 
+        [
+          (val_sub, "$temp", 1),
+          (val_clamp, "$temp", 0, "$temp_2"),
+          (jump_to_menu, "mnu_export_import_npcs"),
+        ]),
+    ]+[("export_import_character"+str(x+1),
+        [
+          (store_mul, ":dest_slot", "$temp", 6),
+          (val_add, ":dest_slot", x),
+          (lt, ":dest_slot", "$temp_3"),
+          (troop_get_slot, ":dest_npc", "trp_temp_array_a", ":dest_slot"),
           (str_store_troop_name, s0, ":dest_npc"),
         ], "{s0}",
         [
-          (store_add, ":dest_npc", "trp_npc1", x),
+          (store_mul, ":dest_slot", "$temp", 6),
+          (val_add, ":dest_slot", x),
+          (troop_get_slot, ":dest_npc", "trp_temp_array_a", ":dest_slot"),
           (assign, "$g_player_troop", ":dest_npc"),
           (set_player_troop, "$g_player_troop"),
-        ]) for x in range(0, 13)]+[
-      ("export_import_next",[],"Next page", [(jump_to_menu, "mnu_export_import_npcs_2")]),
+        ]) for x in range(0, 6)]+[
+      ("export_import_next",
+        [
+          (store_sub, ":last_page", "$temp_2", 1),
+          (lt, "$temp", ":last_page"), # not the last page
+        ],"Next page", 
+        [
+          (val_add, "$temp", 1),
+          (val_clamp, "$temp", 0, "$temp_2"),
+          (jump_to_menu, "mnu_export_import_npcs"),
+        ]),
     ]
   ),
   
-  ("export_import_npcs_2", mnf_enable_hot_keys,
-    "Please choose an NPC, then press key C to view and export/import this character.^^You choose {reg0?{s0}:none}.",
-    "none", 
-     [
-       (assign, reg0, "$g_player_troop"),
-       (str_store_troop_name, s0, "$g_player_troop"),
-     ],
-    [
-      ("export_import_prev",[],"Previous page", [(jump_to_menu, "mnu_export_import_npcs")]),
-    ]+[("export_import_npc"+str(x+1), 
-      [
-        (store_add, ":dest_npc", "trp_npc1", x),
-        (str_store_troop_name, s0, ":dest_npc"),
-      ], "{s0}",
-      [
-        (store_add, ":dest_npc", "trp_npc1", x),
-        (assign, "$g_player_troop", ":dest_npc"),
-        (set_player_troop, "$g_player_troop"),
-      ]) for x in range(13, 24)]
-  ),
 #### export/import NPCs end ####
   ("camp_recruit_prisoners",0,
    "You offer your prisoners freedom if they agree to join you as soldiers. {s18}",
@@ -40968,23 +40980,22 @@ game_menus = [
    ],
    [ 
      
-     ("camp_manage_bookcase",
+    ("camp_manage_bookcase",
       [
-        (call_script, "script_get_num_of_item_by_type", "trp_bookcase", itp_type_book),
-        (assign, ":num_books", reg0),
-        (gt, ":num_books", 0),
+        # (call_script, "script_get_num_of_item_by_type", "trp_bookcase", itp_type_book),
+        # (assign, ":num_books", reg0),
+        # (gt, ":num_books", 0),
       ],"Manage your bookcase.",
      [
+      (assign, "$g_prsnt_param_1", -1),
       (start_presentation, "prsnt_book_management"),
-      (assign, "$g_selected_book_slot", -1),
       ]
      ),
-     
-     ("camp_manage_bookcase_2",[],"put your book to bookcase.",[(start_presentation, "prsnt_book_exchange"),]),
 
      ("camp_manage_bookcase_3",[],"put your magic to bookcase.",[(start_presentation, "prsnt_magic_book_exchange"),]),
 
      ("camp_manage_gems",[],"put your gems to chess.",[(start_presentation, "prsnt_gem_exchange"),]),
+     
      ("bank_storage",
         [
             (store_free_inventory_capacity, reg7, "trp_trainer_1"),

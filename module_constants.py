@@ -57,7 +57,7 @@ slot_item_enterprise_building_cost      = 58 #enterprise building cost
 
 slot_item_multiplayer_item_class   = 60 #temporary, can be moved to higher values
 slot_item_multiplayer_availability_linked_list_begin = 61 #temporary, can be moved to higher values
-
+slot_item_temp_slot  = slot_item_multiplayer_item_class
 
 ########################################################
 ##  AGENT SLOTS            #############################
@@ -163,6 +163,8 @@ slot_agent_spell_2_cooldown       = 80
 slot_agent_spell_3_cooldown       = 81
 slot_agent_spell_4_cooldown       = 82
 slot_agent_spell_cast_time        = 83
+
+slot_agent_temp_slot       = 84
 
 slot_agent_charm_time                  = 69
 slot_agent_old_team_set                = 70

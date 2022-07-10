@@ -26703,6 +26703,7 @@ presentations = [
         
         (try_begin),
           (eq, ":object", "$g_presentation_obj_7"),
+          (call_script, "script_refresh_bookcase"),
           (assign, "$g_cur_item_pool", 0),
           (assign, "$g_prsnt_param_1", ":selected_troop"),
           (assign, "$g_prsnt_param_2", 0),

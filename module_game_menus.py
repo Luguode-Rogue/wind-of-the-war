@@ -504,74 +504,48 @@ game_menus = [
     (set_background_mesh, "mesh_pic_book_1"),
    ],
     [
-	
+
+      ("view_personal_reports", [],"View Personal Reports",
+      [(jump_to_menu, "mnu_personal_reports"),],),
+
+      ("view_party_reports", [],"View Party Reports",
+      [(jump_to_menu, "mnu_party_reports"),],),
+
+      ("view_kingdom_reports", [],"View Kingdom Reports",
+      [(jump_to_menu, "mnu_kingdom_reports"),],),
+
+      ("view_reference_reports", [],"Reference Material",
+      [(jump_to_menu, "mnu_reference_reports"),],),
+
       ("resume_travelling",[],"Resume travelling.",
-       [(change_screen_return),
-        ]
-       ),
-	
-      ("cheat_faction_orders",[(ge,"$cheat_mode",1)],"{!}Cheat: Faction orders.",
-       [(jump_to_menu, "mnu_faction_orders"),
-        ]
-       ),
-      ## CC
+      [(change_screen_return),]),
       
-      ("action_view_world_map",[],"View world map.",
-       [
-        (jump_to_menu, "mnu_world_map_precision"),
-        ]
-       ),      
-       
-      ("action_view_upgrade_trees",[],"View troop trees.",
-       [
-        (assign, ":selected_page", 0),
-        (assign, "$g_prsnt_param_2", ":selected_page"),
-        (start_presentation, "prsnt_faction_troop_trees"),
-        ]
-       ),
-       
-       
-      ("action_view_upgrade_trees_fantasy",[],"View upgrade trees.",
-       [
-        (start_presentation, "prsnt_upgrade_trees_fantasy"),
-        ]
-       ),
-       
-      ("action_view_upgrade_trees_heroes",[],"View faction heros.",
-       [
-        (assign, ":selected_page", "fac_robber_knights"),
-        (try_begin),
-          (eq, "$game_mode", game_mode_heroes),
-          (store_sub, "$g_prsnt_param_2", ":selected_page", "fac_kingdom_1"),
-          (start_presentation, "prsnt_upgrade_trees_heroes"),
-        (else_try), 
-          (store_sub, "$g_prsnt_param_2", ":selected_page", kingdoms_begin),
-          (start_presentation, "prsnt_upgrade_trees_heroes_2"),
-        (try_end),
-        ]
-       ),
-       
-      ("view_party_size_and_morale_report",[],"View party morale and size report.",
-       [
-         (start_presentation, "prsnt_party_size_and_morale"),
-        ]
-       ),
-       
-      ("action_view_all_items",[],"View all items.",
-       [
-        (assign, "$temp", 0),
-        (start_presentation, "prsnt_all_items"),
-        ]
-       ),
-      ("view_relations_report",[],"View relations with factions and lords.",
-       [(start_presentation, "prsnt_relations_with_factions"),
-        ]
-       ),	   
-            
-      ("view_relations_report_2",[],"View faction relations report.",
-       [(jump_to_menu, "mnu_other_relations_report"),]
-       ),
-            
+     ]
+  ),
+
+  ("personal_reports",0,
+   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^^{reg9?Next pay time:^{s1}:}",
+   "none",
+   [(call_script, "script_game_get_party_companion_limit"),
+    (assign, ":party_size_limit", reg0),
+    (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+    (assign, reg5, ":renown"),
+    (assign, reg6, "$player_honor"),
+    (assign, reg7, ":party_size_limit"),
+    #(call_script, "script_get_player_party_morale_values"),
+    #(party_set_morale, "p_main_party", reg0),
+    (call_script, "script_get_player_rank_name"),
+    (troop_get_slot, ":player_effect", "trp_player", slot_troop_player_effect),
+    (assign, reg0, ":player_effect"),
+    
+    ## CC
+    (assign, reg9, "$g_next_pay_time"),
+    (str_store_party_name, s1, "p_test_scene"),
+    ## CC
+    (party_get_morale, reg8, "p_main_party"),
+    (set_background_mesh, "mesh_pic_book_1"),
+   ],
+    [
       ("view_character_report",[],"View character report.",
        [(jump_to_menu, "mnu_character_report"),
         ]
@@ -581,44 +555,59 @@ game_menus = [
        [(jump_to_menu, "mnu_player_class"),
         ]
        ),
-       
-      #("view_party_size_report",[],"View party size report.",
-      # [(jump_to_menu, "mnu_party_size_report"),
-      #  ]
-      # ),
-	   
-      ("view_npc_mission_report",[],"View companion mission report.",
-       [(jump_to_menu, "mnu_companion_report"),
-        ]
-       ),
-
       ("view_weekly_budget_report",[],"View weekly budget report.",
        [
          (assign, "$g_apply_budget_report_to_gold", 0),
          (start_presentation, "prsnt_budget_report"),
         ]
        ),
-
-      #("view_morale_report",[],"View party morale report.",
-      # [(jump_to_menu, "mnu_morale_report"),
-      #  ]
-      # ),
+       
       ("view_banking_reports",[],"View money reports.",
        [(jump_to_menu, "mnu_banks_report"),
         ]
        ),
-#NPC companion changes begin
-      #("lord_relations",[],"View list of known lords by relation.",
-       #[
-        #(jump_to_menu, "mnu_lord_relations"),
-        #]
-       #),
-	   
-      #("courtship_relations",[],"View courtship relations.",
-       #[
-        #(jump_to_menu, "mnu_courtship_relations"),
-        #]
-       #),
+       
+      ("go_back",[],"Go back",[(jump_to_menu,"mnu_reports"),]),
+    ]
+  ),
+
+  ("party_reports",0,
+   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^^{reg9?Next pay time:^{s1}:}",
+   "none",
+   [(call_script, "script_game_get_party_companion_limit"),
+    (assign, ":party_size_limit", reg0),
+    (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+    (assign, reg5, ":renown"),
+    (assign, reg6, "$player_honor"),
+    (assign, reg7, ":party_size_limit"),
+    #(call_script, "script_get_player_party_morale_values"),
+    #(party_set_morale, "p_main_party", reg0),
+    (call_script, "script_get_player_rank_name"),
+    (troop_get_slot, ":player_effect", "trp_player", slot_troop_player_effect),
+    (assign, reg0, ":player_effect"),
+    
+    ## CC
+    (assign, reg9, "$g_next_pay_time"),
+    (str_store_party_name, s1, "p_test_scene"),
+    ## CC
+    (party_get_morale, reg8, "p_main_party"),
+    (set_background_mesh, "mesh_pic_book_1"),
+   ],
+    [
+      ("view_party_size_and_morale_report",[],"View party morale and size report.",
+       [
+         (start_presentation, "prsnt_party_size_and_morale"),
+        ]),
+      ("view_npc_mission_report",[],"View companion mission report.",
+       [(jump_to_menu, "mnu_companion_report"),
+        ]
+       ),
+      ("view_weekly_budget_report",[],"View weekly budget report.",
+       [
+         (assign, "$g_apply_budget_report_to_gold", 0),
+         (start_presentation, "prsnt_budget_report"),
+        ]
+       ),
 
       ("status_check",[(eq,"$cheat_mode",1)],"{!}NPC status check.",
        [
@@ -634,25 +623,113 @@ game_menus = [
         (try_end),
         ]
        ),
-
-#NPC companion changes end
-
-      #("view_faction_relations_report",[],"View faction relations report.",
-      # [
-      #     (start_presentation, "prsnt_jrider_faction_relations_report"),
-      #  ]
-      # ),
-      #("view_faction_relations_report_2",[],"View faction relations report.",
-       #[
-       #    (jump_to_menu, "mnu_faction_relations_report"),
-       # ]
-       #),
-      ("resume_travelling",[],"Resume travelling.",
-       [(change_screen_return),
-        ]
-       ),
-      ]
+    
+      ("go_back",[],"Go back",[(jump_to_menu,"mnu_reports"),]),
+    ]
   ),
+
+  ("kingdom_reports",0,
+   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^^{reg9?Next pay time:^{s1}:}",
+   "none",
+   [(call_script, "script_game_get_party_companion_limit"),
+    (assign, ":party_size_limit", reg0),
+    (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+    (assign, reg5, ":renown"),
+    (assign, reg6, "$player_honor"),
+    (assign, reg7, ":party_size_limit"),
+    #(call_script, "script_get_player_party_morale_values"),
+    #(party_set_morale, "p_main_party", reg0),
+    (call_script, "script_get_player_rank_name"),
+    (troop_get_slot, ":player_effect", "trp_player", slot_troop_player_effect),
+    (assign, reg0, ":player_effect"),
+    
+    ## CC
+    (assign, reg9, "$g_next_pay_time"),
+    (str_store_party_name, s1, "p_test_scene"),
+    ## CC
+    (party_get_morale, reg8, "p_main_party"),
+    (set_background_mesh, "mesh_pic_book_1"),
+   ],
+    [
+      ("view_relations_report",[],"View relations with factions and lords.",
+       [(start_presentation, "prsnt_relations_with_factions"),
+        ]
+       ),	   
+            
+      ("view_relations_report_2",[],"View faction relations report.",
+       [(jump_to_menu, "mnu_other_relations_report"),]
+       ),
+    
+      ("cheat_faction_orders",[(ge,"$cheat_mode",1)],"{!}Cheat: Faction orders.",
+       [(jump_to_menu, "mnu_faction_orders"),]),
+       
+      ("go_back",[],"Go back",[(jump_to_menu,"mnu_reports"),]),
+    ]
+  ),
+
+  ("reference_reports",0,
+   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^^{reg9?Next pay time:^{s1}:}",
+   "none",
+   [(call_script, "script_game_get_party_companion_limit"),
+    (assign, ":party_size_limit", reg0),
+    (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+    (assign, reg5, ":renown"),
+    (assign, reg6, "$player_honor"),
+    (assign, reg7, ":party_size_limit"),
+    #(call_script, "script_get_player_party_morale_values"),
+    #(party_set_morale, "p_main_party", reg0),
+    (call_script, "script_get_player_rank_name"),
+    (troop_get_slot, ":player_effect", "trp_player", slot_troop_player_effect),
+    (assign, reg0, ":player_effect"),
+    
+    ## CC
+    (assign, reg9, "$g_next_pay_time"),
+    (str_store_party_name, s1, "p_test_scene"),
+    ## CC
+    (party_get_morale, reg8, "p_main_party"),
+    (set_background_mesh, "mesh_pic_book_1"),
+   ],
+    [
+    
+      ("action_view_world_map",[],"View world map.",
+       [(jump_to_menu, "mnu_world_map_precision"),]),      
+       
+      ("action_view_upgrade_trees",[],"View troop trees.",
+       [
+        (assign, ":selected_page", 0),
+        (assign, "$g_prsnt_param_2", ":selected_page"),
+        (start_presentation, "prsnt_faction_troop_trees"),
+        ]),
+       
+      ("action_view_upgrade_trees_fantasy",[],"View upgrade trees.",
+       [
+        (start_presentation, "prsnt_upgrade_trees_fantasy"),
+        ]),
+       
+      ("action_view_upgrade_trees_heroes",[],"View faction heros.",
+       [
+        (assign, ":selected_page", "fac_robber_knights"),
+        (try_begin),
+          (eq, "$game_mode", game_mode_heroes),
+          (store_sub, "$g_prsnt_param_2", ":selected_page", "fac_kingdom_1"),
+          (start_presentation, "prsnt_upgrade_trees_heroes"),
+        (else_try), 
+          (store_sub, "$g_prsnt_param_2", ":selected_page", kingdoms_begin),
+          (start_presentation, "prsnt_upgrade_trees_heroes_2"),
+        (try_end),
+        ]),
+    
+      ("action_view_all_items",[],"View all items.",
+       [
+        (assign, "$temp", 0),
+        (start_presentation, "prsnt_all_items"),
+        ]),
+    
+      ("go_back",[],"Go back",[(jump_to_menu,"mnu_reports"),]),
+    ]
+  ),
+
+
 
   (
     "custom_battle_scene",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -15070,41 +15147,7 @@ game_menus = [
       [
         (change_screen_exchange_members,1),
       ]),
-    
-      ("castle_recruit_troops", 
-        [
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
-        ],
-        "Recruit some troops.", [(start_presentation, "prsnt_recruit_plan"),]),
-        
-      ("castle_recruit_troops_hoseman", 
-        [
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (call_script, "script_cf_center_bulid_need_level", "$g_encountered_party", slot_center_has_stables, 1),
-          (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
-        ],
-        "Recruit some troops_horseman.", [(start_presentation, "prsnt_recruit_plan_hoseman"),]),
-
-      ("castle_recruit_troops_footman", 
-        [
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (call_script, "script_cf_center_bulid_need_level", "$g_encountered_party", slot_center_has_barracks, 1),
-          (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
-        ],
-        "Recruit some troops_footman.", [(start_presentation, "prsnt_recruit_plan_footman"),]),
-
-      ("castle_recruit_troops_archer", 
-        [
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (call_script, "script_cf_center_bulid_need_level", "$g_encountered_party", slot_center_has_archery_range, 1),
-          (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
-        ],
-        "Recruit some troops_archer.", [(start_presentation, "prsnt_recruit_plan_archer"),]),
+            
                 
       ("castle_sort_troops", 
         [

@@ -611,7 +611,7 @@ simple_triggers = [
          (neg|party_slot_eq, ":center_no", slot_town_lord, "trp_player"), #center does not belong to player.
          (party_slot_ge, ":center_no", slot_town_lord, 1), #center belongs to someone.
          (party_get_slot, ":cur_wealth", ":center_no", slot_town_wealth),
-	   	   (call_script, "script_get_center_weekly_income", ":center_no"),
+         (call_script, "script_get_center_weekly_income", ":center_no"),
          (assign, ":added_wealth", reg0),
          (try_begin),
            (eq, "$g_game_difficulty",3),
@@ -771,6 +771,11 @@ simple_triggers = [
        (store_random_in_range, ":difficulty_rounds", 1, "$g_game_difficulty"),
        (val_add, ":num_hiring_rounds", ":difficulty_rounds"),
        (try_for_range, ":unused", 0, ":num_hiring_rounds"),
+         # party_size limit
+         (party_get_num_companions, ":party_size", ":center_no"),
+         (call_script, "script_party_get_ideal_size", ":center_no"),
+         (assign, ":ideal_size", reg0),
+         (gt, ":ideal_size", ":party_size"),
          (assign, ":cur_weekly_wage", 0),
          (call_script, "script_calculate_weekly_party_wage", ":center_no"),
          (assign, ":cur_weekly_wage", reg0),
@@ -5450,7 +5455,7 @@ simple_triggers = [
    
      
      
-   (3,
+   (24,
     [
    #     (try_for_range, ":troop_no", heroes_begin, heroes_end),
    #       (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
@@ -5542,35 +5547,6 @@ simple_triggers = [
    
   (24,
      [
-      #(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
-        #(try_begin),
-          #(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
-          #(call_script, "script_get_troop_backup_hp_times_factor", ":troop_no"),
-          #(assign, ":hp_times_factor", reg0),
-          #(call_script, "script_get_troop_max_hp", ":troop_no"),
-          #(assign, ":max_hp", reg0),
-          #(store_mul, ":max_backup_hp", ":max_hp", ":hp_times_factor"),
-          #(val_div, ":max_backup_hp", 100),
-          #(troop_get_slot, ":backup_hp", ":troop_no", slot_troop_backup_hp),
-          #(store_character_level, ":troop_level", ":troop_no"),
-          #(store_div, ":refill_speed", ":troop_level", 10),
-          #(val_add, ":backup_hp", ":refill_speed"),
-         ## refill hp if needed
-          #(store_troop_health, ":troop_hp", ":troop_no", 1),
-          #(call_script, "script_get_troop_max_hp", ":troop_no"),
-          #(assign, ":max_hp", reg0),
-          #(store_sub, ":lost_hp", ":max_hp", ":troop_hp"),
-          #(val_min, ":lost_hp", ":backup_hp"),
-          #(val_add, ":troop_hp", ":lost_hp"),
-          #(troop_set_health, ":troop_no", ":troop_hp", 1),
-          #(val_sub, ":backup_hp", ":lost_hp"),
-         ## set backup_hp
-          #(val_min, ":backup_hp", ":max_backup_hp"),
-          #(troop_set_slot, ":troop_no", slot_troop_backup_hp, ":backup_hp"),
-        #(else_try),
-          #(troop_set_slot, ":troop_no", slot_troop_backup_hp, 0),
-        #(try_end),
-      #(try_end),
       
     (call_script,"script_change_player_effect", 0),
     (call_script,"script_cf_change_player_class"),
@@ -5698,55 +5674,7 @@ simple_triggers = [
           (call_script, "script_upgrade_hero_party", ":party_no", ":xp_gain"),
         (try_end),
 
-        # members to prisoners
-        
-        #(party_get_num_companion_stacks, ":num_stacks", ":party_no"),
-        #(try_for_range_backwards, ":cur_stack", 0, ":num_stacks"),
-          #(party_stack_get_troop_id, ":cur_troop", ":party_no", ":cur_stack"),
-          #(gt, ":cur_troop", -1),
-          #(store_troop_faction, ":troop_faction", ":cur_troop"),
-          #(try_begin),
-            #(this_or_next|is_between, ":cur_troop", "trp_black_khergit_horseman", "trp_caravan_master"),
-            #(is_between, ":cur_troop", outlaws_troops_begin, "trp_forest_recruit"),
-            #(assign, ":troop_faction", "fac_outlaws"),
-          #(else_try),
-            #(is_between, ":cur_prisoner_id", "trp_farmer", "trp_mercenaries_end"),
-            #(assign, ":troop_faction", "fac_commoners"),
-          #(try_end),
-          #(eq, ":troop_faction", "fac_outlaws"),
-          #(neg|troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_troop_follower),
-          #(party_get_num_prisoner_stacks, ":num_prisoner_stacks", ":party_no"),
-          #(lt, ":num_prisoner_stacks", 32),
-          #(party_stack_get_size, ":stack_size", ":party_no", ":cur_stack"),
-          #(party_remove_members, ":party_no", ":cur_troop", ":stack_size"),
-          #(party_add_prisoners, ":party_no", ":cur_troop", ":stack_size"),
-        #(try_end),
       (try_end),
-      
-      # walled centers sell prisoners
-      #(try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
-        #(party_get_slot, ":town_lord", ":center_no", slot_town_lord),
-        #(neq, ":town_lord", "trp_player"), #center does not belong to player.
-        #(neg|is_between, ":town_lord", companions_begin, companions_end), # not companions
-        # processing ransom
-        #(party_clear, "p_temp_party"),
-        #(party_get_num_prisoner_stacks, ":prisoner_stacks", ":center_no"),
-        #(try_for_range_backwards, ":prisoner_stack_no", 0, ":prisoner_stacks"),
-          #(party_prisoner_stack_get_troop_id, ":prisoner_troop_no", ":center_no", ":prisoner_stack_no"),
-          #(neg|troop_is_hero, ":prisoner_troop_no"),
-          #(party_prisoner_stack_get_size, ":prisoner_stack_size", ":center_no", ":prisoner_stack_no"),
-          #(party_remove_prisoners, ":center_no", ":prisoner_troop_no", ":prisoner_stack_size"),
-          #(party_add_members, "p_temp_party", ":prisoner_troop_no", ":prisoner_stack_size"),
-        #(try_end),
-        #(call_script, "script_calculate_ransom_for_party", "p_temp_party"),
-        #(assign, ":total_ransom_cost", reg0),
-        #(party_get_slot, ":cur_wealth", ":center_no", slot_town_wealth),
-        #(val_add, ":cur_wealth", ":total_ransom_cost"),
-        #(party_set_slot, ":center_no", slot_town_wealth, ":cur_wealth"),
-        ## upgrade after processing ransom
-        #(store_mul, ":xp_gain", ":total_ransom_cost", 10),
-        #(call_script, "script_upgrade_hero_party", ":center_no", ":xp_gain"),
-      #(try_end),
    ]),
    
   (24,
@@ -5827,126 +5755,6 @@ simple_triggers = [
    
   (24,
     [
-      (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
-        (store_faction_of_party, ":fac_no", ":center_no"),
-        (neg|eq, ":fac_no", "fac_commoners"),
-        (party_slot_eq, ":center_no", slot_town_lord, "trp_player"), #center belongs to player.
-        (party_slot_eq, ":center_no", slot_center_is_besieged_by, -1), #center not under siege
-        (call_script, "script_get_town_faction_for_recruiting", ":center_no"),
-        (assign, ":party_faction", reg0),
-        (party_get_slot, ":party_type",":center_no", slot_party_type),
-
-        (try_begin),
-          (party_slot_ge, ":center_no", slot_town_recruit_gold, reinforcement_cost_player),
-          (call_script, "script_init_troop_leader_party_template", "trp_temp_troop", ":center_no"),
-          (troop_get_slot, ":party_template_a", "trp_temp_troop", slot_troop_hero_pt_a),
-          (troop_get_slot, ":party_template_b", "trp_temp_troop", slot_troop_hero_pt_b),
-          (troop_get_slot, ":party_template_c", "trp_temp_troop", slot_troop_hero_pt_c),
-          (troop_get_slot, ":party_template_d", "trp_temp_troop", slot_troop_hero_pt_d),
-          (assign, ":party_template", 0),
-          (store_random_in_range, ":rand", 0, 100),
-          (try_begin),
-            (eq, ":party_type", spt_castle),  #CASTLE
-            (try_begin),
-                (lt, ":rand", 10),
-                (assign, ":party_template", ":party_template_d"),
-            (else_try),
-                (lt, ":rand", 40),
-                (assign, ":party_template", ":party_template_c"),
-            (else_try),
-                (assign, ":party_template", ":party_template_b"),
-            (try_end),
-          (else_try),
-            (eq, ":party_type", spt_town),  #TOWN
-            (try_begin),
-                (lt, ":rand", 20),
-                (assign, ":party_template", ":party_template_c"),
-            (else_try),
-                (lt, ":rand", 80),
-                (assign, ":party_template", ":party_template_b"),
-            (else_try),
-                (assign, ":party_template", ":party_template_a"),
-            (try_end),
-          (try_end),
-          (try_begin),
-            (gt, ":party_template", 0),
-            (party_add_template, ":center_no", ":party_template"),
-          (try_end),
-          (party_get_slot, ":recruit_gold", ":center_no", slot_town_recruit_gold),
-          (val_sub, ":recruit_gold", reinforcement_cost_player),
-          (party_set_slot, ":center_no", slot_town_recruit_gold, ":recruit_gold"),
-        (try_end),
-       
-        (try_for_range, ":troop_type", slot_center_has_barracks, walled_center_improvements_end), 
-          (try_begin),
-            #(eq, ":troop_type", 0),  
-            (eq, ":troop_type",slot_center_has_barracks),
-            (assign, ":cost",reinforcement_cost_player_footman),
-            (assign, ":town_recruit_gold",slot_town_recruit_gold_footman),
-          (else_try),  
-            #(eq, ":troop_type", 1),  
-            (eq, ":troop_type",slot_center_has_archery_range),
-            (assign, ":cost",reinforcement_cost_player_archer),
-            (assign, ":town_recruit_gold",slot_town_recruit_gold_archer),
-          (else_try),  
-            #(eq, ":troop_type", 2),  
-            (eq, ":troop_type",slot_center_has_stables),
-            (assign, ":cost",reinforcement_cost_player_hoseman),
-            (assign, ":town_recruit_gold",slot_town_recruit_gold_hoseman),
-          (try_end),  
-          (party_slot_ge, ":center_no", ":town_recruit_gold", ":cost"),
-            
-            
-          (party_get_slot, ":level", ":center_no", ":troop_type"),
-           (val_mod, ":level", 10),
-           (gt, ":level", 0),
-          (try_for_range, ":num_improve", 0, ":level"), 
-              (try_begin),
-                #(eq, ":troop_type", 0),  
-                (eq, ":troop_type",slot_center_has_barracks),
-                (assign, ":begin_troop_slot",slot_faction_infantry_1_troop),
-                (assign, ":begin_cost_slot",slot_faction_infantry_1_number),
-              (else_try),  
-                #(eq, ":troop_type", 1),  
-                (eq, ":troop_type",slot_center_has_archery_range),
-                (assign, ":begin_troop_slot",slot_faction_range_1_troop),
-                (assign, ":begin_cost_slot",slot_faction_range_1_number),
-              (else_try),  
-                #(eq, ":troop_type", 2),  
-                (eq, ":troop_type",slot_center_has_stables),
-                (assign, ":begin_troop_slot",slot_faction_cavalry_1_troop),
-                (assign, ":begin_cost_slot",slot_faction_cavalry_1_number),
-              (else_try),  
-                (assign, ":begin_troop_slot",0),
-                (assign, ":begin_cost_slot",0),
-              (try_end),  
-            (gt,":begin_troop_slot", 0),
-            (gt,":begin_cost_slot", 0),
-            (store_add, ":cur_troop_slot", ":begin_troop_slot", ":num_improve"),
-            (store_add, ":cur_cost_slot", ":begin_cost_slot", ":num_improve"),
-          
-            (faction_get_slot, ":trp_to_add", ":party_faction", ":cur_troop_slot"),
-            (gt,":trp_to_add", 0),
-
-            (faction_get_slot, ":num_to_add", ":party_faction", ":cur_cost_slot"),
-            (gt,":num_to_add", 0),
-          
-            (party_get_slot, ":cur_wealth", ":center_no", ":town_recruit_gold"),
-            (call_script, "script_game_get_troop_wage", ":trp_to_add", -1),
-            (assign, ":join_cost", reg0),
-
-            (store_div, ":gold_capacity", ":cost", ":join_cost"),
-            (val_min, ":num_to_add", ":gold_capacity"),
-            (val_mul, ":join_cost", ":num_to_add"),
-          
-            (gt, ":trp_to_add", 0),
-            (party_add_members, ":center_no", ":trp_to_add", ":num_to_add"),
-
-            (val_sub, ":cur_wealth", ":join_cost"),
-            (party_set_slot, ":center_no", ":town_recruit_gold", ":cur_wealth"),
-          (try_end),
-        (try_end),
-      (try_end),
     ]),
     
   (48,
@@ -7541,12 +7349,11 @@ simple_triggers = [
     (try_for_parties, ":party_no"),
       (party_slot_eq,":party_no", slot_party_type, spt_patrol),
       
-      
       (party_get_slot, ":ai_state", ":party_no", slot_party_ai_state),
       (eq, ":ai_state", spai_patrolling_around_center),
            
       (try_begin),
-		(party_slot_eq, ":party_no", dplmc_slot_party_mission_diplomacy, "trp_player"),
+        (party_slot_eq, ":party_no", dplmc_slot_party_mission_diplomacy, "trp_player"),
         (assign, ":total_wage", 0),
         (party_get_num_companion_stacks, ":num_stacks", ":party_no"),
         (try_for_range, ":i_stack", 0, ":num_stacks"),
@@ -7570,7 +7377,8 @@ simple_triggers = [
     
   #create ai patrols
    (24 * 7,
-   [      
+   [   
+    (eq, 1, 0),
     (try_for_range, ":kingdom", npc_kingdoms_begin, npc_kingdoms_end),
       
       (assign, ":count", 0),
@@ -7588,11 +7396,6 @@ simple_triggers = [
         (eq, ":center_faction", ":kingdom"),
         (val_add, ":max_patrols", 1),
       (try_end),
-
-        (try_begin),
-          (is_between, "$g_game_difficulty",1,4),
-          (val_mul,":max_patrols",2),
-        (try_end), 
 
       (try_begin),
         (lt, ":count", ":max_patrols"),
@@ -8441,7 +8244,7 @@ simple_triggers = [
 
   #+freelancer end   
   
-  (1,
+  (3,
    [
    (try_for_parties, ":adventurer_party"),
      (party_is_active, ":adventurer_party"),
